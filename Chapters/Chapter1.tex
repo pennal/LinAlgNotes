@@ -1,0 +1,80 @@
+\chapter{Vectors}
+A real number can be represented by a point on a line, which is a 2-dimensional space, $\R$
+\missingfigure{Straight line with points}
+
+a pair of real numbers can be represented by a point on a plane, which is a 2-dimensional space, $\R^2$
+\missingfigure{Plane with vector on it}
+a triplet od real numbers can be represented by a point in 3D space, $\R^3$
+\missingfigure{3D drawing}
+
+\begin{definition}
+	A vector is an ordered collection of $n$ numbers
+\end{definition}
+
+\begin{notation}
+Usually vectors are given by letters, such as $u,v,w$. In textbooks vectors are written with bold font. In handwriting vectors are often written with a right arrow on top, such as $\overrightarrow{u}$. We will underline vectors, like so: $\underline{u}$.	
+\end{notation}
+
+\begin{definition}
+Let us consider vector $\ul{u}\in\R^n$. The $i-$th component of vector \[\ul{u}=\colvec{3}{u_1}{\vdots}{u_n}\] is $u_i$
+\end{definition}
+
+\begin{example}
+\[\ul{u}=\colvec{3}{3}{7}{11}\in\R^3\Rightarrow u_1=3, u_2=7, u_3=11 \]	
+\end{example}
+
+\begin{definition}
+Let us consider vectors $\ul{u} \in\R^n$ and $\ul{v} \in\R^n$. Vector $\ul{w} \in\R^n$ is a sum of $\ul{u}$ and $\ul{v}$, $\ul{w}=\ul{u}+\ul{v}$, if $w_i=u_i+v_i$ for all $i=1,\dots,n$
+\end{definition}
+
+\begin{example}
+\begin{enumerate}
+	\item \[\ul{u}=\colvec{3}{3}{5}{1}, \ul{v}=\colvec{3}{-1}{0}{1}, \ul{w}=\ul{u}+\ul{v}=\colvec{3}{3+(-1)}{5+0}{1+1}=\colvec{3}{2}{5}{2}\]	
+\item \[\ul{u}=\colvec{3}{3}{9}{-2}, \ul{v}=\colvec{4}{1}{2}{3}{0}\] $\uv+\vv$ is not defined! Both vectors should have the same number of components.
+\end{enumerate}
+\end{example}
+
+\begin{definition}
+\begin{enumerate}
+	\item Vectors $\uv\in\R^n$ and $\vv\in\R^n$ are equal, if $u_i=v_i$ for all $i=1,\dots,n$
+	\item A scalar is just another name for real number
+	\item Let us consider a scalar $\alpha\in\R$ and vector $\uv \in\R^n$. A product of $\alpha$ and $\uv$ is defined as: \[\alpha\uv = \alpha\cdot\colvec{3}{u_1}{\vdots}{v_n} = \colvec{3}{\alpha\cdot u_1}{\vdots}{\alpha\cdot v_n}\]
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+\[\alpha = 3, \uv = \colvec{4}{-1}{2}{5}{7}\Rightarrow \alpha\cdot\uv\colvec{4}{3\cdot -1}{3\cdot 2}{3\cdot 5}{3\cdot 7} = \colvec{4}{-3}{6}{15}{21} \]	
+\end{example}
+
+\begin{definition}
+	Let us consider scalars $\alpha$ and $\beta$, and vectors $\uv\in\R^n$ and $\vv\in\R^n$. A sum of $\alpha\uv + \beta\cdot\vv$ is called a linear combination of vectors $\uv$ and $\vv$.
+\end{definition}
+
+\begin{example}
+\begin{enumerate}
+	\item \[2\cdot \colvec{3}{-1}{3}{5} + 3\cdot \colvec{3}{7}{2}{1} + 5\cdot \colvec{3}{1}{0}{-1} = \colvec{3}{24}{12}{8}\]	
+	\item \[\uv - \vv = 1\cdot \uv +(-1)\cdot \vv = \colvec{3}{u_1-v_1}{\vdots}{u_i-v_i}\]
+	\item \[\uv - \uv = \colvec{3}{u_1-u_1}{\vdots}{u_i-u_i}=\ul{0} \]
+\end{enumerate}
+\end{example}
+
+\begin{definition}
+	Vector $\uv\in\R^n$ is called a zero vector if all $u_i = 0$, $i=1,\dots,n$. The zero vector is often written as $\ul{0}\in\R^n$
+\end{definition}
+
+\section{Graphic representation of vectors and vector operations}
+A vector can be represented in the following way: 
+\begin{enumerate}
+	\item An ordered collection of numbers, $\uv = \colvec{2}{3}{5}$
+	\item As an arrow in space \missingfigure{Page 2, middle}
+	\item A vector is a point in space, the endpoint of a vector from the origin. 
+\end{enumerate}
+Let us consider vectors $\uv = \colvec{2}{3}{1}$, $\vv = \colvec{2}{-1}{2}$ and $\wv = \uv + \vv =\colvec{2}{2}{3}$
+
+
+
+
+
+
+
+

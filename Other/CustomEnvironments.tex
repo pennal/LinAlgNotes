@@ -1,0 +1,33 @@
+\newcommand{\R}{\mathbb{R}} % set R with \R
+\newcommand{\N}{\mathbb{N}} % set N with \N
+\newcommand{\C}{\mathbb{C}} % set C with \C
+\newcommand{\uv}{\underline{u}}
+\newcommand{\vv}{\underline{v}}
+\newcommand{\wv}{\underline{w}}
+
+
+\newcommand{\ul}[1]{\underline{#1}} % set C with \C
+
+\newenvironment{definition}{\begin{framed}\centerline{\textbf{Definition}}\noindent\hspace{-1.1mm}}{\end{framed}}
+\newenvironment{notation}{\subsubsection*{Notation}}{\begin{flushright}$\square$\end{flushright}}
+
+\newenvironment{example}{\subsubsection*{Example}}{}%\begin{flushright}$\square$\end{flushright}}
+
+
+% Source: http://tex.stackexchange.com/questions/2705/typesetting-column-vector. use with \colvec{5}{a}{b}{c}{d}{e}
+\newcount\colveccount
+\newcommand*\colvec[1]{
+        \global\colveccount#1
+        \begin{pmatrix}
+        \colvecnext
+}
+\def\colvecnext#1{
+        #1
+        \global\advance\colveccount-1
+        \ifnum\colveccount>0
+                \\
+                \expandafter\colvecnext
+        \else
+                \end{pmatrix}
+        \fi
+}
