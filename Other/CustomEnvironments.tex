@@ -6,12 +6,36 @@
 \newcommand{\wv}{\underline{w}}
 
 
-\newcommand{\ul}[1]{\underline{#1}} % set C with \C
+\newcommand{\ul}[1]{\underline{#1}} 
 
 \newenvironment{definition}{\begin{framed}\centerline{\textbf{Definition}}\noindent\hspace{-1.1mm}}{\end{framed}}
 \newenvironment{notation}{\subsubsection*{Notation}}{\begin{flushright}$\square$\end{flushright}}
-
 \newenvironment{example}{\subsubsection*{Example}}{}%\begin{flushright}$\square$\end{flushright}}
+\newenvironment{lemma}{\subsubsection*{Lemma}}{}
+
+\DeclareMathOperator{\arccosh}{arccosh}%Defined here since it doesn't exist
+\DeclareMathOperator{\arcsinh}{arcsinh}%Defined here since it doesn't exist
+\DeclareMathOperator{\arctanh}{arctanh}%Defined here since it doesn't exist
+\newcommand{\verteq}[0]{\begin{turn}{90} $=$\end{turn}}%added vertical equal sign
+\DeclareMathOperator{\Hess}{Hess}%Defined here since it doesn't exist
+\DeclareMathOperator{\rot}{rot}%Defined here since it doesn't exist
+\DeclareMathOperator{\Bild}{Bild}%Defined here since it doesn't exist
+\DeclareMathOperator{\grad}{grad}%Defined here since it doesn't exist
+
+\newcommand{\defeq}{\vcentcolon=}% nicer :=
+\newcommand{\eqdef}{=\vcentcolon}% nicer =:
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert} % nice |x|
+\DeclarePairedDelimiter\norm{\lVert}{\rVert} % nice ||x|| \norm{x} => ||x||
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
 
 
 % Source: http://tex.stackexchange.com/questions/2705/typesetting-column-vector. use with \colvec{5}{a}{b}{c}{d}{e}
