@@ -162,5 +162,37 @@ If $\uv\not=\ul{0},\vv\not=\ul{0}, \uv\in\R^n,\vv\in\R^n$, then
 \[\cos\left(\angle(\uv,\vv) \right) = \frac{\langle \uv,\vv\rangle}{\norm{\uv}\norm{\vv}}\]
 \end{lemma}
 
-%%%%%%%% Top of page 6 %%%%%%%%%
 \section{Properties of dot product}
+\begin{enumerate}
+	\item $\langle \alpha\cdot\uv,\vv\rangle = \alpha\cdot\langle\uv,\vv\rangle$ for any $\alpha\in\R,\uv\in\R^n,\vv\in\R^n$. Proof:
+\begin{align*}
+\langle \alpha\cdot\uv,\vv\rangle &= (\alpha u_1)\cdot v_1 + \dots + (\alpha u_n)\cdot v_n\\
+&= \alpha\cdot(u_1\cdot v_1+\dots+u_n\cdot v_n)\\
+&= \alpha\cdot\langle\uv,\vv\rangle
+\end{align*}
+\item $\langle\uv,\alpha\vv\rangle = \alpha\langle\uv,\vv\rangle$ for any $\alpha\in\R,\uv,\vv\in\R^n$
+\item $\langle\alpha\uv+\beta\vv,\wv\rangle = \alpha\cdot\langle\uv,\wv\rangle + \beta\langle\vv,\wv\rangle, \forall\alpha\in\R,\forall\uv,\vv\wv\in\R^n$
+\end{enumerate}
+\begin{example}
+\missingfigure{Page 6, middle}	
+\end{example}
+Let us consider $\uv = \colvec{2}{3}{4}. \langle \uv,\uv\rangle = 3\cdot 3+4\cdot 4 = 9+16 = 25 = 5^2$
+\begin{definition}
+The length of vector $\uv\in\R^n, \norm{\uv}$, is defined as $\norm{\uv} = \sqrt{\langle\uv,\uv\rangle}$. Sometimes it is also called the Euclidian norm of $\uv$.
+\end{definition}
+\begin{definition}
+A vector with length equal to 1 is called a unit vector
+\end{definition}
+If we take vector $\uv\not=\ul{0}$, how to make it a unit vector? We should multiply vector $\uv$ by $\frac{1}{\norm{\uv}}$, we will get $\frac{\uv}{\norm{\uv}} = $ unit vector.\\
+
+In our previous example: $\uv = \colvec{2}{3}{4}$. Unit vector is then 
+\[\frac{\uv}{\norm{\uv}} = \frac{1}{5}\cdot \colvec{2}{3}{4} = \colvec{2}{\frac{3}{5}}{\frac{4}{5}} = \colvec{2}{0.6}{0.8}\]
+We got $\langle\uv,\vv\rangle = \norm{\uv}\norm{\vv}\cdot\cos\left( \angle(\uv,\vv)\right)$
+. Let us take the absolute value of this
+\[\abs{\langle\uv,\vv\rangle} = \norm{\uv}\norm{\vv}\cdot\abs{\cos\left( \angle(\uv,\vv)\right)}\]
+Notice that $\abs{\cos\left( \angle(\uv,\vv)\right)}\leq 1$
+\begin{lemma}
+Cauchy Schwartz Inequality: for any $\uv\in\R^n$ and $\vv\in\R^n$
+\[\abs{\langle\uv,\vv\rangle}\leq\norm{\uv}\norm{\vv}\]
+\end{lemma}
+Remark: It is easy to see that Cauchy - Schwartz inequality is correct also for zero vectors.
