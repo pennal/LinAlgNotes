@@ -77,5 +77,56 @@ A\cdot\ul{x} &=\begin{pmatrix}
 For the product of matrix $A$ with vector $\ul{x}$ to exist, matrix $A$ should have the same number of columns as vector $\ul{x}$ components.
 \end{enumerate}
 \end{example}
+
 \section{Matrix Operations}
-%% TOP OF PAGE 9
+\begin{definition}
+Let us consider matrices $A\in\R^{n,m}$ and $B\in\R^{n,m}$ where $n=$ rows, $m=$ columns. Matrix $C\in\R^{n,m}$ is a sum of $A$ and $B, C=A+B$ if $C_{ij} = A_{ij}+B_{ij}$ for all $i=1,\dots,n$, $j=1,\dots,m$
+\end{definition}
+\begin{example}
+\[
+A = \begin{pmatrix}
+1 & 2\\
+3 & 4\\
+5 & 5
+\end{pmatrix}, B = \begin{pmatrix}
+-1 & 0\\
+0 & -1\\
+-1 & 0
+\end{pmatrix}, C = A+B = \begin{pmatrix}
+0 & 2\\
+3 & 3\\
+4 & 6
+\end{pmatrix}
+\]	
+\end{example}
+\begin{definition}
+A product of a scalar $\alpha$ and a matrix $A\in\R^{n,m}$ is defined as $\left( \alpha A\right)_{ij} = \alpha\cdot A_{ij}$, $\forall i=1,\dots,n; j=1,\dots,m$.
+\end{definition}
+\begin{example}
+\[\alpha = 3,A = \begin{pmatrix}
+0 & 0 & 1\\
+2 & 3 & 5	
+\end{pmatrix}\Rightarrow \alpha\cdot A = \begin{pmatrix}
+0 & 0 & 3\\
+6 & 9 & 15
+\end{pmatrix}
+\]	
+\end{example}
+\begin{properties}
+\begin{itemize}
+\item $A\in\R^{n,m}$ and $B\in\R^{n,m}$: $A+B = B+A$\\
+\ul{Proof:} 
+\[
+\begin{cases}
+\left( A+B \right)_{ij} = A_{ij}+B_{ij}\\
+\left( B+A \right)_{ij} = B_{ij}+A_{ij}
+\end{cases}
+\]
+\item $A,B,C\in\R^{n,m}$: $(A+B)+C = A+(B+C)$
+\item $\alpha\cdot (A+B) = \alpha A+\alpha B$ for $\forall \alpha\in\R, A,B\in\R^{n,m}$
+\end{itemize}
+	
+\end{properties}
+
+\section{Matrix - Matrix multiplication}
+% TOP OF PAGE 10

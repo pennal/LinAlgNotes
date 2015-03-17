@@ -1,0 +1,19 @@
+.
+├── Chapters
+│   ├── Chapter1.tex
+│   └── Chapter2.tex
+│   └── . . .
+├── Other
+│   ├── CustomEnvironments.tex
+│   ├── Sample.pdf
+│   ├── Sample.tex
+│   └── packages.tex
+├── README.md
+├── RawMaterial
+│   ├── Core.pdf
+│   └── Lecture_17_03_2015.pdf
+│   └──  . . .
+├── main.pdf
+└── main.tex
+
+3 directories, 12 files
