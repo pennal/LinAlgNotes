@@ -1,0 +1,22 @@
+% THIS DOCUMENT IS A SIMPLE "PLAY AROUND" FILE, MEANING IT IS USED TO DESIGN THE TIKZ DRAWINGS
+% WHICH ARE THEN COMPIED INTO THE MAIN DOCUMENT. NO NEED TO WORRY FOR THE CHANGES IN HERE
+\documentclass[]{article}
+\input{packages.tex}
+\input{CustomEnvironments.tex}
+
+
+\begin{document}
+% Image 7
+\begin{tikzpicture}
+\draw[<->] (-4,0) -- coordinate (x axis mid) (4,0) node[anchor=west]{$x_1$};
+\draw[<->] (0,-4) -- coordinate (y axis mid) (0,4) node[anchor=south]{$x_2$};
+\draw[] (0,0) circle (3);
+\draw[] (0,0)--(1.665,2.5);
+\draw (0.5,0) arc (0:57:0.5);
+\draw (0.5,0) node[anchor=south west]{$\theta$};
+\draw[dashed](1.67,2.5) -- (1.67,0) node[anchor=north]{$u_1$};
+\draw[dashed](1.67,2.5) -- (0,2.5)node[anchor=east]{$u_2$};
+\draw (0.86,1.25) node[anchor=east]{$\uv$};
+\end{tikzpicture}
+
+\end{document}
