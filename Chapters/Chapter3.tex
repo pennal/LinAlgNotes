@@ -1,0 +1,233 @@
+\chapter{Gaussian Elimination}
+\begin{example}
+\[
+A = \begin{pmatrix}
+2 & 4 & -2 \\
+4 & 9 & -3\\
+-2 & -3 & 7
+\end{pmatrix}. \ul{b}=\begin{pmatrix}
+2\\
+8\\
+10
+\end{pmatrix}, A\ul{x}= b
+\]	
+We can write this as a system of equations:
+\[
+\begin{cases}
+2x_1 + 4x_2-2x_3 = 2\\
+4x_1 +9x_2 -3x_3 = 8\\
+-2x_1 -3x_2 7x_3 = 10\\	
+\end{cases}
+\]
+We can multiply equation 1 by $-\frac{a_{21}}{a_{11}}= -\frac{4}{2} = -2$, and add to equation 2. This is equivalent to multiplying $A\ul{x} = \ul{b}$ by $E_{21}\left( -\frac{a_{21}}{a_{11}}\right)$ on the left. 
+
+\begin{align*}
+\begin{cases}
+2x_1 + 4x_2-2x_3 = 2\\
+4x_1 +9x_2 -3x_3 = 8\\
+-2x_1 -3x_2 7x_3 = 10\\	
+\end{cases}
+\Leftrightarrow E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\times A\ul{x} &= E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\ul{b}\\
+E_{21}\left( -\frac{a_{21}}{a_{11}}\right) &= \begin{pmatrix}
+1 & 0 & 0\\
+-2 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\end{align*}
+\[
+\begin{cases}
+2x_1 + 4x_2-2x_3 = 2\\
+x_2+x_3= 4\\
+x_2+5x_3=12\\	
+\end{cases}
+\]
+\begin{align*}
+\Leftrightarrow E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\times A\ul{x} &= E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\ul{b}\\
+E_{31}\left( -\frac{a_{31}}{a_{11}}\right) &= \begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\end{align*}
+We are done with the first column. Let us denote the resulting matrix by $A^{(1)}$
+\[
+\begin{cases}
+2x_1 + 4x_2-2x_3 = 2\\
+x_2+x_3= 4\\
+4x_3 = 8\\	
+\end{cases}
+\]
+\begin{align*}
+\Leftrightarrow &E_{32}\left( -\frac{a_{32}^{(1)}}{a_{22}^{(1)}}\right)E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\times \underbrace{A\ul{x}}_{\ul{b}}\\
+&E_{32}\left( -\frac{a_{32}^{(1)}}{a_{22}^{(1)}}\right) = \begin{pmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & -1 & 1
+\end{pmatrix}
+\end{align*}
+We are done with the second column, so we can denote the resulting matrix by $A^{(2)}$.\\
+
+In fact, we got an upper triangular matrix. We can solve it using backward compatibility. Let us denote 
+\[
+E_{32}\left( -\frac{a_{32}^{(1)}}{a_{22}^{(1)}}\right)E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right) = U
+\]
+where $U$ is the upper triangular matrix. Then the inverse of it is
+\begin{align*}
+&\left[ E_{32}\left( -\frac{a_{32}^{(1)}}{a_{22}^{(1)}}\right)E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right) \right]^{-1}\\
+=& E_{21}\left( -\frac{a_{21}}{a_{11}}\right) E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{32}\left( -\frac{a_{32}^{(1)}}{a_{22}^{(1)}}\right)\\
+A=& \underbrace{E_{21}\left( -\frac{a_{21}}{a_{11}}\right) E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{32}\left( -\frac{a_{32}^{(1)}}{a_{22}^{(1)}}\right)}_{L}\cdot U
+\end{align*}
+All matrices $E_{xx}(x)$ are lower triangular $\to$ the product is also lower triangular ($A = l\cdot U$). So using Gaussian elimination, we represented $A$ as a product of lower and upper triangular matrices
+\[
+A\ul{x} = \ul{b} \Rightarrow LU\ul{x} = \ul{b}
+\]
+\end{example}
+
+Let us denote $U\ul{x}$ by $\ul{y}$, then we get
+\[
+\begin{cases}
+l\ul{y} = \ul{b} & \text{Solve by forward substitution, find $\ul{y}$}\\
+U\ul{x} = \ul{y} & \text{Solve by backward substitution}\\
+\end{cases}
+\]
+\begin{remark}
+Gaussian elimination works if all elements $a_{11},a_{22}^{(1)},a_{33}^{(2)},\dots, ,a_{ii}^{(i-1)}$ are non-zero! These elements are called \underline{PIVOT} elements.
+\end{remark}
+\begin{example}
+\begin{align*}
+&\begin{cases}
+2x_1 + 4x_2 - 2x_3 = 2\\
+4x_1 + 8x_2 - 3x_3 = 6\\
+-2x_1 -3x_2 + 7x_3 = 10\\
+\end{cases} \Leftrightarrow A\ul{x} = \ul{b}\\
+&\begin{cases}
+2x_1 + 4x_2 - 2x_3 = 2\\
+x_3 = 2\\
+-2x_1 -3x_2 +7x_3 = 10\\
+\end{cases}\Leftrightarrow E_{21}\left( -\frac{a_{21}}{a_{11}}\right) A\ul{x} = E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\\
+&\begin{cases}
+2x_1 + 4x_2 - 2x_3 = 2\\
+x_3 = 2\\
+x_2 + 5x_3 = 12\\
+\end{cases}\Leftrightarrow E_{31}\left( -\frac{a_{31}}{a_{11}}\right)  A\ul{x} = E_{31}\left( -\frac{a_{31}}{a_{11}}\right) E_{21}\left( -\frac{a_{21}}{a_{11}}\right) \ul{b}\\
+\end{align*}
+We denote the resulting matrix by $A^{(1)}$. In order to proceed we need $a_{22}^{(1)} \not=0$. Let us consider matrix $P_{pq}$-matrix, which you get from identity matrix by exchanging rows $p$ and $q$. It is easy to show that $P_{pq}\cdot A$ is equal to matrix $A$ with rows $p$ and $q$ exchanged. 
+\begin{definition}
+Permutation matrix $P$ is an identity matrix with rows in any order.
+\end{definition}
+\begin{remark}
+$P^{-1} = P$. The product of permutation on matrices is a permutation matrix. 	
+\end{remark}\\
+
+We want to exchange rows 2 and 3. We need to multiply by the permutation matrix $P_{23}$
+\[
+\begin{cases}
+2x_1 + 4x_2 -2x_3 = 2\\
+x_2 + 5x_3 = 12\\
+x_3 = 2
+\end{cases}
+\]
+\begin{align*}
+\Leftrightarrow &P_{23}\cdot E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right)A\ul{x} \\
+= & P_{23}\cdot E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\ul{b}
+\end{align*} 
+In general, the Gaussian elimination proceeds like this:
+\[
+E_{xx}\dots E_{xx}P_{xx}E_{xx} \dots  E_{xx}A\ul{x} = E_{xx}\dots E_{xx}P_{xx}E_{xx}\dots E_{xx}\ul{b}
+\]
+Turns out, that we can exchange the rows, or in other words multiply $A$ by $(P_{xx}\dots P_{xx}$ before doing the Gaussian elimination
+\begin{align*}
+\underbrace{\underbrace{(E_{xx}\dots E_{xx})}_{E}\underbrace{(P_{xx}\dots P_{xx})}_{P}A}_{U}\ul{x} &= (E_{xx}\dots E_{xx})(P_{xx}\dots P_{xx})\ul{b} \\
+EPA &= U\\
+PA &= E^{-1} U = LU \leftarrow \text{Lower triangular}
+\end{align*}
+\end{example}
+\begin{theorem}
+There exists permutation matrix $P$, such that $PA = LU$. The only necessary condition for that is that $A^{-1}$ exists.
+\end{theorem}
+\section{Matrix Transposition}
+\begin{definition}
+Let us consider matrix $A\in\R^{m,n}$. Matrix $B\in\R^{n,m}$ is called the transpose of $A$ if $(B)_{ij} = ()_{ji}, i=1\dots n, j=1\dots n$
+\end{definition}
+\begin{notation}
+Usually the transpose of $A$ is written as $A^T$	
+\end{notation}
+\begin{example}
+\[
+A = \begin{pmatrix}
+2 & 3\\
+4 & 5\\
+6 & 7\\
+9 & 10
+\end{pmatrix} \in\R^{4,2} \Rightarrow A = \begin{pmatrix}
+2 & 4 & 6 & 9\\
+3 & 5 & 7 & 10
+\end{pmatrix} \in\R^{2,4}
+\]	
+\end{example}
+\begin{properties}
+\begin{enumerate}
+\item $\left( A^T\right)^T = A$
+\item $\left( A+B\right)^T = A^T + B^T$
+\item $\left( AB\right)^T = B^T\cdot A^T$
+\item $\left( A^T\right)^{-1} = \left( A^{-1}\right)^{T}$
+\end{enumerate}
+\end{properties}
+\begin{proof}
+\begin{enumerate}
+\item[3.]  
+\begin{align*}
+A\in\R^{m,n} &= \begin{pmatrix}
+-\text{row 1} \to \\
+\vdots \\
+-\text{row $n$} \to \\
+\end{pmatrix},B\in\R^{n,l} = \begin{pmatrix}
+\text{\rotatebox{270}{-col 1$\to$}} & \dots & \text{\rotatebox{270}{-col n$\to$}} 
+\end{pmatrix}\\
+(AB)_{ij} &= \langle \text{row $i$ of $A$, column $j$ of $B$}\rangle \\
+\left((AB)^{T}\right)_{pq} &= (AB)_{qp} =  \langle \text{row $q$ of $A$, column $p$ of $B$}\rangle \\
+B^T &= \begin{pmatrix}
+-\text{col 1} \to \\
+\vdots \\
+-\text{col $n$} \to \\
+\end{pmatrix},A^T = \begin{pmatrix}
+\text{\rotatebox{270}{-col 1$\to$}} & \dots & \text{\rotatebox{270}{-col n$\to$}} 
+\end{pmatrix} \\
+\left( B^T A^T\right)_{pq} &= \langle \text{column $p$ of $B$, row $q$ of $A$}\rangle\\
+\Rightarrow \left( (AB)^T\right)_{pq} &= \left( B^T A^T\right)_{pq}; p=1,\dots, l; q=1,\dots,m.\\
+\Rightarrow (AB)^T &= B^T A^T
+\end{align*} 
+\item[4.] Assume that $A\in \R^{n,n},\exists A^{-1}$
+\begin{align*}
+AA^{-1} &= I \to (AA^{-1})^T = \left(A^{-1}\right)^T \cdot A^T = I^T = I\\
+A^{-1}A &= I \to (A^{-1}A)^T = A^T \cdot \left(A^{-1}\right)^T  = I^T = I\\
+\left( A^T\right)^{-1} &= \left( A^{-1}\right)^{T}
+\end{align*}
+\end{enumerate}	
+\end{proof}
+Let us consider vector $\uv = \colvec{3}{u_1}{\vdots }{u_n}\in \R^{n,1}$ - column vector. Then $\uv^T\in \R^{1,n} = (u_1\dots u_n)$ - row vector. Let us also consider $\vv = \colvec{3}{v_1}{\vdots }{v_n}\in \R^{n,1}$. Then
+\begin{align*}
+\uv^T\cdot \vv = (u_1\dots u_n)\cdot \colvec{3}{v_1}{\vdots }{v_n} = u_1v_1 + u_2v_2 + \dots + u_nv_n = \langle \uv,\vv\rangle\\
+\vv \cdot \uv^T = n\times n \text{ matrix}
+\end{align*}
+
+\begin{definition}
+Matrix $A$ is called symmetric if $A^t = A$. Matrix $A$ should be a square matrix, $A\in\R^{n,n}$
+\begin{align*}
+\text{e.g. }& A= \begin{pmatrix}
+0 & 3 \\
+3 & 4
+\end{pmatrix} \to A^T = \begin{pmatrix}
+0 & 3 \\
+3 & 4
+\end{pmatrix} \Rightarrow A^T = A\\
+\text{e.g. }& A = I\in \R^{n,n} \to I^T = I
+\end{align*}
+\end{definition}
+
+
+
+
+
+
+

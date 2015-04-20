@@ -1,6 +1,7 @@
 \newcommand{\R}{\mathbb{R}} % set R with \R
 \newcommand{\N}{\mathbb{N}} % set N with \N
 \newcommand{\C}{\mathbb{C}} % set C with \C
+\newcommand{\Lm}{\mathcal{L}}
 \newcommand{\uv}{\underline{u}}
 \newcommand{\vv}{\underline{v}}
 \newcommand{\wv}{\underline{w}}
@@ -13,8 +14,14 @@
 \newenvironment{example}{\subsubsection*{Example}}{}%\begin{flushright}$\square$\end{flushright}}
 \newenvironment{lemma}{\subsubsection*{Lemma}}{}
 \newenvironment{properties}{\subsubsection*{Properties}}{}
+\newenvironment{remark}{\subsubsection*{\underline{Remark:}}}{}
+\newenvironment{theorem}{\subsubsection*{Theorem}}{}
+\newenvironment{recap}{\subsubsection*{Recap}}{}
+\newenvironment{note}{\subsubsection*{Note}}{}
+\newenvironment{proof}{\subsubsection*{Proof}}{\begin{flushright}$\square$\end{flushright}}
 
 \DeclareMathOperator{\arccosh}{arccosh}%Defined here since it doesn't exist
+\DeclareMathOperator{\rank}{rank}%Defined here since it doesn't exist
 \DeclareMathOperator{\arcsinh}{arcsinh}%Defined here since it doesn't exist
 \DeclareMathOperator{\arctanh}{arctanh}%Defined here since it doesn't exist
 \newcommand{\verteq}[0]{\begin{turn}{90} $=$\end{turn}}%added vertical equal sign
