@@ -1,0 +1,75 @@
+\chapter{Linear Mapping}
+\begin{definition}
+Let us consider 2 vector spaces $V$ and $W$. A function $\Lm:U\to W$ is called a linear mapping, if:
+\begin{enumerate}
+\item For any $\vv\in V$ and $\vv'\in V$, $\Lm(\vv+\vv') = \Lm(\vv)+\Lm(\vv')$
+\item For any $\vv\in V$ and any scalar $\alpha$, $\Lm (\alpha\vv) = \alpha\cdot\Lm(\vv)$
+\end{enumerate}
+\end{definition}
+\begin{example}
+Let us consider matrix $A\in\R^{n,m}$. We can define linear mapping $\Lm_A$ as follows:
+\[
+\Lm_A(\vv) = A\vv\hspace{5mm}\Lm_A:\R^m\to\R^n
+\]	
+Is $\Lm_A$ a linear mapping? Yes!
+\begin{enumerate}
+\item $\forall \vv,\vv'\in\R^m$, $\Lm_A(\vv+\vv') = A(\vv+\vv') = A\vv+A\vv' = \Lm_A(\vv) + \Lm_A(\vv')$
+\item $\forall\vv\in\R^m,\forall\alpha-$ scalar; $\Lm_A(\alpha\vv) = A(\alpha\vv) = \alpha\cdot A\vv = \alpha \Lm_A(\vv)$
+\end{enumerate}
+\end{example}
+Let us consider matrix $A\in\R^{n,m}$, $A:\R^m\to\R^n$. Let us consider vector $\vv\in\R^m$
+.
+\[
+A\vv = \underbrace{v_1\cdot\colvec{3}{a_{11}}{\vdots}{a_{n1}} + v_2\cdot\colvec{3}{a_{12}}{\vdots}{a_{n2}}+ \cdot + v_m\cdot\colvec{3}{a_{1m}}{\vdots}{a_{nm}}}_{\text{Linear combination of columns of $A$}}
+\]
+
+\missingfigure{Page 39, bottom}
+\begin{example}
+\begin{enumerate}
+\item PLACEHOLDER\\
+\missingfigure{Page 40, top. BOTH IMAGES}
+\end{enumerate}
+	
+\end{example}
+
+\begin{note}
+In order for solution of $A\ul{x} = \ul{b}$ to exist, $\ul{b}$ should belong to a span of columns of matrix $A$.	
+\end{note}
+
+\begin{definition}
+The span of columns of matrix $A$ is called a column space of $A$, denoted by $C(A)$. $C(A)\subset R^n$
+\end{definition}
+\begin{definition}
+Let us consider matrix $A\in\R^{n,m}, A:\R^m\to \R^n$. The null space of $A$ is defined as 
+\[
+N(A) = \left\{ \vv\in\R^m\mid A\vv = \ul{0}\right\}, N(A)\subset\R^m
+\]
+\missingfigure{Page 41, top}
+\end{definition}
+\begin{example}
+\[
+A = \begin{pmatrix}
+1 & 3 \\
+2 & 6
+\end{pmatrix}
+\]	
+What is $N(A)$? We should find all solutions of $A\ul{x} = \ul{0}$, this will give us $N(A)$.
+\[
+\begin{cases}
+x_1 + 3x_2\\
+2x_1+6x_2
+\end{cases} \to\begin{cases}
+x_1+3x_2=0\\
+0 = 0
+\end{cases}\]
+line; $\alpha\cdot\colvec{2}{-3}{1}$ for all possible $\alpha$.
+\[
+\begin{matrix}
+x_1 = -3x_2\\
+\end{matrix}
+\]
+\end{example}
+% Page 41 at the middle/top
+
+
+

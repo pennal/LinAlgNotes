@@ -129,4 +129,129 @@ A product of a scalar $\alpha$ and a matrix $A\in\R^{n,m}$ is defined as $\left(
 \end{properties}
 
 \section{Matrix - Matrix multiplication}
-% TOP OF PAGE 10
+\begin{definition}
+Let us consider matrix $A\in\R^{n,m}$ and $A\in\R^{m,l}$. Then $C = A\cdot B$ is an $n$ by $l$ matrix, $C\in\R^{n,l}$ such that 
+\[
+C_{ij}\sum\limits^{n}_{k=1}a_{ik}b{kj}
+\]
+\end{definition}
+\begin{example}
+\begin{enumerate}
+\item \begin{align*}
+A&= \begin{pmatrix}
+1 & 2\\
+0 & 1\\
+3 & 4
+\end{pmatrix}\in\R^{3,2}, B = \begin{pmatrix}
+1 & 2 & 0 & 1\\
+-1 & 1 & 1 & 0
+\end{pmatrix}\in\R^{1,4}\\
+C &= A\cdot B\in\R^{3,4}\\
+&= \begin{pmatrix}
+1 & 2\\
+0 & 1\\
+3 & 4
+\end{pmatrix}\cdot \begin{pmatrix}
+1 & 2 & 0 & 1\\
+-1 & 1 & 1 & 0
+\end{pmatrix} = \begin{pmatrix}
+-1 & 4 & 2 & 1\\
+-1 & 1 & 1 & 0\\
+-1 & 10 & 4 & 3
+\end{pmatrix}
+\end{align*}
+\item 
+\[
+A = \begin{pmatrix}
+1 & 2 \\ 
+0 & 1\\
+3 & 4
+\end{pmatrix}, B = \begin{pmatrix}
+1 & 1 & 1\\
+0 & 0 & 0\\
+2 & 2 & 2
+\end{pmatrix}; AB = \text{ Not defined}
+\]
+\end{enumerate}
+\end{example}
+
+\begin{properties}
+\begin{enumerate}
+\item $AB$ is  not always equal to $BA$. (most often, is the case). 
+\begin{align*}
+A &= \begin{pmatrix}
+1 & 0\\
+0 & 0
+\end{pmatrix}, B = \begin{pmatrix}
+0 & 1 \\
+0 & 0
+\end{pmatrix}\\
+AB &= \begin{pmatrix}
+0 & 1 \\
+0 & 0
+\end{pmatrix}, BA = \begin{pmatrix}
+0 & 0 \\
+0 & 0
+\end{pmatrix}
+\end{align*}
+\item $C(A+B) = CA + CB$
+\item $(A+B)C = AC+BC$
+\item $\alpha (AB) = A(\alpha B)$, $A\in\R^{n,m}$, $B\in\R^{m,l}$. Proof:
+\[
+\left( \alpha(AB)\right)_{ij} = \alpha\sum\limits^{m}_{k=1} a_{ik}b_{kj} = \sum\limits^{m}_{k=1} a_{ik}(\alpha b_{kj}) = A(\alpha B)
+\]
+\item $(AB)C = A(BC)$
+\end{enumerate}
+\end{properties}
+
+\begin{theorem}
+Let us consider matrices $A\in\R^{n,n}$ and $B\in\R^{n,n}$, such that $A^{-1}$ and $B^{-1}$ exist. Then,
+\[
+(AB)^{-1} = B^{-1}\cdot A^{-1}
+\]
+\end{theorem}
+\begin{proof}
+\[
+\begin{rcases*}
+(AB)(B^{-1} A^{-1}) = I\\
+(B^{-1} A^{-1})(AB) = I
+\end{rcases*}\text{ Prove this}
+\]
+\begin{align*}
+(AB)(B^{-1} A^{-1}) &= A\underbrace{BB^{-1}}_{I} A^{-1} = A\cdot I \cdot A^{-1} = I\\
+(B^{-1} A^{-1})(AB) &= B^{-1}\underbrace{A^{-1}A}_{I} B =  \cdot B^{-1} \cdot I \cdot B= I\\
+\end{align*}
+$\Rightarrow$ According to the definition $B^{-1} A^{-1}$ is the inverse of $AB$
+\end{proof}
+
+\begin{lemma}
+$A,B,C\in\R^{n,n}, \exists A^{-1},\exists B^{-1},\exists C^{-1}$ 
+\[
+(ABC)^{-1} = C^{-1}B^{-1}A^{-1}
+\]
+\end{lemma}
+
+\begin{theorem}
+Let us consider $A\in\R^{n,n}$. Let us consider that $B\in\R^{n,n}$ and $C\in\R^{n,n}$ are both inverses of $A$.Then $B=C$. (The inverse is unique)
+\end{theorem}
+
+\begin{proof}
+\begin{center}
+\begin{tikzpicture}
+\draw(3,3) node[anchor=center]{$AC=CA=I$};
+\draw(-3,3) node[anchor=center]{$AB=BA=I$};
+\draw(-3,1) node[anchor=center]{$\underbrace{BA\times C}_{}=I\times C$};
+\draw(3,1) node[anchor=center]{$\underbrace{B\times AC}_{}=B\times I$};
+\draw[->] (2.32,0.88) --  (0.7,-0.2);
+\draw[->,bend left=45] (-3.68,0.88) --  (-0.7,-0.2);
+\draw(0,0) node[anchor=north]{$\ul{\ul{C=B}}$};
+\end{tikzpicture}
+\end{center}
+\end{proof}
+
+
+
+
+
+
+
