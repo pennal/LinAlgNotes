@@ -1,0 +1,72 @@
+\chapter{Vector Spaces}
+\begin{definition}
+A vector space $V$ is a set of objects, such that any two objects can be added together, any object can be multiplied by a scalar. \\
+
+If two objects belong to the vector space, then their sum also belongs to the vector space. \\
+
+If an object belongs to $V$, then the product of any scalar with this object belongs to V and the following properties are satisfied:
+\begin{enumerate}
+\item $\forall \uv,\vv,\wv\in V$; $(\uv+\vv)+\wv = \uv+(\vv+\wv)$
+\item $\forall \uv,\vv\in V$; $\uv+\vv = \vv+\uv$
+\item There exists unique elements $\ul{0}\in V$, such that $\forall\uv\in V$; $\uv + \ul{0} = \ul{0} + \uv = \uv$
+\item For any $\uv\in V, \exists!(-\uv)\in V$, such that $\uv+(-\uv) = \ul{0}$
+\item $\forall \uv,\vv\in V$; $\forall \alpha\in\R$; $\alpha(\uv+\vv) = \alpha\uv + \alpha\vv$
+\item $\forall \uv\in V$; $\forall \alpha,\beta\in\R$; $(\alpha+\beta)\uv = \alpha\uv + \beta\uv$
+\item $\forall \uv\in V$; $\forall \alpha,\beta\in\R$; $(\alpha\beta)\uv = \alpha(\beta\uv)$
+\item $\forall \uv\in V$; $1\cdot \uv = \uv$ (1 is a scalar here)
+\end{enumerate}
+\end{definition}
+\begin{remark}
+The ``vectors'' in the vector space, are not necessarily vectors ($\in\R^n$)	, but can be other objects, as long as the definition is satisfied.
+\end{remark}
+
+\begin{example}
+Let us consider a set of all $2\times 2$ matrices. It is a vector space. Proof:
+\begin{tabular}{l l}
+If $A,B\in\R^{2,2}$ & $(A+B)\in\R^{2,2}$\\
+$\alpha\in\R, A\in\R^{2,2}$ & $\alpha A \in \R^{2,2}$
+\end{tabular}
+\begin{enumerate}
+\item $A,B,C\in\R^{2,2}$; $(A+B)+C = A+(B+C)$
+\item \dots 
+\item \[
+\ul{0} = \begin{pmatrix}
+0 & 0\\
+0 & 0
+\end{pmatrix}\in \R^{2,2}, \forall A = \begin{pmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}\\
+\end{pmatrix} \Rightarrow A+\ul{0} = A
+\]
+\item \[
+A = \begin{pmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}\\
+\end{pmatrix}\Rightarrow (-A) = \begin{pmatrix}
+-a_{11} & -a_{12}\\
+-a_{21} & -a_{22}\\
+\end{pmatrix}
+\]
+\end{enumerate}
+\end{example}
+\begin{example}
+Let us consider a set consisting of a single object, \ul{0}. It is a vector space. \underline{Note:} There is no vector space, which does not contain $\ul{0}$
+\end{example}
+
+\section{Subspace of the vector space}
+\begin{definition}
+A subspace $W$ of the vector space $V$, is a set of vectors in $V$, such that:
+\begin{enumerate}
+	\item If $\uv,\vv\in W$ then $\uv+\vv\in W$
+\item If $\alpha \in\R$, $\uv\in W$ then $\alpha \uv\in W$
+\end{enumerate}
+\end{definition}
+\begin{definition}
+Let us consider a set of vectors $\{ \uv_1,\dots,\uv_n \}$. The span of vectors $\{ \uv_1,\dots,\uv_n \}$ is defined as
+\[ \mathcal{S} = \text{span}\{\uv_1,\dots,\uv_n\} = \{\alpha_1\uv_1+\dots+\alpha_n\uv_n\mid \forall\alpha_1\dots\alpha_n\in\R\}\]
+\end{definition}
+
+
+
+
+
