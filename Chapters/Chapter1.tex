@@ -256,7 +256,21 @@ Now let us consider two unit vectors
 \begin{figure}[ht]
 {
 \begin{minipage}[t]{0.45\linewidth}
-MISSING FIGURE PAGE 5, MIDDLE
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw[<->] (-4,0) -- coordinate (x axis mid) (4,0) node[anchor=west]{$x_1$};
+\draw[<->] (0,-4) -- coordinate (y axis mid) (0,4) node[anchor=south]{$x_2$};
+\draw[] (0,0) circle (3);
+\draw[->] (0,0)--(2.82,1.1) node[anchor=west] {$\ul{u} = \colvec{2}{\cos\theta}{\sin\theta}$};
+\draw[->] (0,0)--(1.55,2.6)node[anchor=south west] {$\ul{v} = \colvec{2}{\cos\varphi}{\sin\varphi}$};
+\draw (1.5,0) arc (0:21:1.5);
+\draw (1.2,0.45) arc (21:61:1.2);
+\draw (2.2,0) arc (0:59:2.2);
+\draw(1.75,0.4) node{$\theta$};
+\draw(1.2,1) node{$\psi$};
+\draw(2,1.5) node{$\varphi$};
+\end{tikzpicture}
+\end{center}
 \end{minipage}
 }
 \hspace{0.5cm}
@@ -271,10 +285,10 @@ MISSING FIGURE PAGE 5, MIDDLE
 }
 \end{figure}
 If $\uv \not=\ul{0}$ or $\vv \not=\ul{0}$ are not unit vectors we can find the angle between them as follows:
-\todo[inline]{Add unit vectors underbrace Page 5}
+
 \begin{align*}
 \langle\uv,\vv\rangle &= \left\langle \norm{\uv}\cdot\frac{1}{\norm{\uv}} \cdot \uv,\norm{\vv}\cdot\frac{1}{\norm{\vv}} \cdot \vv\right\rangle\\
-&= \norm{\uv}\norm{\vv}\left\langle \frac{1}{\norm{\uv}} \cdot \uv,\frac{1}{\norm{\vv}} \cdot \vv\right\rangle\\ 
+&= \norm{\uv}\norm{\vv}\left\langle \underbrace{\frac{1}{\norm{\uv}} \cdot \uv,\frac{1}{\norm{\vv}} \cdot \vv}_{\text{Unit Vectors}}\right\rangle\\ 
 &= \norm{\uv}\norm{\vv}\cos\left( \angle(\uv,\vv)\right)
 \end{align*}
 
@@ -296,9 +310,18 @@ If $\uv\not=\ul{0},\vv\not=\ul{0}, \uv\in\R^n,\vv\in\R^n$, then
 \item $\langle\alpha\uv+\beta\vv,\wv\rangle = \alpha\cdot\langle\uv,\wv\rangle + \beta\langle\vv,\wv\rangle, \forall\alpha\in\R,\forall\uv,\vv\wv\in\R^n$
 \end{enumerate}
 \begin{example}
-\missingfigure{Page 6, middle}	
-\end{example}
 Let us consider $\uv = \colvec{2}{3}{4}. \langle \uv,\uv\rangle = 3\cdot 3+4\cdot 4 = 9+16 = 25 = 5^2$
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw[<->] (-4,-2) -- coordinate (x axis mid) (4,-2) node[anchor=west]{$x_1$};
+\draw[<->] (-2,-4) -- coordinate (y axis mid) (-2,4) node[anchor=south]{$x_2$};
+\draw[->](-2,-2)--(1,2) node[anchor=west]{$\uv = \colvec{2}{3}{4}$};
+\draw[dashed](1,-2)--(1,2);
+\draw (1,0) node[anchor=west]{4};
+\draw (-0.5,-2) node[anchor=north]{3};
+\end{tikzpicture}
+\end{center}
+\end{example}
 \begin{definition}
 The length of vector $\uv\in\R^n, \norm{\uv}$, is defined as $\norm{\uv} = \sqrt{\langle\uv,\uv\rangle}$. Sometimes it is also called the Euclidian norm of $\uv$.
 \end{definition}

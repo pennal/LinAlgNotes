@@ -304,14 +304,22 @@ $\dim M+\dim M^\perp = \dim V$
 \end{remark}
 \begin{example}
 Consider $\R^3$
-\missingfigure{Page 38, middle}
+\begin{center}
+\begin{tikzpicture}[scale=0.75]
+\draw[->] (0,0) -- coordinate (x axis mid) (2,0) node[anchor=west]{$x_1$};
+\draw[->] (0,0) -- coordinate (x axis mid) (1,1) node[anchor=west]{$x_2$};
+\draw[->] (0,-1.5) -- coordinate (x axis mid) (0,3) node[anchor=west]{$x_3$};
+\draw[] (-1.5,-1) --(-0.25,1.5) --(3.75,1.5) -- (2.5,-1)--cycle;
+\draw (2,3)node{$\R^3$};
+\end{tikzpicture}
+\end{center}
 line $\alpha$ plane	- orthogonal subspace. Orthogonal complement of each other
 \end{example}
 \begin{example}
 Not orthogonal subspace!\\
 \begin{minipage}[t]{0.45\linewidth}
 $\uv\not=0$\\
-$\uv\in I \& \uv\in W$\\
+$\uv\in I \hspace{2mm}\& \hspace{2mm}\uv\in W$\\
 $\langle \uv\in U,\uv\in W\rangle=0$
 \end{minipage}
 \begin{minipage}[t]{0.45\linewidth}
