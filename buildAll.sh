@@ -23,7 +23,7 @@ ls -1 | grep -e Chapter| while read x; do
 	sed -n -e '/\\begin{definition}/,/\\end{definition}/p' -e '/^\\section/p' -e '/^\\chapter/p' $x >> definitions.tex
 done
 
-echo -e "\n\end{document}" >> definitions.tex
+echo -e "\n\\\end{document}" >> definitions.tex
 
 compileFile definitions.tex
 
