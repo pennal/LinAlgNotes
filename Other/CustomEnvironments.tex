@@ -9,7 +9,7 @@
 
 \newcommand{\ul}[1]{\underline{#1}} 
 
-\newenvironment{definition}{\begin{framed}\centerline{\textbf{Definition}}\noindent\hspace{-1.1mm}}{\end{framed}}
+\newenvironment{definition}{\begin{mdframed}\centerline{\textbf{Definition}}\noindent\hspace{-1.1mm}}{\end{mdframed}}
 \newenvironment{notation}{\subsubsection*{Notation}}{\begin{flushright}$\square$\end{flushright}}
 \newenvironment{example}{\subsubsection*{Example}}{}%\begin{flushright}$\square$\end{flushright}}
 \newenvironment{lemma}{\subsubsection*{Lemma}}{}
@@ -63,3 +63,12 @@
                 \end{pmatrix}
         \fi
 }
+
+
+% Page Setup
+\mdfsetup{
+  nobreak=true
+}
+
+
+
