@@ -41,5 +41,19 @@ rm definitions.*
 # Generate the main document
 cd ../
 
-compileFile main.tex
-mv main.pdf PDFs/Notes.pdf
+# Read the current version
+currentVer=$(($(cat Other/documentVersion.vers )+1))
+echo $currentVer > Other/documentVersion.vers
+# Remove any left over files
+rm mainRender.*
+
+# create a copy of the main
+cp main.tex mainRender.tex
+# Substitute the version
+sed -i '' s/Unknown/0.1."$currentVer"/g mainRender.tex
+
+
+
+compileFile mainRender.tex
+rm mainRender.tex
+mv mainRender.pdf PDFs/Notes.pdf

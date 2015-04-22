@@ -1,11 +1,16 @@
 \documentclass[a4paper]{book}
 
+% DO NOT MODIFY
+% When running the ./buildAll.sh script, the correct number is substituted.
+\newcommand{\docVersion}{Unknown}
+
 \input{Other/packages.tex}
 \input{Other/CustomEnvironments.tex}
+\input{Other/layoutSetup.tex}
 
 \begin{document}
 \setcounter{page}{0}\includepdf[pages=-]{Other/warningPage/warningPage.pdf}
-
+\input{Other/titlePage.tex}
 \input{Chapters/Chapter1.tex}
 \input{Chapters/Chapter2.tex}
 \input{Chapters/Chapter3.tex}
