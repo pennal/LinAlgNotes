@@ -275,7 +275,7 @@ $A$ is an upper triangular matrix. We can use backward substitution to find the 
 In general, if $A\in\R^{n,n}$ is an upper triangular with $a_{ii}\not=0, i=1,\dots,n$ then the backward substitution works as:
 \begin{enumerate}
 \item $x_n = \frac{b_n}{a_{nn}}$
-\item $x_{n-1} = \frac{b_{n-1}-a_{n-1\hspace{1mm}n}x_n}{a_{n-1\hspace{1mm}n-1}}\hspace{5mm}\dots\hspace{5mm}x_i=$\todo{Cannot understand last calculation, page 12, LinearAlgebraNotes\_1}
+\item $x_{n-1} = \frac{b_{n-1}-a_{n-1\hspace{1mm}n}x_n}{a_{n-1\hspace{1mm}n-1}}\hspace{5mm}\dots\hspace{5mm}x_i= \frac{b_i - a_{in}x_n- \dots - a_{i\hspace{1mm}i+1}+x_{i+1}}{a_{ii}}, \hspace{5mm} i=1,\dots,n$
 \end{enumerate}
 
 \section{Inverse Matrix}
@@ -296,14 +296,39 @@ Not all matrices have an inverse! In most cases, it is quite difficult to find a
 \end{note}
 \begin{example}
 \[
-A = {\begin{pmatrix}{{a_{11}}}&0& \ldots &0\\0&{{a_{22}}}&{}& \vdots \\ \vdots &{}& \ddots &0\\0& \ldots &0&{{a_{nn}}}\end{pmatrix}},a_{ii}\not=0,\forall i=1,\dots,n
+A = {\begin{pmatrix}
+{{a_{11}}}&0& \ldots &0\\
+0&{{a_{22}}}&{}& \vdots \\
+ \vdots &{}& \ddots &0\\
+0& \ldots &0&{{a_{nn}}}
+\end{pmatrix}},a_{ii}\not=0,\forall i=1,\dots,n
 \]	
 Then
 
 \begin{align*}
-A &={\begin{pmatrix}{a_{11}^{ - 1}}&0& \ldots &0\\0&{a_{22}^{ - 1}}&{}& \vdots \\ \vdots &{}& \ddots &0\\0& \ldots &0&{a_{nn}^{ - 1}}\end{pmatrix}}\\
-A\cdot A^{-1} &= {\begin{pmatrix}{{a_{11}}}&0& \ldots &0\\0&{{a_{22}}}&{}& \vdots \\ \vdots &{}& \ddots &0\\0& \ldots &0&{{a_{nn}}}\end{pmatrix}}	\cdot {\begin{pmatrix}{a_{11}^{ - 1}}&0& \ldots &0\\0&{a_{22}^{ - 1}}&{}& \vdots \\ \vdots &{}& \ddots &0\\0& \ldots &0&{a_{nn}^{ - 1}}\end{pmatrix}}\\
- &= \left( {\begin{array}{*{20}{c}}1&0& \ldots &0\\0&1&{}& \vdots \\ \vdots &{}& \ddots &0\\0& \ldots &0&1\end{array}} \right)\\
+A &={\begin{pmatrix}
+{a_{11}^{ - 1}}&0& \ldots &0\\
+0&{a_{22}^{ - 1}}&{}& \vdots \\
+ \vdots &{}& \ddots &0\\
+0& \ldots &0&{a_{nn}^{ - 1}}
+\end{pmatrix}}\\
+A\cdot A^{-1} &= {\begin{pmatrix}
+{{a_{11}}}&0& \ldots &0\\
+0&{{a_{22}}}&{}& \vdots \\
+ \vdots &{}& \ddots &0\\
+0& \ldots &0&{{a_{nn}}}
+\end{pmatrix}}	\cdot {\begin{pmatrix}
+{a_{11}^{ - 1}}&0& \ldots &0\\
+0&{a_{22}^{ - 1}}&{}& \vdots \\
+ \vdots &{}& \ddots &0\\
+0& \ldots &0&{a_{nn}^{ - 1}}
+\end{pmatrix}}\\
+ &= \left( {\begin{array}{*{20}{c}}
+1&0& \ldots &0\\
+0&1&{}& \vdots \\
+ \vdots &{}& \ddots &0\\
+0& \ldots &0&1
+\end{array}} \right)\\
 A\cdot A^{-1} &= I
 \end{align*}	
 \end{example}
