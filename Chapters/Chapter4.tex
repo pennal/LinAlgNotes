@@ -266,30 +266,32 @@ The column rank of matrix $A$ is a maximum number of linearly independent column
 \end{definition}
 
 \begin{remark}
-For any matrix $A\in\R^{m,n}	$, the row rank is equal to the column rank. Therefore the row rank and column rank are sometimes called rank of matrix $A$, $\rank(A)$
+For any matrix $A\in\R^{m,n}	$, the row rank is equal to the column rank. Therefore the row rank and column rank are sometimes called rank of matrix $A$, $\rank(A).$
 \end{remark}
 
 \begin{example}
 \begin{enumerate}
-\item \[\begin{pmatrix}
+\item \[A = \begin{pmatrix}
 1 & 3\\
 1 & 1	
 \end{pmatrix}
 \]
-we show that $\colvec{2}{1}{1}$, $\colvec{2}{3}{1}$ are linearly independent $\Rightarrow\rank(A)=2$
+We have shown before that $\colvec{2}{1}{1}$ and $\colvec{2}{3}{1}$ are linearly independent, therefore $\rank(A)=2$.
 \item \[
 A = \begin{pmatrix}
 1 & 0\\
 7 & 0\\
 3 & 0\\
 -1 & 0
-\end{pmatrix} \in\R^{4,2}, \rank(A)=1
+\end{pmatrix} \in\R^{4,2}
 \]
+The column vectors $\colvec{4}{1}{7}{3}{-1}$ and  $\colvec{4}{0}{0}{0}{0}$ are linearly dependent, thus $\rank(A)=1$ (i.e. the maximum number of linearly independent columns is $1$).
+
 \end{enumerate}
 \end{example}
 
 \begin{remark}
-Two vectors are orthogonal if $\langle\uv,\vv\rangle = \uv^T\vv = 0$	 (basically perpendicular)
+Two vectors are orthogonal if $\langle\uv,\vv\rangle = \uv^T\vv = 0$ (they basically must be perpendicular, i.e. the angle between  $\uv$ and $\vv$ is 90 degrees).
 \end{remark}
 \begin{definition}
 Two subspaces $U$ and $W$ of vector space $V$ are orthogonal, if $\forall \uv\in U$ and $\forall \wv\in W$, we have $\langle \uv,\wv\rangle = 0$
