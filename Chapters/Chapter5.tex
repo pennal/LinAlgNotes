@@ -12,15 +12,18 @@ Let us consider matrix $A\in\R^{n,m}$. We can define linear mapping $\Lm_A$ as f
 \Lm_A(\vv) = A\vv\hspace{5mm}\Lm_A:\R^m\to\R^n
 \]	
 Is $\Lm_A$ a linear mapping? Yes!
+\begin{proof}
 \begin{enumerate}
-\item $\forall \vv,\vv'\in\R^m$, $\Lm_A(\vv+\vv') = A(\vv+\vv') = A\vv+A\vv' = \Lm_A(\vv) + \Lm_A(\vv')$
-\item $\forall\vv\in\R^m,\forall\alpha-$ scalar; $\Lm_A(\alpha\vv) = A(\alpha\vv) = \alpha\cdot A\vv = \alpha \Lm_A(\vv)$
+\item $\forall \vv,\vv'\in\R^m$, we have: $$\Lm_A(\vv+\vv') = A(\vv+\vv') = A\vv+A\vv' = \Lm_A(\vv) + \Lm_A(\vv')$$
+\item $\forall\vv\in\R^m,\forall\alpha$ ($\alpha$ is scalar), we have: $$\Lm_A(\alpha\vv) = A(\alpha\vv) = \alpha\cdot A\vv = \alpha \Lm_A(\vv)$$
 \end{enumerate}
+\end{proof}
+
 \end{example}
 Let us consider matrix $A\in\R^{n,m}$, $A:\R^m\to\R^n$. Let us consider vector $\vv\in\R^m$
 .
 \[
-A\vv = \underbrace{v_1\cdot\colvec{3}{a_{11}}{\vdots}{a_{n1}} + v_2\cdot\colvec{3}{a_{12}}{\vdots}{a_{n2}}+ \cdot + v_m\cdot\colvec{3}{a_{1m}}{\vdots}{a_{nm}}}_{\text{Linear combination of columns of $A$}}
+A\vv = \underbrace{v_1\cdot\colvec{3}{a_{11}}{\vdots}{a_{n1}} + v_2\cdot\colvec{3}{a_{12}}{\vdots}{a_{n2}}+ ... + v_m\cdot\colvec{3}{a_{1m}}{\vdots}{a_{nm}}}_{\text{Linear combination of columns of $A$}}
 \]
 
 \begin{center}
@@ -126,7 +129,7 @@ In order for solution of $A\ul{x} = \ul{b}$ to exist, $\ul{b}$ should belong to 
 \end{note}
 
 \begin{definition}
-The span of columns of matrix $A$ is called a column space of $A$, denoted by $C(A)$. $C(A)\subset R^n$
+The span of columns of matrix $A \in \R^{n, m}$ is called a column space of $A$, denoted by $C(A)$, where $C(A)\subset R^n$.
 \end{definition}
 \begin{definition}
 Let us consider matrix $A\in\R^{n,m}, A:\R^m\to \R^n$. The null space of $A$ is defined as 
@@ -171,13 +174,16 @@ A = \begin{pmatrix}
 What is $N(A)$? We should find all solutions of $A\ul{x} = \ul{0}$, this will give us $N(A)$.
 \[
 \begin{cases}
-x_1 + 3x_2\\
-2x_1+6x_2
+x_1 + 3x_2 = 0\\
+2x_1+6x_2 = 0
 \end{cases} \to\begin{cases}
 x_1+3x_2=0\\
 0 = 0
+\end{cases}\to\begin{cases}
+x_1=-3x_2\\
+0 = 0
 \end{cases}\]
-line; $\alpha\cdot\colvec{2}{-3}{1}$ for all possible $\alpha$.
+The nullspace of this matrix will be a line formed by a linear combination of the vector $\colvec{2}{-3}{1}$ ($\alpha\cdot\colvec{2}{-3}{1}$, for all possible $\alpha$), or in other words it will be the $span(\colvec{2}{-3}{1})$.
 \[
 x_1 = -3x_2 = -3\alpha,x_2=\alpha\to\alpha\colvec{2}{-3}{1},\alpha\colvec{2}{-6}{2}
 \]
@@ -206,31 +212,31 @@ x_1 = -3x_2 = -3\alpha,x_2=\alpha\to\alpha\colvec{2}{-3}{1},\alpha\colvec{2}{-6}
 \end{center}
 \end{example}
 \begin{theorem}
-The nullspace, $N(A)$, of $A\in\R^{n,m}$ is a subspace of $\R^m$
+The nullspace, $N(A)$, of $A\in\R^{n,m}$ is a subspace of $\R^m$.
 \end{theorem}
 \begin{proof}
 Let us assume that $\ul{x},\ul{x}'\in N(A)$ and $\alpha$ is arbitrarily scalar. 
-\begin{align*}
-A(\ul{x}+\ul{x}') &= A\ul{x}+A\ul{x}' = \ul{0} + \ul{0} = \ul{0} \Rightarrow (\ul{x}+\ul{x}')\in N(A)\\
-A(\alpha\ul{x}) &= \alpha (A\ul{x}) = \alpha\cdot \ul{0} = \ul{0}\Rightarrow \alpha\ul{x}\in N(A)
-\end{align*}
+\begin{enumerate}
+\item $A(\ul{x}+\ul{x}') = A\ul{x}+A\ul{x}' = \ul{0} + \ul{0} = \ul{0} \Rightarrow (\ul{x}+\ul{x}')\in N(A)$\\
+\item $A(\alpha\ul{x}) = \alpha (A\ul{x}) = \alpha\cdot \ul{0} = \ul{0}\Rightarrow \alpha\ul{x}\in N(A)$
+\end{enumerate}
 \end{proof}
 
 \begin{theorem}
-The column space, $C(A)$ of $A\in\R^{n,m}$ is a subspace of $\R^n$
+The column space, $C(A)$, of $A\in\R^{n,m}$ is a subspace of $\R^n$.
 \end{theorem}
 
 \begin{definition}
-The row space of matrix $A$ is a span of rows of $A$. Clearly, $R(A)=C(A^T)$, $R(A)\subset \R^m$
+The row space of matrix $A \in R^{n, m}$ is a span of rows of $A$. Clearly, $R(A)=C(A^T)$ and $R(A)\subset \R^m$.
 \end{definition}
 \begin{definition}
-The left nullspace of $A$ is defined as $N(A^T)$. $N(A^T)\subset\R^n$
+The left nullspace of $A$ is defined as $N(A^T)$. $N(A^T)\subset\R^n$.
 \end{definition}
 \begin{theorem}
 $R(A)$ is a subspace of $\R^m$
 \end{theorem}
 \begin{proof}
-Same as for $C(A)$ but for $A^T$
+Same as for the proof that $C(A)$ is a subspace of $\R^{n}$, but for $A^T$
 \end{proof}
 \begin{theorem}
 $N(A^T)$ is a subspace of $\R^n$
