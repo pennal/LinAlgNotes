@@ -8,6 +8,13 @@ compileFile() {
 
 mkdir -p PDFs
 
+# Generate the warning page
+cd Other/warningPage
+rm warningPage.pdf
+compileFile warningPage.tex
+cd ../../
+
+# Generate the definitions
 cd Chapters/
 rm definitions.*
 
@@ -31,7 +38,7 @@ mv definitions.pdf ../PDFs/Definitions.pdf
 
 rm definitions.*
 
-
+# Generate the main document
 cd ../
 
 compileFile main.tex
