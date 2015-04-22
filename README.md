@@ -23,7 +23,7 @@ In order to get the material, there are two ways:
 	  * Definitions.pdf: Contains only the definitions. 
 * Typeset (Build) it yourself from source. Take a look at the [Typeset](#Typeset) section
 
-New PDFs are generated on an (almost) daily basis, so if you are not familiar with LaTeX, just get the files from the "PDFs" folder.
+New PDFs are generated on a daily basis, around 2 AM. If any changes are made during the day, you will have to generate the PDFs manually (See the [Typeset](#Typeset) section)
 
 
 <a name="Contributing"></a>
