@@ -1,0 +1,17 @@
+\thispagestyle{empty} % Removes page numbers
+
+\begingroup % Create the command for including the title page in the document
+\hbox{ % Horizontal box
+\hspace*{0.2\textwidth} % Whitespace to the left of the title page
+\rule{1pt}{\textheight} % Vertical line
+\hspace*{0.05\textwidth} % Whitespace between the vertical line and title page text
+\parbox[b]{0.75\textwidth}{ % Paragraph box which restricts text to less than the width of the page
+
+{\noindent\Huge\bfseries Linear Algebra \\[0.5\baselineskip] Class Notes}\\[2\baselineskip] % Title
+{\large \textit{Based on Professor Pivkin's Material}}\\[4\baselineskip] % Tagline or further description
+{\Large \textsc{Spring 2015}} % Author name
+
+\vspace{0.5\textheight} % Whitespace between the title block and the publisher
+{\noindent Universit\`{a} della Svizzera Italiana\\Version \docVersion\\Generated on \today}\\[\baselineskip] % Publisher and logo
+}}
+\endgroup
