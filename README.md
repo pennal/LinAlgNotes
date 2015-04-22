@@ -1,7 +1,7 @@
 # LinAlgNotes
 If you're just here for the PDF, [here](https://github.com/pennal/LinAlgNotes/blob/master/PDFs/Notes.pdf) you go. Be advised, however, that the PDF is constantly changing. It is not finished yet, and is likely to contain many mistakes. If you see anything fishy, please file an issue.
 
-This repo contains the LaTeX version of Professor's Pivkin class notes. Please read carefully this document at least once, so to clarify any doubts. 
+This repo contains the LaTeX version of Professor Pivkin's class notes. Please read carefully this document at least once, so to clarify any doubts. 
 
 Please do not distribute any PDF version of these notes as they are not complete. Link back to this repo instead.
 
@@ -20,10 +20,10 @@ In order to get the material, there are two ways:
   3. Open the "PDFs" Folder
   4. There are two files you have to pay attention to:
       * Notes.pdf: All of the notes from the course.
-	  * Definitions.pdf: Cantains only the definitions. 
+	  * Definitions.pdf: Contains only the definitions. 
 * Typeset (Build) it yourself from source. Take a look at the [Typeset](#Typeset) section
 
-New PDFs are generated on an (almost) daily basis, so if you are not familiar with LaTeX, just get the files from the "PDF" folder.
+New PDFs are generated on an (almost) daily basis, so if you are not familiar with LaTeX, just get the files from the "PDFs" folder.
 
 
 <a name="Contributing"></a>
