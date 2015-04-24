@@ -50,9 +50,14 @@ rm mainRender.*
 # create a copy of the main
 cp main.tex mainRender.tex
 # Substitute the version
-sed -i '' s/Unknown/0.1."$currentVer"/g mainRender.tex
-
-
+# DO NOT REMOVE THIS CHECK: During the build on the RPi the command for Mac OS X is different
+# From the one needed by the RPi
+if [[ $(whoami) == "pi" ]]; then 
+	sed -i s/Unknown/0.1."$currentVer"/g mainRender.tex
+else
+	sed -i '' s/Unknown/0.1."$currentVer"/g mainRender.tex
+fi
+	
 
 compileFile mainRender.tex
 rm mainRender.tex
