@@ -22,10 +22,11 @@ The ``vectors'' in the vector space, are not necessarily vectors ($\in\R^n$)	, b
 
 \begin{example}
 Let us consider a set of all $2\times 2$ matrices. It is a vector space. Proof:
-\begin{tabular}{l l}
-If $A,B\in\R^{2,2}$ & $(A+B)\in\R^{2,2}$\\
-$\alpha\in\R, A\in\R^{2,2}$ & $\alpha A \in \R^{2,2}$
-\end{tabular}
+\begin{align*}
+&\text{If }A,B\in\R^{2,2}\Rightarrow (A+B)\in\R^{2,2}\\
+&\text{If }\alpha\in\R, A\in\R^{2,2}\Rightarrow\alpha A \in \R^{2,2}
+\end{align*}
+
 \begin{enumerate}
 \item $A,B,C\in\R^{2,2}$; $(A+B)+C = A+(B+C)$
 \item \dots 
@@ -49,9 +50,15 @@ a_{21} & a_{22}\\
 \]
 \end{enumerate}
 \end{example}
+\todo[inline]{The layout of this example is not clear}
 \begin{example}
-Let us consider a set consisting of a single object, \ul{0}. It is a vector space. \underline{Note:} There is no vector space, which does not contain $\ul{0}$
+Let us consider a set consisting of a single object, \ul{0}. It is a vector space. 
 \end{example}
+
+\begin{note}
+There is no vector space, which does not contain $\ul{0}$	
+\end{note}
+
 
 \section{Subspace of the vector space}
 \begin{definition}
@@ -309,7 +316,7 @@ Consider $\R^3$
 \begin{center}
 \begin{tikzpicture}[scale=0.75]
 \draw[->] (0,0) -- coordinate (x axis mid) (2,0) node[anchor=west]{$x_1$};
-\draw[->] (0,0) -- coordinate (x axis mid) (1,1) node[anchor=west]{$x_2$};
+\draw[->] (0,0) -- coordinate (x axis mid) (0.6,1) node[anchor=west]{$x_2$};
 \draw[->] (0,-1.5) -- coordinate (x axis mid) (0,3) node[anchor=west]{$x_3$};
 \draw[] (-1.5,-1) --(-0.25,1.5) --(3.75,1.5) -- (2.5,-1)--cycle;
 \draw (2,3)node{$\R^3$};
@@ -319,15 +326,51 @@ line $\alpha$ plane	- orthogonal subspace. Orthogonal complement of each other
 \end{example}
 \begin{example}
 Not orthogonal subspace!\\
-\begin{minipage}[t]{0.45\linewidth}
+\adjustbox{valign=t}{
+\begin{minipage}{0.3\linewidth}
 $\uv\not=0$\\
 $\uv\in I \hspace{2mm}\& \hspace{2mm}\uv\in W$\\
 $\langle \uv\in U,\uv\in W\rangle=0$
-\end{minipage}
-\begin{minipage}[t]{0.45\linewidth}
-ADD FIGURE	
-\end{minipage}
-\todo[inline]{Add missing figure to minipage}
+\end{minipage}}
+\hfill
+\adjustbox{valign=t}{
+\begin{minipage}{0.6\linewidth}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+
+\node [] (0) at (-2.5, 3) {};
+\node [] (1) at (-2.5, 0) {};
+\node [] (2) at (2.5, 0) {};
+\node [] (3) at (2.5, 3) {};
+\node [] (4) at (1.5, 4) {};
+\node [] (5) at (-3, 1) {};
+\node [] (6) at (-3, -2) {};
+\node [] (7) at (1.5, 1) {};
+\node [] (8) at (-2.5, 1.25) {};
+\node [] (9) at (0, 0) {};
+\node [] (10) at (1.5, 3) {};
+\node [] (11) at (0, 3) {};
+\draw [] (3.center) to (0.center);
+\draw [] (2.center) to (3.center);
+\draw [] (4.center) to (5.center);
+\draw [] (5.center) to (6.center);
+\draw [] (9.center) to (6.center);
+\draw [] (0.center) to (8.center);
+\draw [] (2.center) to (9.center);
+\draw [dashed] (9.center) to (1.center);
+\draw [dashed] (1.center) to (8.center);
+\draw [] (4.center) to (10.center);
+\draw [dashed] (10.center) to (7.center);
+\draw [dashed] (7.center) to (9.center);
+\draw [thick] (9.center) to (11.center);
+\draw (0,1.5) node[anchor=west] {$\uv$};
+\draw (2.5,2.75) node[anchor=east] {$u$};
+\draw (1.5,3.5) node[anchor=east] {$w$};
+\draw (0.25,0) -- (0.05,-0.15)-- (-0.22,-0.15); 
+\end{tikzpicture}
+\end{center}	
+\end{minipage}}
 \end{example}
 
 \begin{note}

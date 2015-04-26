@@ -33,7 +33,7 @@ axis
 \end{center}
 
 
-a triplet od real numbers can be represented by a point in 3D space, $\R^3$
+a triplet of real numbers can be represented by a point in 3D space, $\R^3$
 \missingfigure{3D drawing}
 
 \begin{definition}
@@ -76,7 +76,7 @@ Let us consider vectors $\ul{u} \in\R^n$ and $\ul{v} \in\R^n$. Vector $\ul{w} \i
 \end{example}
 
 \begin{definition}
-	Let us consider scalars $\alpha$ and $\beta$, and vectors $\uv\in\R^n$ and $\vv\in\R^n$. A sum of $\alpha\uv + \beta\cdot\vv$ is called a linear combination of vectors $\uv$ and $\vv$.
+	Let us consider scalars $\alpha$ and $\beta$, and vectors $\uv\in\R^n$ and $\vv\in\R^n$. A sum of $\alpha\cdot\uv + \beta\cdot\vv$ is called a linear combination of vectors $\uv$ and $\vv$.
 \end{definition}
 
 \begin{example}
@@ -146,7 +146,7 @@ Let us consider vectors $\uv = \colvec{2}{3}{1}$, $\vv = \colvec{2}{-1}{2}$ and 
 \end{center}
 
 
-Let us consider vector $\uv = \colvec{2}{3}{1}$. What is $2\cdot \uv$? We can calculate as follows:
+Let us consider vector $\uv = \colvec{2}{3}{1}$. What is $2\cdot \uv$? We can calculate it as follows:
 \[
 2\cdot \uv = 2\cdot\colvec{2}{3}{1} = \colvec{2}{6}{2}
 \]
@@ -158,10 +158,10 @@ We stretch vector $\uv$ 2 times along the line defined by vector $\uv$. What is 
     	\draw[->] (0,-0.5) -- coordinate (y axis mid) (0,4) node[anchor=south]{$x_2$};;
     	%ticks
 
-\draw[->,thick] (0,0)--(3,1);
+\draw[->,very thick] (0,0)--(3,1);
 \draw (1.5,0.5) node[anchor=south] {$\uv$};
 \draw (4.4,1.5) node[anchor=south] {$2\cdot\uv$};
-\draw[->] (0,0)--(6,2);
+\draw[->,thick] (0,0)--(6,2);
 \draw[] (-3,-1)--(9,3);
 \end{tikzpicture}
 \end{center}
@@ -199,7 +199,7 @@ Consider $\vv,\uv$. They are on the same line if $\alpha\uv+\beta\vv = \ul{0}$ a
 \begin{definition}
 Let us consider two vectors $\uv\in\R^n$ and $\vv\in\R^n$. The dot (or scalar) product of vectors $\uv$ and $\vv$ is defined as 
 \[
-\langle\uv,\vv\rangle = u_1v_1+u_2v_2+\dots+{\uv}_n{\vv}_n = \sum\limits^{n}_{i=1}u_iv_i
+\langle\uv,\vv\rangle = u_1v_1+u_2v_2+\dots+{u}_n{v}_n = \sum\limits^{n}_{i=1}u_iv_i
 \]
 \end{definition}
 
@@ -209,21 +209,23 @@ We will use $\langle\uv,\vv\rangle$ to denote the dot product, but sometimes $\u
 \begin{example}
 \begin{enumerate}
 \item \[
-\uv = \colvec{3}{1}{-1}{3}, \uv = \colvec{3}{0}{\frac{1}{2}}{-1}
+\uv = \colvec{3}{1}{-1}{3}, \vv = \colvec{3}{0}{\frac{1}{2}}{-1}
 \]
 \[
 \langle \uv,\vv\rangle = 1\cdot 0 + (-1)\cdot\frac{1}{2} + 3\cdot (-1) = -3.5
 \]
 \item \[
-\uv = \colvec{2}{1}{0}, \uv = \colvec{3}{0}{1}, \langle\uv,\vv\rangle = 0
+\uv = \colvec{2}{1}{0}, \vv = \colvec{3}{0}{1}{1}
+\]
+\[
+\langle\uv,\vv\rangle = 0
 \]
 \end{enumerate}	
 \end{example}
 Let us consider $\R^2$. What is the set of all possible endpoints of unit vectors in $\R^2$, originating from the origin?
 
-\todo[inline]{Fix positioning problem}
-\begin{figure}[ht]
-{
+
+\adjustbox{valign=t}{
 \begin{minipage}[t]{0.45\linewidth}
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
@@ -238,10 +240,9 @@ Let us consider $\R^2$. What is the set of all possible endpoints of unit vector
 \draw (0.86,1.25) node[anchor=east]{$\uv$};
 \end{tikzpicture}
 \end{center}
-\end{minipage}
-}
-\hspace{0.5cm}
-{
+\end{minipage}}
+\hfill
+\adjustbox{valign=t}{
 \begin{minipage}[t]{0.45\linewidth}
 \begin{align*}
 \uv &= \colvec{2}{u_1}{u_2}\\
@@ -249,12 +250,11 @@ Let us consider $\R^2$. What is the set of all possible endpoints of unit vector
 \sin(\theta) &= \frac{u_2}{\norm{\uv}} = u_2\\
 \uv &= \colvec{2}{\cos(\theta)}{\sin(\theta)}
 \end{align*}
-\end{minipage}
-}
-\end{figure}
+\end{minipage}}
+
 Now let us consider two unit vectors
-\begin{figure}[ht]
-{
+
+\adjustbox{valign=t}{
 \begin{minipage}[t]{0.45\linewidth}
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
@@ -273,8 +273,8 @@ Now let us consider two unit vectors
 \end{center}
 \end{minipage}
 }
-\hspace{0.5cm}
-{
+\hfill
+\adjustbox{valign=t}{
 \begin{minipage}[t]{0.45\linewidth}
 \begin{align*}
 \langle\uv,\vv\rangle &= \cos(\theta)\cos(\varphi) + \sin(\theta)\sin(\varphi)\\
@@ -283,7 +283,6 @@ Now let us consider two unit vectors
 \end{align*}
 \end{minipage}
 }
-\end{figure}
 If $\uv \not=\ul{0}$ or $\vv \not=\ul{0}$ are not unit vectors we can find the angle between them as follows:
 
 \begin{align*}
@@ -330,7 +329,11 @@ A vector with length equal to 1 is called a unit vector
 \end{definition}
 If we take vector $\uv\not=\ul{0}$, how to make it a unit vector? We should multiply vector $\uv$ by $\frac{1}{\norm{\uv}}$, we will get $\frac{\uv}{\norm{\uv}} = $ unit vector.\\
 
-In our previous example: $\uv = \colvec{2}{3}{4}$. Unit vector is then 
+\noindent In our previous example: 
+\[
+\uv = \colvec{2}{3}{4}
+\]
+Unit vector is then 
 \[\frac{\uv}{\norm{\uv}} = \frac{1}{5}\cdot \colvec{2}{3}{4} = \colvec{2}{\frac{3}{5}}{\frac{4}{5}} = \colvec{2}{0.6}{0.8}\]
 We got $\langle\uv,\vv\rangle = \norm{\uv}\norm{\vv}\cdot\cos\left( \angle(\uv,\vv)\right)$
 . Let us take the absolute value of this
@@ -340,4 +343,6 @@ Notice that $\abs{\cos\left( \angle(\uv,\vv)\right)}\leq 1$
 Cauchy Schwartz Inequality: for any $\uv\in\R^n$ and $\vv\in\R^n$
 \[\abs{\langle\uv,\vv\rangle}\leq\norm{\uv}\norm{\vv}\]
 \end{lemma}
-Remark: It is easy to see that Cauchy - Schwartz inequality is correct also for zero vectors.
+\begin{remark}
+It is easy to see that Cauchy - Schwartz inequality is correct also for zero vectors.	
+\end{remark}

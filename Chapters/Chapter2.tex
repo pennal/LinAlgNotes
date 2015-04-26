@@ -40,13 +40,6 @@ In matrix-vector multiplication, we take dot products of rows of matrices times 
  6\\
 \end{pmatrix}
 \]
-\begin{notation}
-Matrices are usually written with capital letters, i.e. $A,B,c,\dots$\\
-
-$A$ is an $n$ by $m$ matrix, $A\in\R^{n,m}$	 if it has $n$ rows and $m$ columns.\\
-
-The element of matrix $A$ located in row $i$ and column $j$ is written as $a_{ij}$ or $(A)_{ij}$.
-\end{notation}
 \item 
 \begin{align*}
 A &= \begin{pmatrix}
@@ -74,13 +67,20 @@ A\cdot\ul{x} &=\begin{pmatrix}
  1\\
 \end{pmatrix}
 \end{align*}
-For the product of matrix $A$ with vector $\ul{x}$ to exist, matrix $A$ should have the same number of columns as vector $\ul{x}$ components.
+For the product of matrix $A$ with vector $\ul{x}$ to exist, matrix $A$ should have the same number of columns as vector $\ul{x}$ has components.
 \end{enumerate}
 \end{example}
+\begin{notation}
+\begin{itemize}
+\item Matrices are usually written with capital letters, i.e. $A,B,C,\dots$
+\item $A$ is an $n$ by $m$ matrix, $A\in\R^{n,m}$	 if it has $n$ rows and $m$ columns.
+\item The element of matrix $A$ located in row $i$ and column $j$ is written as $a_{ij}$ or $(A)_{ij}$.
+\end{itemize}
+\end{notation}
 
 \section{Matrix Operations}
 \begin{definition}
-Let us consider matrices $A\in\R^{n,m}$ and $B\in\R^{n,m}$ where $n=$ rows, $m=$ columns. Matrix $C\in\R^{n,m}$ is a sum of $A$ and $B, C=A+B$ if $C_{ij} = A_{ij}+B_{ij}$ for all $i=1,\dots,n$, $j=1,\dots,m$
+Let us consider matrices $A\in\R^{n,m}$ and $B\in\R^{n,m}$ where $n=$ rows, $m=$ columns. Matrix $C\in\R^{n,m}$ is a sum of $A$ and $B, C=A+B$, if $C_{ij} = A_{ij}+B_{ij}$ for all $i=1,\dots,n$, $j=1,\dots,m$
 \end{definition}
 \begin{example}
 \[
@@ -113,20 +113,25 @@ A product of a scalar $\alpha$ and a matrix $A\in\R^{n,m}$ is defined as $\left(
 \]	
 \end{example}
 \begin{properties}
-\begin{itemize}
+\begin{enumerate}
 \item $A\in\R^{n,m}$ and $B\in\R^{n,m}$: $A+B = B+A$\\
-\ul{Proof:} 
-\[
+\item $A,B,C\in\R^{n,m}$: $(A+B)+C = A+(B+C)$
+\item $\alpha\cdot (A+B) = \alpha A+\alpha B$ for $\forall \alpha\in\R, A,B\in\R^{n,m}$
+\end{enumerate}
+	
+\end{properties}
+
+\begin{proof}
+\begin{enumerate}
+\item \[
 \begin{cases}
 \left( A+B \right)_{ij} = A_{ij}+B_{ij}\\
 \left( B+A \right)_{ij} = B_{ij}+A_{ij}
 \end{cases}
 \]
-\item $A,B,C\in\R^{n,m}$: $(A+B)+C = A+(B+C)$
-\item $\alpha\cdot (A+B) = \alpha A+\alpha B$ for $\forall \alpha\in\R, A,B\in\R^{n,m}$
-\end{itemize}
-	
-\end{properties}
+
+\end{enumerate}
+\end{proof}
 
 \section{Matrix - Matrix multiplication}
 \begin{definition}
@@ -146,8 +151,7 @@ A&= \begin{pmatrix}
 1 & 2 & 0 & 1\\
 -1 & 1 & 1 & 0
 \end{pmatrix}\in\R^{1,4}\\
-C &= A\cdot B\in\R^{3,4}\\
-&= \begin{pmatrix}
+C = A\cdot B&\in\R^{3,4}= \begin{pmatrix}
 1 & 2\\
 0 & 1\\
 3 & 4
@@ -275,14 +279,14 @@ $A$ is an upper triangular matrix. We can use backward substitution to find the 
 In general, if $A\in\R^{n,n}$ is an upper triangular with $a_{ii}\not=0, i=1,\dots,n$ then the backward substitution works as:
 \begin{enumerate}
 \item $x_n = \frac{b_n}{a_{nn}}$
-\item $x_{n-1} = \frac{b_{n-1}-a_{n-1\hspace{1mm}n}x_n}{a_{n-1\hspace{1mm}n-1}}\hspace{5mm}\dots\hspace{5mm}x_i= \frac{b_i - a_{in}x_n- \dots - a_{i\hspace{1mm}i+1}+x_{i+1}}{a_{ii}}, \hspace{5mm} i=1,\dots,n$
+\item $x_{n-1} = \frac{b_{n-1}-a_{n-1\hspace{1mm}n}x_n}{a_{n-1\hspace{1mm}n-1}}\hspace{2mm}\dots\hspace{2mm}x_i= \frac{b_i - a_{in}x_n- \dots - a_{i\hspace{1mm}i+1}+x_{i+1}}{a_{ii}} \hspace{4mm} i=1,\dots,n$
 \end{enumerate}
 
 \section{Inverse Matrix}
 \begin{definition}
 Let us consider a matrix $A\in\R^{n,n}$ (square matrix). Matrix $B\in\R^{n,n}$ is called an inverse of $A$, if 
 \[
-A\cdot B = I\text{ \Large{AND} }B\cdot A = I
+A\cdot B = I\hspace{2mm}\text{ \Large{AND} }\hspace{2mm}B\cdot A = I
 \]
 (Both conditions are vital)
 \end{definition}
