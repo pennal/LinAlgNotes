@@ -9,8 +9,25 @@
 \input{Other/layoutSetup.tex}
 
 \begin{document}
+% Remove pagenumbers
+\pagestyle{empty}
+% Include the warning page
 \setcounter{page}{0}\includepdf[pages=-]{Other/warningPage/warningPage.pdf}
+
+
+% Roman numerals for page numbers
+\frontmatter
+% Include the titlepage
 \input{Other/titlePage.tex}
+% Add the table of contents
+\tableofcontents
+\newpage
+
+
+% Enable normal numbering
+\mainmatter
+\pagestyle{headings}
+% Include the chapters
 \input{Chapters/Chapter1.tex}
 \input{Chapters/Chapter2.tex}
 \input{Chapters/Chapter3.tex}
