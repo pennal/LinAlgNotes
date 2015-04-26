@@ -246,9 +246,9 @@ Let us consider $A\in\R^{n,n}$. Let us consider that $B\in\R^{n,n}$ and $C\in\R^
 \draw(-3,3) node[anchor=center]{$AB=BA=I$};
 \draw(-3,1) node[anchor=center]{$\underbrace{BA\times C}_{}=I\times C$};
 \draw(3,1) node[anchor=center]{$\underbrace{B\times AC}_{}=B\times I$};
-\draw[->] (2.32,0.88) --  (0.7,-0.2);
-\draw[->,bend left=45] (-3.68,0.88) --  (-0.7,-0.2);
-\draw(0,0) node[anchor=north]{$\ul{\ul{C=B}}$};
+\draw[->] (2.32,0.88) parabola bend (1.5,-0.2)(0.2,-0.2);
+\draw[->] (-3.68,0.88) parabola bend (-2.5,-0.2)(-1.2,-0.2);
+\draw(-0.5,0) node[anchor=north]{$\ul{\ul{C=B}}$};
 \end{tikzpicture}
 \end{center}
 \end{proof}

@@ -1,14 +1,13 @@
-\newcommand{\R}{\mathbb{R}} % set R with \R
-\newcommand{\N}{\mathbb{N}} % set N with \N
-\newcommand{\C}{\mathbb{C}} % set C with \C
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
 \newcommand{\Lm}{\mathcal{L}}
 \newcommand{\uv}{\underline{u}}
 \newcommand{\vv}{\underline{v}}
 \newcommand{\wv}{\underline{w}}
-
-
 \newcommand{\ul}[1]{\underline{#1}} 
 
+% ================ CUSTOM ENVIRONMENTS ================
 \newenvironment{definition}{\begin{mdframed}\centerline{\textbf{Definition}}\vspace{2mm}\noindent\hspace{-1.1mm}}{\end{mdframed}}
 \newenvironment{notation}{\subsubsection*{Notation}}{\begin{flushright}$\square$\end{flushright}}
 \newenvironment{example}{\subsubsection*{Example}}{}%\begin{flushright}$\square$\end{flushright}}
@@ -20,19 +19,13 @@
 \newenvironment{note}{\subsubsection*{Note}}{}
 \newenvironment{proof}{\subsubsection*{Proof}}{\begin{flushright}$\square$\end{flushright}}
 
-\DeclareMathOperator{\arccosh}{arccosh}%Defined here since it doesn't exist
-\DeclareMathOperator{\rank}{rank}%Defined here since it doesn't exist
-\DeclareMathOperator{\arcsinh}{arcsinh}%Defined here since it doesn't exist
-\DeclareMathOperator{\arctanh}{arctanh}%Defined here since it doesn't exist
-\newcommand{\verteq}[0]{\begin{turn}{90} $=$\end{turn}}%added vertical equal sign
-\DeclareMathOperator{\Hess}{Hess}%Defined here since it doesn't exist
-\DeclareMathOperator{\rot}{rot}%Defined here since it doesn't exist
-\DeclareMathOperator{\Bild}{Bild}%Defined here since it doesn't exist
-\DeclareMathOperator{\grad}{grad}%Defined here since it doesn't exist
+% ================ MATH OPERATORS ================
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
 
-\newcommand{\defeq}{\vcentcolon=}% nicer :=
-\newcommand{\eqdef}{=\vcentcolon}% nicer =:
-
+% Abs and Norm
 \DeclarePairedDelimiter\abs{\lvert}{\rvert} % nice |x|
 \DeclarePairedDelimiter\norm{\lVert}{\rVert} % nice ||x|| \norm{x} => ||x||
 % Swap the definition of \abs* and \norm*, so that \abs
@@ -45,7 +38,7 @@
 \def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
 \makeatother
 
-
+% Vector method
 % Source: http://tex.stackexchange.com/questions/2705/typesetting-column-vector. use with \colvec{5}{a}{b}{c}{d}{e}
 \newcount\colveccount
 \newcommand*\colvec[1]{

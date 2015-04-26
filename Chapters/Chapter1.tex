@@ -257,8 +257,8 @@ Let us consider $\R^2$. What is the set of all possible endpoints of unit vector
 \begin{minipage}[t]{0.45\linewidth}
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
-\draw[<->] (-4,0) -- coordinate (x axis mid) (4,0) node[anchor=west]{$x_1$};
-\draw[<->] (0,-4) -- coordinate (y axis mid) (0,4) node[anchor=south]{$x_2$};
+\draw[->] (-4,0) -- coordinate (x axis mid) (4,0) node[anchor=west]{$x_1$};
+\draw[->] (0,-4) -- coordinate (y axis mid) (0,4) node[anchor=south]{$x_2$};
 \draw[] (0,0) circle (3);
 \draw[] (0,0)--(1.665,2.5);
 \draw (0.5,0) arc (0:57:0.5);
@@ -266,6 +266,7 @@ Let us consider $\R^2$. What is the set of all possible endpoints of unit vector
 \draw[dashed](1.67,2.5) -- (1.67,0) node[anchor=north]{$u_1$};
 \draw[dashed](1.67,2.5) -- (0,2.5)node[anchor=east]{$u_2$};
 \draw (0.86,1.25) node[anchor=east]{$\uv$};
+\draw[color=white] (5,0) -- (6.8,0); % Filler to align the images
 \end{tikzpicture}
 \end{center}
 \end{minipage}}
@@ -278,16 +279,16 @@ Let us consider $\R^2$. What is the set of all possible endpoints of unit vector
 \sin(\theta) &= \frac{u_2}{\norm{\uv}} = u_2\\
 \uv &= \colvec{2}{\cos(\theta)}{\sin(\theta)}
 \end{align*}
-\end{minipage}}
+\end{minipage}}\\
 
-Now let us consider two unit vectors
+\noindent Now let us consider two unit vectors
 
 \adjustbox{valign=t}{
 \begin{minipage}[t]{0.45\linewidth}
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
-\draw[<->] (-4,0) -- coordinate (x axis mid) (4,0) node[anchor=west]{$x_1$};
-\draw[<->] (0,-4) -- coordinate (y axis mid) (0,4) node[anchor=south]{$x_2$};
+\draw[->] (-4,0) -- coordinate (x axis mid) (4,0) node[anchor=west]{$x_1$};
+\draw[->] (0,-4) -- coordinate (y axis mid) (0,4) node[anchor=south]{$x_2$};
 \draw[] (0,0) circle (3);
 \draw[->] (0,0)--(2.82,1.1) node[anchor=west] {$\ul{u} = \colvec{2}{\cos\theta}{\sin\theta}$};
 \draw[->] (0,0)--(1.55,2.6)node[anchor=south west] {$\ul{v} = \colvec{2}{\cos\varphi}{\sin\varphi}$};
@@ -342,10 +343,12 @@ Let us consider $\uv = \colvec{2}{3}{4}. \langle \uv,\uv\rangle = 3\cdot 3+4\cdo
 \begin{tikzpicture}[scale=0.5]
 \draw[<->] (-4,-2) -- coordinate (x axis mid) (4,-2) node[anchor=west]{$x_1$};
 \draw[<->] (-2,-4) -- coordinate (y axis mid) (-2,4) node[anchor=south]{$x_2$};
-\draw[->](-2,-2)--(1,2) node[anchor=west]{$\uv = \colvec{2}{3}{4}$};
+\draw[->](-2,-2)--(1,2) node[anchor=west,yshift=0.15cm]{$\uv = \colvec{2}{3}{4}$};
 \draw[dashed](1,-2)--(1,2);
-\draw (1,0) node[anchor=west]{4};
-\draw (-0.5,-2) node[anchor=north]{3};
+\draw [decorate,decoration={brace,amplitude=10pt,mirror,raise=0pt},yshift=0pt]
+(1,-2) -- (1,2) node [anchor=west,black,midway,xshift=0.3cm] {4};
+\draw [decorate,decoration={brace,amplitude=10pt,mirror,raise=0pt},yshift=0pt]
+(-2,-2) -- (1,-2) node [anchor=north,black,midway,yshift=-0.3cm] {3};
 \end{tikzpicture}
 \end{center}
 \end{example}
