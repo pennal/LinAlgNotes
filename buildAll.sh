@@ -50,12 +50,14 @@ rm mainRender.*
 # create a copy of the main
 cp main.tex mainRender.tex
 # Substitute the version
-# DO NOT REMOVE THIS CHECK: During the build on the RPi the command for Mac OS X is different
-# From the one needed by the RPi
-if [[ $(whoami) == "pi" ]]; then 
-	sed -i s/Unknown/0.1."$currentVer"/g mainRender.tex
-else
+# DO NOT REMOVE THIS CHECK: Command used on OSX fails on anything else. 
+# This checks which one to use. Taken from http://stackoverflow.com/questions/10736923/detect-os-from-bash-script-and-notify-user
+if [[ $(echo "$OSTYPE") == darwin* ]]; then 
+	# Running script on Mac
 	sed -i '' s/Unknown/0.1."$currentVer"/g mainRender.tex
+else
+	# Running script on anything else
+	sed -i s/Unknown/0.1."$currentVer"/g mainRender.tex
 fi
 	
 
