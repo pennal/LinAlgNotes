@@ -16,14 +16,14 @@ In order to get the material, there are two ways:
 
 * Get a .zip file, containing all of the notes, as well as the source files. 
   1. Download the .zip archive [here](https://github.com/pennal/LinAlgNotes/archive/master.zip)
-  2. Unzip it, you will find a folder named "Analysis-Notes-master", open it
+  2. Unzip it, you will find a folder named "LinAlgNotes-master", open it
   3. Open the "PDFs" Folder
   4. There are two files you have to pay attention to:
       * Notes.pdf: All of the notes from the course.
 	  * Definitions.pdf: Contains only the definitions. 
 * Typeset (Build) it yourself from source. Take a look at the [Typeset](#Typeset) section
 
-New PDFs are generated on a daily basis, around 2 AM. If any changes are made during the day, you will have to generate the PDFs manually (See the [Typeset](#Typeset) section)
+When changes are detected, new PDFs are generated during the night. If any changes are made during the day, you will have to generate the PDFs manually (See the [Typeset](#Typeset) section)
 
 
 <a name="Contributing"></a>
@@ -39,14 +39,14 @@ Since these documents are still a very early version, they might contain a few (
         * Message: Issue found, plus the eventual correction(s)
         * Tag: Add a tag that best classifies the issue, or ignore
     3. Post the issue, it will be corrected ASAP.
-* If you want to fiy it yourself:
+* If you want to fix it yourself:
     1. First, check if someone has posted the same issue. If yes, mention it in your merge request (point 5.)
     2. Fork the repo. Help [here](https://help.github.com/articles/fork-a-repo)
     3. Make the changes, and commit them to your forked repo. Make sure to add detailed comments explaining what you changed!
     4. Pull changes from the original branch. If there are major conflicts when you request a merge, your changes will NOT be merged. Make sure you are always up to date with the original branch.
     5. Once you are done, request a Merge. Help [here](https://help.github.com/articles/using-pull-requests)
 
-I will not take into consideration emails containing corrections. Please use the "Issues" tab so I can keep track of every change.
+I will not take into consideration emails or messages containing corrections. Please use the "Issues" tab so I can keep track of every change.
 
 
 <a name="Typeset"></a>
