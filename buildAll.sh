@@ -3,7 +3,10 @@ compileFile() {
     for i in {1..3}; do 
         pdflatex --shell-escape "$1"; 
     done
-    rm *.aux *.log *.out; 
+    # Get the absolute path for the main file
+    pathToFile=${1%.*}
+    # Remove leftover piping errors to null
+    (rm "$pathToFile.aux" "$pathToFile.log" "$pathToFile.out" "$pathToFile.bbl" "$pathToFile.blg") 2> /dev/null;
 }
 
 mkdir -p PDFs
