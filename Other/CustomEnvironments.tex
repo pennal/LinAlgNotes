@@ -59,5 +59,7 @@
 
 
 
-
-
+% http://tex.stackexchange.com/questions/102460/underbraces-in-matrix-divided-in-blocks
+\newcommand\undermat[2]{%
+  \makebox[0pt][l]{$\smash{\underbrace{\phantom{%
+    \begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}

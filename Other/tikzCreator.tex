@@ -1,36 +1,42 @@
 % THIS DOCUMENT IS A SIMPLE "PLAY AROUND" FILE, MEANING IT IS USED TO DESIGN THE TIKZ DRAWINGS
 % WHICH ARE THEN COPIED INTO THE MAIN DOCUMENT. NO NEED TO WORRY FOR THE CHANGES IN HERE
-\documentclass[]{article}
+\documentclass[]{standalone}
 \input{packages.tex}
 \input{CustomEnvironments.tex}
 
 
 \begin{document}
 \begin{tikzpicture}
-\node [] (0) at (0, 0) {};
-\node [] (1) at (0, 4) {};
-\node [] (2) at (4, 0) {};
-\node [] (3) at (-2, -3) {};
-\node [] (4) at (2, 2) {};
-\node [] (5) at (2, 0) {};
-\node [] (6) at (-1, -1.5) {};
-\node [] (7) at (1, -1.5) {};
-\node [] (8) at (-1, 0.5) {};
-\node [] (9) at (0, 2) {};
-\node [] (10) at (1, 0.5) {};
-\draw [->] (0.center) to (1.center) node[anchor=south]{$x_2$};
-\draw [->] (0.center) to (2.center) node[anchor=west]{$x_1$};
-\draw [->] (0.center) to (3.center) node[anchor=north east]{$x_3$};
-\draw [dashed] (6.center) to (7.center);
-\draw [dashed] (7.center) to (5.center);
-\draw [dashed] (5.center) to (4.center);
-\draw [dashed] (4.center) to (9.center);
-\draw [dashed] (9.center) to (8.center);
-\draw [dashed] (8.center) to (6.center);
-\draw [dashed] (8.center) to (10.center);
-\draw [dashed] (10.center) to (4.center);
-\draw [dashed] (10.center) to (7.center);
-\draw[fill=black](10.center) circle (0.1);
+\draw[->] (-0.25,0.25) --(2.25,-2.25) node[anchor=north]{$+$};
+\draw[->] (0.75,0.25) --(3.25,-2.25) node[anchor=north]{$+$};
+\draw[->] (1.75,0.25) --(4.25,-2.25) node[anchor=north]{$+$};
+
+\draw[->] (2.25,0.25) --(-0.25,-2.25) node[anchor=north]{$-$};
+\draw[->] (3.25,0.25) --(0.75,-2.25) node[anchor=north]{$-$};
+\draw[->] (4.25,0.25) --(1.75,-2.25) node[anchor=north]{$-$};
+\draw (0,0) node {$a_{11}$};
+\draw (1,0) node {$a_{12}$};
+\draw (2,0) node {$a_{13}$};
+
+\draw (0,-1) node {$a_{21}$};
+\draw (1,-1) node {$a_{22}$};
+\draw (2,-1) node {$a_{23}$};
+
+\draw (0,-2) node {$a_{31}$};
+\draw (1,-2) node {$a_{32}$};
+\draw (2,-2) node {$a_{33}$};
+
+\draw (3,0) node {$a_{11}$};
+\draw (4,0) node {$a_{12}$};
+
+\draw (3,-1) node {$a_{21}$};
+\draw (4,-1) node {$a_{22}$};
+
+\draw (3,-2) node {$a_{31}$};
+\draw (4,-2) node {$a_{32}$};
+
+\draw[dashed](2.5,0.25)--(2.5,-2.25);
+
 \end{tikzpicture}
 
 
