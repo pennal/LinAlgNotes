@@ -1,0 +1,112 @@
+\chapter{Determinant}
+Let us consider matrix $A\in\R^{n,n}$, a square matrix. The determinant of $A$ is a number, usually written as $\det(A)$ or $\abs{A}$. Let us consider 
+\begin{align*}
+A &= \begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix}\\
+\det(A) &= ad-bc\\
+A^{-1} &= \frac{1}{ad-bc	}\cdot \begin{pmatrix}
+d & -b\\
+-c & a
+\end{pmatrix} \Rightarrow \text{ Inverse of $A$}
+\end{align*}
+
+In order for $A^{-1}$ to exist, $\det(A)$ should not be equal to 0. If $\det(A)=0$, then $A^{-1}$ does not exist, and $A$ is not invertible. $A$ is a triangular matrix
+\begin{align*}
+A^{-1} &= \begin{pmatrix}
+\frac{d}{ad-bc} & -\frac{b}{ad-bc}\\
+-\frac{c}{ad-bc} & \frac{a}{ad-bc}
+\end{pmatrix}\\
+\det(A^{-1}) &= \frac{d}{ad-bc}\cdot\frac{a}{ad-bc}-\frac{-b}{ad-bc}\cdot \frac{-c}{ad-bc}\\
+ &= \frac{da-bc}{(ad-bc)^2} = \frac{1}{ad-bc} = \frac{1}{\det(A)}
+\end{align*}
+Consider 
+\[
+A^\ast = \begin{pmatrix}
+a & b\\
+a & b
+\end{pmatrix}
+\]
+Then $\det(A^\ast) = ab-ab = 0$. Let us now consider 
+\[
+A' = \begin{pmatrix}
+c & d \\
+a & b
+\end{pmatrix}
+\]
+where the rows are switched. Then
+\[
+\det(A') = cb-ad = -\det(A)
+\]
+\begin{properties}
+The following properties are true for any $n\times n$ matrix.
+\begin{enumerate}
+\item Determinant of $I\in\R^{n,n}$ (identity matrix) is equal to 1
+\item If 2 rows of matrix $A\in\R^{n,n}$ are exchanged, the determinant changes its sign
+\item The determinant is a linear function of each row, all other rows stay the same
+\item If $A\in\R^{n,n}$ has at least 2 equal rows, then $\det(A)=0$ (i.e. 2 or more equal rows)
+\item If we add a multiple of one row to another row, the determinant does not change. 
+\item 
+\end{enumerate}
+	
+\end{properties}
+
+\begin{example}
+\begin{enumerate}
+\item[P2] Permutation matrix $P$ - identity matrix with rows exchanged
+\begin{itemize}
+\item If rows are exchanged an odd number of times, then $\det(P)=-1$
+\item If rows are exchanged an even number of times, then $\det(P)=1$
+\end{itemize}
+\item[P3]
+\begin{itemize}
+\item \[
+\abs{\begin{matrix}
+ta & tb\\
+c & d
+\end{matrix}} = t\abs{\begin{matrix}
+a & b\\
+c & d
+\end{matrix}}
+\]
+\item \[
+\abs{\begin{matrix}
+a & b\\
+c & d
+\end{matrix}} = \abs{\begin{matrix}
+a & 0\\
+c & d
+\end{matrix}} + \abs{\begin{matrix}
+0 & b\\
+c & d
+\end{matrix}}
+\]
+
+\end{itemize}
+
+\end{enumerate}
+	
+\end{example}
+
+\begin{proof}
+\begin{enumerate}
+\item[P4] Let us assume that rows $i$ and $j$ are equal we can exchange these rows. The resulting matrix $A'$ is in fact equal to $A$. But due to P2
+\begin{align*}
+\det(A') &= -\det(A)\\
+A' = A &\Rightarrow \det(A')=\det(A)\\
+\Rightarrow \det(A) &= -\det(A) = 0
+\end{align*}
+\item[P5]\[A=\begin{pmatrix}
+\text{row }1\\
+\vdots\\
+\text{row }n
+\end{pmatrix}
+\]
+\[
+\abs{\begin{matrix}{\text{row }1\to}\\{\text{row }i\to}\\{\text{row }j+2\text{row }i\to}\\{\text{row }n\to}\end{matrix}} \mathop=\limits^{P3}\abs{\begin{matrix}{\text{row }1\to}\\{\text{row }i\to}\\{\text{row }j\to}\\{\text{row }n\to}\end{matrix}} + 2\abs{\begin{matrix}{\text{row }1\to}\\{\text{row }i\to}\\{\text{row }i\to}\\{\text{row }n\to}\end{matrix}}=\det(A)
+\]
+
+\end{enumerate}
+\end{proof}
+
