@@ -1,0 +1,74 @@
+\chapter{Linear Mappings}
+\begin{definition}
+A mapping $L:\R^m\to\R^n$ is said to be a linear mapping if for any $\uv,\vv\in\R^n$ and any scalar $\alpha$
+\begin{align*}
+L(\uv+\vv) &= L(\uv)+L(\vv)\\
+L(\alpha\uv)&= \alpha L(\uv)
+\end{align*}
+for any matrix $A\in\R^{m,n}$ we can associate with it a linear mapping $L_A$ as
+\[
+\forall\uv\in\R^m\hspace{5mm}L_A(\uv)=A\uv
+\]
+In principle, any linear mapping is completely defined by its values on the basis vectors
+\end{definition}
+\begin{example}
+Let us consider $L:\R^2\to\R^2$	and basis in $\R^2$
+\[
+\ul{b}_1 = \colvec{2}{1}{1},\ul{b}_2 = \colvec{2}{-1}{2}
+\]
+what will be $L\colvec{2}{1}{4}$?\\
+
+Since $\ul{b}_1$ and $\ul{b}_2$ from basis in our space, $\colvec{2}{1}{4}$ can be represented as a linear combination of basis vectors
+\[
+\colvec{2}{1}{4} = \alpha_1\colvec{2}{1}{1} + \alpha_2\colvec{2}{-1}{2}
+\]
+we can find $\alpha_1$ and $\alpha_2$ ($\alpha_1=2$ and $\alpha_2=1$). Then 
+\begin{align*}
+L\colvec{2}{1}{4} &= L\left( 2\colvec{2}{1}{1}+1\colvec{2}{-1}{2} \right)\\
+&= 2L\colvec{2}{1}{1}+L\colvec{2}{-1}{2}\\
+&= 2\colvec{2}{7}{3}+\colvec{2}{10}{1}\\
+&= \colvec{2}{14}{7}
+\end{align*}
+\end{example}
+
+For any linear mapping, we can associate with it a matrix.
+\begin{proof}
+Consider the linear mapping $L:\R^m\to\R^n$. Consider also the standard basis
+\[
+E_1=\colvec{5}{1}{0}{0}{\vdots}{0},E_2=\colvec{5}{0}{1}{0}{\vdots}{0},\dots,E_n=\colvec{5}{0}{0}{0}{\vdots}{1}
+\]
+Let us denote by
+\[
+A_1=L(E_1),A_2=L(E_2),\dots,A_m=L(E_m)\in\R^n
+\]
+If we consider arbitrary vector $x\in\R^m$, then
+\[
+\ul{x}= = x_1E_1 + \dots + x_mE_m
+\]
+and also
+\begin{align*}
+L(\ul{x}) &= L(x_1E_1 + \dots + x_mE_m)\\
+&= x_1L(E_1)+\dots+x_mL(E_m)\\
+&= x_1A_1+\dots+x_mA_m\\
+&= A\ul{x}
+\end{align*}
+where $A$ is a matrix whose columns are $A_1,A_2,\dots,A_m$. We found matrix $A$ associated with the linear mapping $L$. 
+\end{proof}
+
+\begin{example}
+Consider linear mapping 
+\[
+L\colvec{3}{x_1}{x_2}{x_3} = \colvec{2}{x_1}{x_2} -\text{ projection from $\R^3$ to $\R^2$}
+\]	
+\end{example}
+
+We consider
+
+\begin{align*}
+L(E_1) &= L\colvec{3}{1}{0}{0} = \colvec{2}{1}{0} = A_1\\
+L(E_2) &= L\colvec{3}{0}{1}{0} = \colvec{2}{0}{1} = A_2\\
+\end{align*}
+
+
+
+

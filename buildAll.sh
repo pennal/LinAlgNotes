@@ -23,8 +23,9 @@ rm definitions.*
 
 echo -e "\documentclass[a4paper]{book}
 
-\input{../Other/packages.tex}\n
+\input{../Other/packages.tex}
 \input{../Other/CustomEnvironments.tex}
+\input{../Other/layoutSetup.tex}
 
 \\\begin{document}
 " > definitions.tex
