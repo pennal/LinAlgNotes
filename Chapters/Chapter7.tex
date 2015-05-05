@@ -129,7 +129,136 @@ L\colvec{3}{1}{0}{0} = \begin{pmatrix}
 0 & 3 & -7
 \end{pmatrix}\colvec{3}{1}{0}{0} = \colvec{3}{1}{1}{0} = 1\cdot b_1 + 1\cdot b_2+0\cdot b_3
 \]
-	
 \end{example}
+
+\section{Change of Basis}
+Let us first look at how coordinates of vectors change when we change the basis. Assume we have a vector space $V$. Let us also assume we have basis of $V$, $b_1,b_2,\dots,b_n$ and another basis $d_1,d_2,\dots,d_n$.\\
+
+ Consider $\vv\in V$. Let $\colvec{3}{u_1}{\vdots}{u_n}$ be the coordinates of vector $\vv$ with respect to basis $b_1,b_2,\dots,b_n$ and $\colvec{3}{w_1}{\vdots}{w_n}$ be the coordinates of $\vv$ with respect to basis $d_1,d_2,\dots,d_n$.
+
+\begin{align*}
+\uv &= \uv_1\ul{b}_1+\dots +\uv_n\ul{b}_n = (u_1,\dots,u_n)\cdot\colvec{3}{b_1}{\vdots}{b_n} = \colvec{3}{u_1}{\vdots}{u_n}^T\colvec{3}{b_1}{\vdots}{b_n}\\
+\vv &= \wv_1\ul{d}_1+\dots +\wv_n\ul{d}_n = (w_1,\dots,w_n)\cdot\colvec{3}{d_1}{\vdots}{d_n} = \colvec{3}{w_1}{\vdots}{w_n}^T\colvec{3}{d_1}{\vdots}{d_n}\\
+\end{align*}
+Since $\ul{b}_1,\dots,\ul{b}_n$ is a basis we can express each vector in a new basis $\ul{d}_1,\dots,\ul{d}_n$ in terms of $\ul{b}_1,\dots,\ul{b}_n$
+\begin{align*}
+d_1 &= S_{11}\ul{b}_1+S_{12}\ul{b}_2+\dots +S_{1n}\ul{b}_n\\
+&\hspace{2mm}\vdots \\
+d_n &= S_{n1}\ul{b}_1+S_{n2}\ul{b}_2+\dots +S_{nn}\ul{b}_n\\
+\colvec{3}{\ul{d}_1}{\vdots}{\ul{d}_n} &= S\colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n}\\
+\colvec{3}{\uv_1}{\vdots}{\uv_1}^T\colvec{3}{\ul{b}_1}{\dots}{\ul{b}_n} &= \colvec{3}{w_1}{\vdots}{w_n}^T\colvec{3}{\ul{d}_1}{\vdots}{\ul{d}_n} = \colvec{3}{\ul{w}_1}{\vdots}{\ul{w}_n}^TS\colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n}\\
+\colvec{3}{\ul{u}_1}{\dots}{\ul{u}_n}^T &= \colvec{3}{\ul{w}_1}{\dots}{\ul{w}_n}^TS \mathop\Rightarrow\limits^{\hspace{4mm}(AB)^T=B^TA^T} \underbrace{\colvec{3}{u_1}{\vdots}{u_n}}_{N1} = \underbrace{S^T}_{N2}\underbrace{\colvec{3}{w_1}{\vdots}{w_n}}_{N3}
+\end{align*}
+\begin{itemize}
+\item $N1$: Coordinates of $v$ in old basis $b_1,\dots,b_n$
+\item Matrix $S$ describes $d_1,\dots,d_n$ with respect to basis $b_1,\dots,b_n$
+\item Coordinates of $\vv$ in new basis $d_1,\dots,d_n$
+\end{itemize}
+
+\begin{lemma}
+$S^T$ is invertible (i.e. $(S^T)^{-1}$ exists). We expressed $\colvec{3}{u_1}{\vdots}{u_n}$ as $S^T\colvec{3}{w_1}{\vdots}{w_n}$. We could do the same procedure, but exchanging $b_1,\dots,b_n$ with $d_1,\dots,d_n$ and we would arrive to 
+\[
+\colvec{3}{w_1}{\vdots}{w_n} = R^T\colvec{3}{u_1}{\vdots}{u_n}
+\]
+Now we have
+\[
+\begin{rcases*}
+\wv = R^T\uv = R^TS^Tw\Rightarrow R^TS^T=I\\
+\uv = S^T\wv = S^TR^T\uv\Rightarrow S^TR^T=I
+\end{rcases*}\text{By def. of inverse }R^T=(S^T)^{-1}
+\]
+it means that $\wv = (S^T)^{-1}\uv$
+\end{lemma}
+\todo[inline]{Might be a title?}
+How matrices associated with linear mappings change when we change the basis\\
+
+Consider the linear mapping $L:V\to V$. Assume that $L$ is represented by matrix $A$ in basis $b_1,\dots,b_n$ and by matrix $A'$ in basis $d_1,\dots,d_n$. Consider Vector $\vv\in V$. Then in basis $b_1,\dots,b_n$
+\[
+L(\uv) = A\colvec{3}{u_1}{\vdots}{u_n}
+\]
+In basis $d_1,\dots,d_n$
+\[
+L(\uv) = A'\colvec{3}{w_1}{\vdots}{w_n}
+\]
+\[
+A\colvec{3}{u_1}{\vdots}{u_n} = S^TAA\colvec{3}{w_1}{\vdots}{w_n}\Rightarrow AS^T\colvec{3}{w_1}{\vdots}{w_n} = S^TA'\colvec{3}{w_1}{\vdots}{w_n}
+\]
+Since $\wv$ is an ordinary vector
+\[
+\Rightarrow AS^T = S^TA\Rightarrow \underbrace{A'}_{N1} = (S^T)^{-1}\underbrace{A}_{N2}S^T
+\]
+\begin{itemize}
+	\item $N1$: Matrix in new basis $d_1,\dots,d_n$
+\item $N2$: Matrix in old basis $b_1,\dots,b_n$
+\end{itemize}
+The matrix associated with linear mappings changes as $A'=(S^T)^{-1}AS^T$ when we change from basis $b_1,\dots,b_n$ to $d_1,\dots,d_n$
+\[
+\colvec{3}{d_1}{\vdots}{d_n} = S\colvec{3}{b_1}{\vdots}{b_n}
+\]
+
+\begin{definition}
+Assume that $N\in\R^{n,n}$, $N^{-1}$ exists. $A'=N^{-1}AN$ is called similarity transfromation
+\end{definition}
+\begin{definition}
+Matrices $A'$ and $A$ are called similar matrices, if $\exists N$ such that 
+\[
+A'=N^{-1}AN
+\]
+\end{definition}
+
+\begin{example}
+Assume that linear mapping $L$ is represented with matrix 
+\[
+A = \begin{pmatrix}
+1 & 4\\
+2 & 3
+\end{pmatrix}
+\]	
+with respect to basis 
+\[
+b_1 = \colvec{2}{1}{0}, b_2 = \colvec{2}{0}{1}
+\]
+Consider the new basis 
+\[
+d_1 = \colvec{2}{1}{1}, d_2 = \colvec{2}{1}{-\frac{1}{2}}
+\]
+How is $L$ represented with respect to the new basis?
+\[
+\begin{cases}
+d_1 = 1\cdot b_1 + 1\cdot b_2\\
+d_2 = 1\cdot b_1 - \frac{1}{2}\cdot b_2
+\end{cases}
+\]
+\begin{align*}
+\Rightarrow S &= \begin{pmatrix}
+1 & 1\\
+1 & -\frac{1}{2}
+\end{pmatrix} \Rightarrow S^T =\begin{pmatrix}
+1 & 1\\
+1 & -\frac{1}{2}
+\end{pmatrix}\\
+(S^T)^{-1} &= -\frac{2}{3}\begin{pmatrix}
+-\frac{1}{2} & -1\\
+-1 & 1
+\end{pmatrix}\\
+A' &=  (S^T)^{-1} A S^T = -\frac{2}{3}\begin{pmatrix}
+-\frac{1}{2} & -1\\
+-1 & 1
+\end{pmatrix}\begin{pmatrix}
+1 & 4\\
+2 & 3
+\end{pmatrix}\begin{pmatrix}
+1 & 1\\
+1 & -\frac{1}{2}
+\end{pmatrix}\\
+&= \begin{pmatrix}
+5 & 0\\
+0 & -1
+\end{pmatrix}
+\end{align*}
+In the new basis, our linear mapping is represented in a very simple way.
+
+\end{example}
+
 
 
