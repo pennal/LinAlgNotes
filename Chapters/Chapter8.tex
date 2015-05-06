@@ -1,5 +1,99 @@
 \chapter{Eigenvalues and Eigenvectors}
 Consider a vector space $V$ and a linear mapping $A:V\to V$
 \begin{definition}
-A vector $\vv\in V$, $\vv\not=0$ is called an eigenvector of $A$, of there exists scalar $\lambda$, such that $A\vv = \lambda\vv$. This scalar $\lambda$ is called an eigenvalue, corresponding to eigenvector $\vv$
+A vector $\vv\in V$, $\vv\not=0$ is called an eigenvector of $A$, of there exists scalar $\lambda$, such that $A\vv = \lambda\vv$. This scalar $\lambda$ is called an eigenvalue, corresponding to eigenvector $\vv$.\\
+
+Sometimes, eigenvectors are called characetristic vectors, and eigenvalues are called characteristic values. 
 \end{definition}
+
+\begin{example}
+Consider
+\[
+A\in\R^{n,n} = \begin{pmatrix}
+a_{11} & \dots & 0\\
+\vdots & \ddots & \vdots\\
+0 & \dots & a_{nn}
+\end{pmatrix}
+\]	
+Then 
+\[
+E_i = \colvec{3}{0}{\vdots}{0}-i
+\]
+is an eigenvector with eigenvalue $a_{ii}$, because
+\[
+AE_i = a_{ii}E_i
+\]
+\end{example}
+\begin{lemma}
+Consider $A:V\to V$ and $\vv\not=0$. An eigenvector with $\lambda$ - eigenvalue. Then, for any scalar $\alpha\not=0$, $(\alpha\lambda)$ is also an eigenvector with the same eigenvalue $\lambda$
+\end{lemma}
+\begin{proof}
+\begin{align*}
+A\vv &= \lambda\vv\\
+A(\alpha\vv)&=\alpha(\lambda\vv) = \lambda(\alpha\vv)
+\end{align*}
+\end{proof}
+
+\begin{theorem}
+Consider the linear mapping $A:V\to V$ and eigenvalue $\lambda$. Assume that there exists $v_1,\dots,v_n$ eigenvectors corresponding to the eigenvalue. THen any vector from the span of $v_1,\dots,v_n$ (any linear combination of $v_m,\dots,v_m$) is also an eigenvector of $A$, with the same eigenvalue $\lambda$
+\end{theorem}
+
+\begin{proof}
+Take any linear combination of $v_1,\dots,v_m$
+\begin{align*}
+&\alpha_1 v_1 + \dots + \alpha_m v_m\\
+& A(\alpha_1 v_1 + \dots + \alpha_m v_m) = \alpha_1 A v_1 + \dots + \alpha_m A v_m\\
+=& \alpha_1 \lambda v_1 + \dots + \alpha_m \lambda v_m = \lambda ( \alpha_1 v_1 + \dots + \alpha_m v_m)\\
+\Rightarrow & \alpha_1 v_1 + \dots + \alpha_m v_m \Rightarrow \text{ is indeed an eigenvector with eigenvalue }\lambda
+\end{align*}
+\end{proof}
+
+\begin{remark}
+It means that the span of $v_1,\dots,v_m$ forms a subspace in $V$ and any non - zero vector from this subspace is an eigenvector of $A$ with eigenvalue $\lambda$\\
+
+This subspace is called an eigenspace of $A$ with eigenvalue $\lambda$	
+\end{remark}
+
+\begin{theorem}
+Consider $A:V\to V$ - linear mapping. Assume that there exists eigenvectors $v_1,\dots,v_m$ with corresponding eigenvalues $\lambda_1,\dots,\lambda_m$. Let us also assume that all eigenvalues are distinct, $\lambda_i \not=\lambda_j$ for $i\not= j$. Then $v_1,\dots,v_m$ are linearly independent
+\end{theorem}
+
+\begin{proof}
+By induction on $m$.
+\begin{itemize}
+\item $m = 1$: \\
+$v_i$ - eigenvector, $\lambda_1$ - eigenvalue. By definition, $v_1\not=0$, therefore $v_1$ is linearly independent. 
+
+\item $m>1$:\\
+Assume that the theorem holds for any $n-1$ eigenvector and eigenvalue. Let us assume $v_1,\dots,v_m$ are linearly dependent. 
+\[
+\alpha_1 v_1 + \dots + \alpha_m v_m\hspace{5mm}(\ast)
+\]
+Let us multiply $(\ast)$ by $\lambda_m$:
+\[
+\alpha_1 \lambda_m v_1 + \dots + \alpha_m \lambda_m v_m = 0
+\]
+let us apply $A$ to $(\ast)$:
+\begin{align*}
+A(\alpha_1 v_1 + \dots + \alpha_m v_m) &= \alpha_1 A v_1 + \dots + \alpha_m A v_m\\
+&= \alpha_1 \lambda_1 v_1 + \dots + \alpha_m\lambda_m v_m = 0
+\end{align*}
+Subtract $1^{st}$ from $2^{nd}$:
+\[
+\alpha_1(\lambda_1 - \lambda_m)v_1+\dots+\alpha_{m-1}(\lambda_{m-1} - \lambda_{m-1})v_{m-1} = 0
+\]
+(There are ${m-1}$ eigenvectors)
+\begin{enumerate}
+\item[$\Rightarrow$] They are linearly independent by the induction hypothesis
+\item[$\Rightarrow$] $\alpha_1 \underbrace{(\lambda_1-\lambda_m)}_{\not=0} = 0, \dots,\alpha_{m-1} \underbrace{(\lambda_{m-1}-\lambda_m)}_{\not=0} = 0$\\
+
+Since $\lambda_i\not=\lambda_j\Rightarrow \alpha_1=0,\dots,\alpha_{m-1} = 0$ and then from $(\ast)\Rightarrow\alpha_m = 0$, since $\vv_m \not=0$
+\item[$\Rightarrow$] $v_1,\dots,v_m$ are linearly independent 
+\end{enumerate}
+\end{itemize}
+\end{proof}
+
+\begin{remark}
+If $A:V\to V$ is a linear mapping and $V$ is a $n-$ dimensional space. If we have $v_1,\dots,v_n$	 eigenvectors of $A$ with all distinct $\lambda_1,\dots,\lambda_n$, then $v_1,\dots,v_n$ from a basis of $V$.
+\end{remark}
+
