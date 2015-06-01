@@ -1,0 +1,52 @@
+\chapter{Change of Basis}
+Old basis $\ul{b}_1,\dots,\ul{b}_n$, new basis $\ul{d}_1,\dots,\ul{d}_n$
+\[
+\colvec{3}{\ul{d}_1}{\vdots}{\ul{d}_n} = S\colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n}
+\]
+If $\vv$ are the coordinates of a vector in the old basis $b_1,\dots,b_n$. $v'=\left( S^T\right)^{-1}\vv$ are the coordinates of the same vector in the new basis. If $A$ is a matrix in the old basis, $A' = \left( S^T\right)^{-1}AS^T$ is the same matrix in the new basis. 
+\begin{theorem}
+The characteristic polynomial of $\left( S^T\right)^{-1}AS^T$ is the same as of $A$
+\end{theorem}
+\begin{proof}
+\begin{align*}
+\det\left( tI-\left( S^T \right)^{-1}AS^T \right) &= \det\left( t\left( S^T \right)^{-1}IS^T-\left( S^T \right)^{-1}AS^T \right)\\
+&=\det\left( \left(S^T\right)^{-1} \right)\det\left( tI-A \right)\det\left( S^T \right)\\
+&= \det\left( tI-A \right)\\
+\Rightarrow & \det\left( B^{-1} \right)\cdot \det\left( B \right) = 1,\text{ if $B^{-1}$ exists}
+\end{align*}
+\end{proof}
+It means that the eigenvalues do not change when we change the basis. Let us assume $A\vv = \lambda\vv$:
+\[
+\underbrace{\left( S^T \right)^{-1}AS^T}_{A'}\cdot \underbrace{\left( S^T \right)^{-1}\vv}_{v'} = \left( S^T \right)^{-1}A\vv = \left( S^T \right)^{-1}\lambda v = \lambda\underbrace{\left( S^T \right)^{-1}v}_{v'}
+\]
+
+$A'v' = \lambda v'-$ in the new basis it means that the eigenvectors of linear mapping do not change, when we change the basis, only coordinates change.
+\begin{definition}
+A sot of all eigenvalues of matrix $A\in\R^{n,n}$ is called spectrum of $A$
+\end{definition}
+Let us consider $A\in\R^{n,n}$. Let us assume that $A$ has $\lambda_1,\dots,\lambda_n$ eigenvalues and linearly independent eigenvectors $\ul{s}_1,\dots,\ul{s}_n$.\\
+
+If we consider $\ul{b}_1,\dots,\ul{b}_n$ (old basis) to be a standard basis $\ul{E}_1,\dots,\ul{E}_n$ and $\ul{s}_1,\dots,\ul{s}_n$ as a new basis. Then
+\[
+\colvec{3}{\ul{s}_1}{\vdots}{\ul{s}_n} = S\colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n}, S = \colvec{3}{-s_1^t\to}{\vdots}{-s_n^t\to}
+\]
+$A$ in the new basis, $A'=\left( S^T\right)^{-1} A S^T$
+\begin{align*}
+A\ul{s}_1 &= \lambda_1\ul{s}_1, A\ul{s}_2 = \lambda_2\ul{s}_2,\dots,A\ul{s}_n = \lambda_n\ul{s}_n\\
+A\begin{pmatrix}
+| & {} & |\\
+s_1 & \dots & s_n\\
+\downarrow & {} & \downarrow
+\end{pmatrix} &= \underbrace{\begin{pmatrix}
+\lambda_1 & {} & 0\\
+{} & \ddots & {}\\
+0 & {} & \lambda_n
+\end{pmatrix}}_{\Lambda - \text{ diagonal matrix}}\begin{pmatrix}
+| & {} & |\\
+s_1 & \dots & s_n\\
+\downarrow & {} & \downarrow
+\end{pmatrix}\\
+AS^T &=\Lambda S^T\hspace{3mm}\left( \text{multiply by $\left( S^T\right)^{-1}$ from the left} \right)\\
+\underbrace{\left( S^T\right)^{-1}AS^T}_{A'} &= \Lambda
+\end{align*}
+If there exists $n$ linearly independent eigenvectors of $A$, the $A$ can be brought to a diagonal by changing the basis.

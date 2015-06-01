@@ -148,10 +148,176 @@ Consider $A\in\R^{n,n}$. $\lambda$ is an eigenvalue of $A$ iff $\lambda$ is a ro
 \end{theorem}
 \begin{proof}
 \begin{enumerate}
-\item[$\Rightarrow$:] $\lambda$ is an eigenvalue of $A$. Then from previous theorem $(\lambda I -A) $ is non invertible. 
+\item[$\Rightarrow$:] $\lambda$ is an eigenvalue of $A$. Then from previous theorem $(\lambda I -A) $ is non invertible. \\ $\det(\lambda I - A) = 0$ but $ \det(\lambda I - A) = p_a(t=\lambda)\Rightarrow\lambda$ is a root of $p_a(t)$
+\item[$\Leftarrow$:] if $\lambda$ is a root of $p_a(t)$, then $p_a(\lambda ) = \det(\lambda I - A) = 0$\\ $\lambda I - A$ is not invertible, from previous theorem. $\lambda$ is an eigenvalue.
 \end{enumerate}
-
 \end{proof}
+\begin{example}
+Consider 
+\[
+A = \begin{matrix}
+1 & 4\\
+2 & 3
+\end{matrix}
+\]	
+find the Eigenvalues and Eigenvectors. 
+\begin{align*}
+p_a(t) = \det(tI-A) = \left|\begin{matrix}
+t-1 & -4\\
+-2 & t-3
+\end{matrix}
+ \right| &= (t-1)(t-3)-8\\
+&= t^2-4t-5\\
+&= (t+1)(t-5) 
+\end{align*}
+The two roots of $p_a(t)$ are $\lambda_1 = -1, \lambda_2 = 5$, which are also the eigenvalues. We can now find the eigenvector for $\lambda_1 = -1$:
+\begin{align*}
+\begin{pmatrix}
+1 & 4\\
+2 & 3
+\end{pmatrix}\begin{pmatrix}
+v_1\\
+v_2
+\end{pmatrix} = -1\cdot\begin{pmatrix}
+v_1\\
+v_2
+\end{pmatrix} \Rightarrow &\begin{cases}
+v_1 + 4v_2 = -v_1\\
+2v_1 + 3v_2 = -v_2
+\end{cases}\\
+\Rightarrow &\begin{cases}
+2v_1 + 4v_2 = 0\\
+2v_1 + 4v_2 = 0
+\end{cases}\\
+\Rightarrow &\begin{cases}
+v_1 + 2v_2 = 0\\
+0 = 0
+\end{cases}\\
+\Rightarrow & v_1 = 1, v_2 = -\frac{1}{2}\\
+\Rightarrow &\text{ Eigenvector is }\colvec{2}{1}{-\frac{1}{2}}
+\end{align*}
+and the eigenvector for $\lambda_2 = 5$:
+\begin{align*}
+\begin{pmatrix}
+1 & 4\\
+2 & 3
+\end{pmatrix}\begin{pmatrix}
+v_1\\
+v_2
+\end{pmatrix} = 5\cdot\begin{pmatrix}
+v_1\\
+v_2
+\end{pmatrix} \Rightarrow &\begin{cases}
+-4v_1 + 4v_2 = 0\\
+2v_1 -2v_2 = 0
+\end{cases}\\
+\Rightarrow &\begin{cases}
+-v_1 + v_2 = 0\\
+0 = 0
+\end{cases}\\
+\Rightarrow & v_1 = 1, v_2 = 1\\
+\Rightarrow &\text{ Eigenvector is }\colvec{2}{1}{1}
+\end{align*}
+\end{example}
+
+\begin{example}
+Consider
+\[
+A = \begin{pmatrix}
+2 & 1 & 0\\
+0 & 1 & -1\\
+0 & 2 & 4	
+\end{pmatrix}
+\]	What are the eigenvalues and eigenvectors?
+\[
+p_a(t) = \det(tI-A) = \left| \begin{matrix}
+t-2 & -1 & 0\\
+0 & t-1 & 1\\
+0 & -2 & t-4
+\end{matrix}
+\right| = (t-2)^2(t-3)
+\]
+Then the eigenvalues are $\lambda_1 = 3,\lambda_2 = 2,\lambda_3 = 2$. Eigenvector for $\lambda_1 = 3$:
+\begin{align*}
+A\ul{x} = \lambda_1 \ul{x}\Rightarrow &\begin{cases}
+2x_1+x_2 = 3x_1\\
+x_2-x_3 = 3x_2\\
+2x_2+4x_3 = 3x_3
+\end{cases}\\
+\Rightarrow &\begin{cases}
+-x_1+x_2 = 0\\
+-2x_2-x_3=0\\
+2x_2+x_3=0
+\end{cases}\\
+\Rightarrow &\begin{cases}
+-x_1+x_2=0\\
+2x_2+x_3=0\\
+0 = 0
+\end{cases}\\
+\Rightarrow &\text{ Let us choose }x_1 = 1, \text{ then }x_2 = 1,x_3 = -2\\
+\Rightarrow &\colvec{3}{1}{1}{-2}
+\end{align*}
+Eigenvector for $\lambda_{2,3} = 2$:
+\begin{align*}
+A\ul{x} = 2 \ul{x}\Rightarrow &\begin{cases}
+2x_1+x_2 = 2x_1\\
+x_2-x_3 = 2x_2\\
+2x_2+4x_3 = 2x_3
+\end{cases}\\
+\Rightarrow &\begin{cases}
+x_2 = 0\\
+-x_2-x_3=0\\
+2x_2+2x_3=0
+\end{cases}\\
+\Rightarrow &\begin{cases}
+x_2=0\\
+x_3=0\\
+0 = 0
+\end{cases}\\
+\Rightarrow &\text{ We can choose }x_1 = 1, \text{ then }x_2 = 0,x_3 = 0\\
+\Rightarrow &\colvec{3}{1}{0}{0}
+\end{align*}
+\end{example}
+\begin{example}
+Consider
+\[
+A = \begin{pmatrix}
+3 & 0 & 0\\
+0 & 2 & 0\\
+0 & 0 & 2	
+\end{pmatrix}
+\]	
+What are the eigenvalues and eigenvectors?
+\[
+p_a(t) = \det(tI-A) = \left| \begin{matrix}
+t-3 & 0 & 0\\
+0 & t-2 & 0\\
+0 & 0 & t-2
+\end{matrix}
+\right| = (t-2)^2(t-3)
+\]
+Then the eigenvalues are $\lambda_1 = 3,\lambda_2 = 2,\lambda_3 = 2$. Eigenvector for $\lambda_{2,3} = 2$:
+\[
+A\ul{x} = 2\ul{x}\Rightarrow \begin{cases}
+3x_1 = 2x_1\\
+2x_2 = 2x_2\\
+2x_3 = 2x_3
+\end{cases}\Rightarrow \begin{cases}
+x_1 = 0\\
+0 = 0\\
+0 = 0
+\end{cases}
+\]
+We have three equations, one variable is determined ($x_1=0$) and we have two independent variables ($x_2,x_3$) which we can choose arbitrarily. Therefore:
+\begin{align*}
+x_2 =1,x_3 = 0\Rightarrow &\colvec{3}{0}{1}{0}\\
+x_2 =0,x_3 = 1\Rightarrow &\colvec{3}{0}{0}{1}\\
+\end{align*}
+We can get two linearly independent eigenvectors. Each eigenvalue can have 0 or 1 corresponding eigenvectors. $k-$eigenvalues$\to k$ corresponding eigenvectors at most. 
+
+\end{example}
+
+
 
 
 
