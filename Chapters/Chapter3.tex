@@ -13,20 +13,20 @@ A = \begin{pmatrix}
 \]	
 We can write this as a system of equations:
 \[
-\begin{cases}
+\begin{rightalignedcases}
 2x_1 + 4x_2-2x_3 = 2\\
 4x_1 +9x_2 -3x_3 = 8\\
 -2x_1 -3x_2 7x_3 = 10\\	
-\end{cases}
+\end{rightalignedcases}
 \]
 We can multiply equation 1 by $-\frac{a_{21}}{a_{11}}= -\frac{4}{2} = -2$, and add to equation 2. This is equivalent to multiplying $A\ul{x} = \ul{b}$ by $E_{21}\left( -\frac{a_{21}}{a_{11}}\right)$ on the left. 
 
 \begin{align*}
-\begin{cases}
+\begin{rightalignedcases}
 2x_1 + 4x_2-2x_3 = 2\\
 4x_1 +9x_2 -3x_3 = 8\\
 -2x_1 -3x_2 7x_3 = 10\\	
-\end{cases}
+\end{rightalignedcases}
 \Leftrightarrow E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\times A\ul{x} &= E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\ul{b}\\
 E_{21}\left( -\frac{a_{21}}{a_{11}}\right) &= \begin{pmatrix}
 1 & 0 & 0\\
@@ -35,11 +35,11 @@ E_{21}\left( -\frac{a_{21}}{a_{11}}\right) &= \begin{pmatrix}
 \end{pmatrix}
 \end{align*}
 \[
-\begin{cases}
+\begin{rightalignedcases}
 2x_1 + 4x_2-2x_3 = 2\\
 x_2+x_3= 4\\
 x_2+5x_3=12\\	
-\end{cases}
+\end{rightalignedcases}
 \]
 \begin{align*}
 \Leftrightarrow E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\times A\ul{x} &= E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\ul{b}\\
@@ -51,11 +51,11 @@ E_{31}\left( -\frac{a_{31}}{a_{11}}\right) &= \begin{pmatrix}
 \end{align*}
 We are done with the first column. Let us denote the resulting matrix by $A^{(1)}$
 \[
-\begin{cases}
+\begin{rightalignedcases}
 2x_1 + 4x_2-2x_3 = 2\\
 x_2+x_3= 4\\
 4x_3 = 8\\	
-\end{cases}
+\end{rightalignedcases}
 \]
 \begin{align*}
 \Leftrightarrow &E_{32}\left( -\frac{a_{32}^{(1)}}{a_{22}^{(1)}}\right)E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\times \underbrace{A\ul{x}}_{\ul{b}}\\
@@ -85,31 +85,31 @@ A\ul{x} = \ul{b} \Rightarrow LU\ul{x} = \ul{b}
 
 Let us denote $U\ul{x}$ by $\ul{y}$, then we get
 \[
-\begin{cases}
+\begin{rightalignedcases}
 l\ul{y} = \ul{b} & \text{Solve by forward substitution, find $\ul{y}$}\\
 U\ul{x} = \ul{y} & \text{Solve by backward substitution}\\
-\end{cases}
+\end{rightalignedcases}
 \]
 \begin{remark}
 Gaussian elimination works if all elements $a_{11},a_{22}^{(1)},a_{33}^{(2)},\dots, ,a_{ii}^{(i-1)}$ are non-zero! These elements are called \underline{PIVOT} elements.
 \end{remark}
 \begin{example}
 \begin{align*}
-&\begin{cases}
+&\begin{rightalignedcases}
 2x_1 + 4x_2 - 2x_3 = 2\\
 4x_1 + 8x_2 - 3x_3 = 6\\
 -2x_1 -3x_2 + 7x_3 = 10\\
-\end{cases} \Leftrightarrow A\ul{x} = \ul{b}\\
-&\begin{cases}
+\end{rightalignedcases} \Leftrightarrow A\ul{x} = \ul{b}\\
+&\begin{rightalignedcases}
 2x_1 + 4x_2 - 2x_3 = 2\\
 x_3 = 2\\
 -2x_1 -3x_2 +7x_3 = 10\\
-\end{cases}\Leftrightarrow E_{21}\left( -\frac{a_{21}}{a_{11}}\right) A\ul{x} = E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\\
-&\begin{cases}
+\end{rightalignedcases}\Leftrightarrow E_{21}\left( -\frac{a_{21}}{a_{11}}\right) A\ul{x} = E_{21}\left( -\frac{a_{21}}{a_{11}}\right)\\
+&\begin{rightalignedcases}
 2x_1 + 4x_2 - 2x_3 = 2\\
 x_3 = 2\\
 x_2 + 5x_3 = 12\\
-\end{cases}\Leftrightarrow E_{31}\left( -\frac{a_{31}}{a_{11}}\right)  A\ul{x} = E_{31}\left( -\frac{a_{31}}{a_{11}}\right) E_{21}\left( -\frac{a_{21}}{a_{11}}\right) \ul{b}\\
+\end{rightalignedcases}\Leftrightarrow E_{31}\left( -\frac{a_{31}}{a_{11}}\right)  A\ul{x} = E_{31}\left( -\frac{a_{31}}{a_{11}}\right) E_{21}\left( -\frac{a_{21}}{a_{11}}\right) \ul{b}\\
 \end{align*}
 We denote the resulting matrix by $A^{(1)}$. In order to proceed we need $a_{22}^{(1)} \not=0$. Let us consider matrix $P_{pq}$-matrix, which you get from identity matrix by exchanging rows $p$ and $q$. It is easy to show that $P_{pq}\cdot A$ is equal to matrix $A$ with rows $p$ and $q$ exchanged. 
 \begin{definition}
@@ -121,11 +121,11 @@ $P^{-1} = P$. The product of permutation on matrices is a permutation matrix.
 
 We want to exchange rows 2 and 3. We need to multiply by the permutation matrix $P_{23}$
 \[
-\begin{cases}
+\begin{rightalignedcases}
 2x_1 + 4x_2 -2x_3 = 2\\
 x_2 + 5x_3 = 12\\
 x_3 = 2
-\end{cases}
+\end{rightalignedcases}
 \]
 \begin{align*}
 \Leftrightarrow &P_{23}\cdot E_{31}\left( -\frac{a_{31}}{a_{11}}\right)E_{21}\left( -\frac{a_{21}}{a_{11}}\right)A\ul{x} \\

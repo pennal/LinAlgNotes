@@ -124,10 +124,10 @@ A product of a scalar $\alpha$ and a matrix $A\in\R^{n,m}$ is defined as $\left(
 \begin{proof}
 \begin{enumerate}
 \item \[
-\begin{cases}
+\begin{rightalignedcases}
 \left( A+B \right)_{ij} = A_{ij}+B_{ij}\\
 \left( B+A \right)_{ij} = B_{ij}+A_{ij}
-\end{cases}
+\end{rightalignedcases}
 \]
 
 \end{enumerate}
@@ -256,11 +256,11 @@ Let us consider $A\in\R^{n,n}$. Let us consider that $B\in\R^{n,n}$ and $C\in\R^
 \section{Linear system of equations}
 Let us consider the following system of equations
 \[
-\begin{cases}
+\begin{rightalignedcases}
 2x_1+2x_2+4x_3 = 2\\
 x_2+2x_3 = 3\\
 4x_3 = -1
-\end{cases}
+\end{rightalignedcases}
 \]
 Find $x_1,x_2,x_3$. We can write this system in matrix form.
 \[
@@ -435,10 +435,10 @@ A \cdot I_{21} = \begin{pmatrix}
 \begin{definition}
 We can define the elementary transition matrix $I_{pq}\in\R^{n,n}$
 \[
-\left( I_{pq}\right) = \begin{cases}
+\left( I_{pq}\right) = \begin{rightalignedcases}
 1 & i=p,q=j\\
 0 & \text{otherwise}
-\end{cases}
+\end{rightalignedcases}
 \]
 If we take a matrix $A\in\R^{n,n}$ then when calculating $I_{pq}$ we take row $q$ of $A$, put it into row $p$, replace everything else with 0.\\
 

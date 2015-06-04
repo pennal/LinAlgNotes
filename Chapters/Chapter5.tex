@@ -173,16 +173,16 @@ A = \begin{pmatrix}
 \]	
 What is $N(A)$? We should find all solutions of $A\ul{x} = \ul{0}$, this will give us $N(A)$.
 \[
-\begin{cases}
+\begin{rightalignedcases}
 x_1 + 3x_2 = 0\\
 2x_1+6x_2 = 0
-\end{cases} \to\begin{cases}
+\end{rightalignedcases} \to\begin{rightalignedcases}
 x_1+3x_2=0\\
 0 = 0
-\end{cases}\to\begin{cases}
+\end{rightalignedcases}\to\begin{rightalignedcases}
 x_1=-3x_2\\
 0 = 0
-\end{cases}\]
+\end{rightalignedcases}\]
 The nullspace of this matrix will be a line formed by a linear combination of the vector $\colvec{2}{-3}{1}$ ($\alpha\cdot\colvec{2}{-3}{1}$, for all possible $\alpha$), or in other words it will be the $span(\colvec{2}{-3}{1})$.
 \[
 x_1 = -3x_2 = -3\alpha,x_2=\alpha\to\alpha\colvec{2}{-3}{1},\alpha\colvec{2}{-6}{2}
@@ -426,13 +426,13 @@ R(A) = \text{span}\left\{ \colvec{2}{1}{-2},\colvec{2}{-1}{2}\right\} = \text{sp
 \]
 Null space: $\dim N(A) = 2-1 = 1$
 \[
-A\ul{x} = 0\Rightarrow \begin{cases}
+A\ul{x} = 0\Rightarrow \begin{rightalignedcases}
 x_1-2x_2 = 0\\
 -x_1+2x_2 = 0\\
-\end{cases} \Rightarrow\begin{cases}
+\end{rightalignedcases} \Rightarrow\begin{rightalignedcases}
 x_1-2x_2 = 0\\
 0 = 0\\
-\end{cases}\Rightarrow x_1 = 2x_2\text{ (Line)}
+\end{rightalignedcases}\Rightarrow x_1 = 2x_2\text{ (Line)}
 \]
 Column space: $\dim C(A) = \dim R(A) = \perp$
 \[
@@ -461,10 +461,10 @@ Vectors $\ul{q}_1,\dots,\ul{q}_m$ are orthogonal if:
 \begin{definition}
 Vectors $\ul{q}_1,\dots,\ul{q}_m$ are orthonormal if:
 \[
-\langle \ul{q}_i,\ul{q}_j\rangle = \ul{q}_i^T\ul{q}_j=\begin{cases}
+\langle \ul{q}_i,\ul{q}_j\rangle = \ul{q}_i^T\ul{q}_j=\begin{rightalignedcases}
 0 & \text{if }i\not=j\\
 1 & \text{if }i=j\\
-\end{cases}
+\end{rightalignedcases}
 \]
 \end{definition}
 If the columns of the matrix are orthonormal vectors, then this matrix is usually denoted by $Q$, In this case, we have $Q^TQ=I$. If $Q$ is not a square matrix then $QQ^T$ is not necessarily $I$.

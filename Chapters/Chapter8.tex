@@ -181,18 +181,18 @@ v_2
 \end{pmatrix} = -1\cdot\begin{pmatrix}
 v_1\\
 v_2
-\end{pmatrix} \Rightarrow &\begin{cases}
+\end{pmatrix} \Rightarrow &\begin{rightalignedcases}
 v_1 + 4v_2 = -v_1\\
 2v_1 + 3v_2 = -v_2
-\end{cases}\\
-\Rightarrow &\begin{cases}
+\end{rightalignedcases}\\
+\Rightarrow &\begin{rightalignedcases}
 2v_1 + 4v_2 = 0\\
 2v_1 + 4v_2 = 0
-\end{cases}\\
-\Rightarrow &\begin{cases}
+\end{rightalignedcases}\\
+\Rightarrow &\begin{rightalignedcases}
 v_1 + 2v_2 = 0\\
 0 = 0
-\end{cases}\\
+\end{rightalignedcases}\\
 \Rightarrow & v_1 = 1, v_2 = -\frac{1}{2}\\
 \Rightarrow &\text{ Eigenvector is }\colvec{2}{1}{-\frac{1}{2}}
 \end{align*}
@@ -207,14 +207,14 @@ v_2
 \end{pmatrix} = 5\cdot\begin{pmatrix}
 v_1\\
 v_2
-\end{pmatrix} \Rightarrow &\begin{cases}
+\end{pmatrix} \Rightarrow &\begin{rightalignedcases}
 -4v_1 + 4v_2 = 0\\
 2v_1 -2v_2 = 0
-\end{cases}\\
-\Rightarrow &\begin{cases}
+\end{rightalignedcases}\\
+\Rightarrow &\begin{rightalignedcases}
 -v_1 + v_2 = 0\\
 0 = 0
-\end{cases}\\
+\end{rightalignedcases}\\
 \Rightarrow & v_1 = 1, v_2 = 1\\
 \Rightarrow &\text{ Eigenvector is }\colvec{2}{1}{1}
 \end{align*}
@@ -239,41 +239,41 @@ t-2 & -1 & 0\\
 \]
 Then the eigenvalues are $\lambda_1 = 3,\lambda_2 = 2,\lambda_3 = 2$. Eigenvector for $\lambda_1 = 3$:
 \begin{align*}
-A\ul{x} = \lambda_1 \ul{x}\Rightarrow &\begin{cases}
+A\ul{x} = \lambda_1 \ul{x}\Rightarrow &\begin{rightalignedcases}
 2x_1+x_2 = 3x_1\\
 x_2-x_3 = 3x_2\\
 2x_2+4x_3 = 3x_3
-\end{cases}\\
-\Rightarrow &\begin{cases}
+\end{rightalignedcases}\\
+\Rightarrow &\begin{rightalignedcases}
 -x_1+x_2 = 0\\
 -2x_2-x_3=0\\
 2x_2+x_3=0
-\end{cases}\\
-\Rightarrow &\begin{cases}
+\end{rightalignedcases}\\
+\Rightarrow &\begin{rightalignedcases}
 -x_1+x_2=0\\
 2x_2+x_3=0\\
 0 = 0
-\end{cases}\\
+\end{rightalignedcases}\\
 \Rightarrow &\text{ Let us choose }x_1 = 1, \text{ then }x_2 = 1,x_3 = -2\\
 \Rightarrow &\colvec{3}{1}{1}{-2}
 \end{align*}
 Eigenvector for $\lambda_{2,3} = 2$:
 \begin{align*}
-A\ul{x} = 2 \ul{x}\Rightarrow &\begin{cases}
+A\ul{x} = 2 \ul{x}\Rightarrow &\begin{rightalignedcases}
 2x_1+x_2 = 2x_1\\
 x_2-x_3 = 2x_2\\
 2x_2+4x_3 = 2x_3
-\end{cases}\\
-\Rightarrow &\begin{cases}
+\end{rightalignedcases}\\
+\Rightarrow &\begin{rightalignedcases}
 x_2 = 0\\
 -x_2-x_3=0\\
 2x_2+2x_3=0
-\end{cases}\\
-\Rightarrow &\begin{cases}
+\end{rightalignedcases}\\
+\Rightarrow &\begin{rightalignedcases}
 x_2=0\\
 x_3=0\\
 0 = 0
-\end{cases}\\
+\end{rightalignedcases}\\
 \Rightarrow &\text{ We can choose }x_1 = 1, \text{ then }x_2 = 0,x_3 = 0\\
 \Rightarrow &\colvec{3}{1}{0}{0}
 \end{align*}
@@ -298,15 +298,15 @@ t-3 & 0 & 0\\
 \]
 Then the eigenvalues are $\lambda_1 = 3,\lambda_2 = 2,\lambda_3 = 2$. Eigenvector for $\lambda_{2,3} = 2$:
 \[
-A\ul{x} = 2\ul{x}\Rightarrow \begin{cases}
+A\ul{x} = 2\ul{x}\Rightarrow \begin{rightalignedcases}
 3x_1 = 2x_1\\
 2x_2 = 2x_2\\
 2x_3 = 2x_3
-\end{cases}\Rightarrow \begin{cases}
+\end{rightalignedcases}\Rightarrow \begin{rightalignedcases}
 x_1 = 0\\
 0 = 0\\
 0 = 0
-\end{cases}
+\end{rightalignedcases}
 \]
 We have three equations, one variable is determined ($x_1=0$) and we have two independent variables ($x_2,x_3$) which we can choose arbitrarily. Therefore:
 \begin{align*}

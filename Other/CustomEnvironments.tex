@@ -63,3 +63,10 @@
 \newcommand\undermat[2]{%
   \makebox[0pt][l]{$\smash{\underbrace{\phantom{%
     \begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+
+
+% Defining a new cases env, with right alignment
+\makeatletter
+\newcases{rightalignedcases}{\quad}{%
+  \hfil$\m@th\displaystyle{##}$}{$\m@th\displaystyle{##}$\hfil}{\lbrace}{.}
+\makeatother
