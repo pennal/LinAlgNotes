@@ -76,15 +76,18 @@ Then $\det(A)=a_{11}\cdot \dots\cdot a_{nn}$
 \end{itemize}
 \item[P3]
 \begin{itemize}
-\item \[
-\abs{\begin{matrix}
+\item 
+If we multiply a row, say the top row, by a number $t$ we get that:
+$$\left(\begin{matrix}ta & tb\\c & d\end{matrix}\right)$$
+which has determinant of $tad - tbc = t(ad - bd)$. So, multiplying a row by $t$ multiplies the determinant by $t$, or visually:
+$$\left|\begin{matrix}
 ta & tb\\
 c & d
-\end{matrix}} = t\abs{\begin{matrix}
+\end{matrix}\right| = t\left|\begin{matrix}
 a & b\\
 c & d
-\end{matrix}}
-\]
+\end{matrix}\right|
+$$
 \item \[
 \abs{\begin{matrix}
 a & b\\
@@ -137,8 +140,11 @@ A' = A &\Rightarrow \det(A')=\det(A)\\
 \end{pmatrix}
 \]
 \[
-\abs{\begin{matrix}{\text{row }1\to}\\{\text{row }i\to}\\{\text{row }j+2\text{row }i\to}\\{\text{row }n\to}\end{matrix}} \mathop=\limits^{P3}\abs{\begin{matrix}{\text{row }1\to}\\{\text{row }i\to}\\{\text{row }j\to}\\{\text{row }n\to}\end{matrix}} + 2\abs{\begin{matrix}{\text{row }1\to}\\{\text{row }i\to}\\{\text{row }i\to}\\{\text{row }n\to}\end{matrix}}=\det(A)
+\abs{\begin{matrix}{\text{row }1\to}\\{\text{row }i\to}\\{\text{row }j+2\text{row }i\to}\\{\text{row }n\to}\end{matrix}} \mathop=\limits^{P3}\abs{\begin{matrix}{\text{row }1\to}\\{\text{row }i\to}\\{\text{row }j\to}\\{\text{row }n\to}\end{matrix}} + 2\abs{\begin{matrix}{\text{row }1\to}\\{\text{row }i\to}\\{\text{row }i\to}\\{\text{row }n\to}\end{matrix} }=\det(A)
 \]
+
+Note that $2\left| \begin{matrix}{\text{row }1\to}\\{\text{row }i\to}\\{\text{row }i\to}\\{\text{row }n\to}\end{matrix}\right| = 0$, because of property 4.
+
 Remark: Our standard row operation in gaussian elimination do not change the determinant. The only exception is the exchange of rows.
 \item[P6] Add any other row to the zero row and get  a matrix with 2 equal rows. From P4 $\Rightarrow \det(A)=0$
 \item[P7] Let us first assume that all $a_{ii}$ are not equal to zeroes, $\forall i=1,\dots,n$. Then by adding rows, we an bring the matrix to the diagonal form. Then we will set matrix
@@ -169,7 +175,7 @@ If $a_{ii}$ is equal to zero, we can use all other diagonal elements that are no
 Remark: When we use the gaussian elimination, we bring the matrix to an upper triangular form. At the end we have pivot elements on the diagonal. If all pivot elements are non-zero elements, the determinant is not equal to zero since it is a product of pivot elements. \\
 
 If some elements on the diagonal are zero, then the matrix determinant is equal to zero, the matrix does not have an inverse, the matrix is singular.
-\item[P8] We use gaussian elimination if all pivot elements are non-zero (non-singular matrix) then $\det(A)\not=0$. Otherwise $\det(A)=0$.
+\item[P8] We use gaussian elimination to reduce our matrix to an upper triangular matrix. If all pivot elements are non-zero (non-singular matrix), then $\det(A)\not=0$, according to property 7. Otherwise $\det(A)=0$.
 \item[P9] 
 \begin{align*}
 \det(A\cdot A^{-1})&=\det(I)=1\\
