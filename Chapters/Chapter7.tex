@@ -1,127 +1,140 @@
 \chapter{Linear Mappings}
 \begin{definition}
-A mapping $L:\R^m\to\R^n$ is said to be a linear mapping if for any $\uv,\vv\in\R^n$ and any scalar $\alpha$
+A mapping $L:\R^m\to\R^n$ is said to be a \textit{linear mapping} (or linear transformation or linear map) if for any $\uv,\vv\in\R^m$ and any scalar $\alpha$
 \begin{align*}
-L(\uv+\vv) &= L(\uv)+L(\vv)\\
+L(\uv+\vv) &= L(\uv)+L(\vv) \\
 L(\alpha\uv)&= \alpha L(\uv)
 \end{align*}
-for any matrix $A\in\R^{m,n}$ we can associate with it a linear mapping $L_A$ as
+For any matrix $A\in\R^{m,n}$ we can associate with it a linear mapping $L_A$ as
 \[
-\forall\uv\in\R^m\hspace{5mm}L_A(\uv)=A\uv
+L_A(\uv)=A\uv \hspace{10mm} \forall\uv\in\R^n
 \]
-In principle, any linear mapping is completely defined by its values on the basis vectors
+where $L_A$ is a linear mapping from $\R^n$ to $\R^m$.\\ \\
+In principle, any linear mapping is completely defined by its values on the basis vectors.
 \end{definition}
-\begin{example}
-Let us consider $L:\R^2\to\R^2$	and basis in $\R^2$
-\[
-\ul{b}_1 = \colvec{2}{1}{1},\ul{b}_2 = \colvec{2}{-1}{2}
-\]
-what will be $L\colvec{2}{1}{4}$?\\
 
-Since $\ul{b}_1$ and $\ul{b}_2$ from basis in our space, $\colvec{2}{1}{4}$ can be represented as a linear combination of basis vectors
+\begin{example}
+Let us consider the linear mapping $L:\R^2\to\R^2$ and basis in $\R^2$ consisting of the following vectors:
+\[
+\ul{b}_1 = \colvec{2}{1}{1},\hspace{3mm}\ul{b}_2 = \colvec{2}{-1}{2}
+\]
+Lets assume that $$L\colvec{2}{1}{1} = \colvec{2}{7}{3}$$ and $$L\colvec{2}{-1}{2} = \colvec{2}{0}{1}$$
+How do we find $L\colvec{2}{1}{4}$?\\
+
+Since $\ul{b}_1$ and $\ul{b}_2$ form a basis for $\R^2$, the vector $\colvec{2}{1}{4}$ can be represented as a linear combination of basis vectors:
 \[
 \colvec{2}{1}{4} = \alpha_1\colvec{2}{1}{1} + \alpha_2\colvec{2}{-1}{2}
 \]
-we can find $\alpha_1$ and $\alpha_2$ ($\alpha_1=2$ and $\alpha_2=1$). Then 
+We first find $\alpha_1$ and $\alpha_2$, in this case we have found $\alpha_1=2$ and $\alpha_2=1$.\\ \\
+Then, using the first condition to be a linear mapping $$L(\uv+\vv) = L(\uv)+L(\vv)$$ we know that:
 \begin{align*}
 L\colvec{2}{1}{4} &= L\left( 2\colvec{2}{1}{1}+1\colvec{2}{-1}{2} \right)\\
 &= 2L\colvec{2}{1}{1}+L\colvec{2}{-1}{2}\\
-&= 2\colvec{2}{7}{3}+\colvec{2}{10}{1}\\
+&= 2\colvec{2}{7}{3}+\colvec{2}{0}{1}\\
 &= \colvec{2}{14}{7}
 \end{align*}
-\end{example}
-
-For any linear mapping, we can associate with it a matrix.
+\end{example}\\
+For any matrix, we can associate with it a \textit{linear mapping}.\\ \\ 
+For any linear mapping, we can associate with it a matrix (usually called \textit{transformation matrix}).
 \begin{proof}
-Consider the linear mapping $L:\R^m\to\R^n$. Consider also the standard basis
+Consider the linear mapping $L:\R^m\to\R^n$. Consider also the standard basis $B$ consisting of the following vectors $E_i$:
 \[
-E_1=\colvec{5}{1}{0}{0}{\vdots}{0},E_2=\colvec{5}{0}{1}{0}{\vdots}{0},\dots,E_n=\colvec{5}{0}{0}{0}{\vdots}{1}
+E_1=\colvec{5}{1}{0}{0}{\vdots}{0},E_2=\colvec{5}{0}{1}{0}{\vdots}{0},\dots,E_m=\colvec{5}{0}{0}{0}{\vdots}{1}
 \]
+where each vector has $m$ components and, generally, all the components of $E_i$ are zero except for the $i^{th}$ component which is one.\\ \\
 Let us denote by
 \[
 A_1=L(E_1),A_2=L(E_2),\dots,A_m=L(E_m)\in\R^n
 \]
-If we consider arbitrary vector $x\in\R^m$, then
+Now, if we consider arbitrary vector $x\in\R^m$ as a linear combination of the vectors in our basis $B$:
 \[
-\ul{x}= = x_1E_1 + \dots + x_mE_m
-\]
-and also
+\ul{x}= x_1E_1 + \dots + x_mE_m
+\]\\
+Let us use the definition of being a linear mapping:
 \begin{align*}
 L(\ul{x}) &= L(x_1E_1 + \dots + x_mE_m)\\
 &= x_1L(E_1)+\dots+x_mL(E_m)\\
 &= x_1A_1+\dots+x_mA_m\\
-&= A\ul{x}
+L(\ul{x}) &= A\ul{x}
 \end{align*}
-where $A$ is a matrix whose columns are $A_1,A_2,\dots,A_m$. We found matrix $A$ associated with the linear mapping $L$. 
+where $A$ is a matrix whose columns are $A_1,A_2,\dots,A_m$. We found matrix $A$ associated with the linear mapping $L$.\\ Note that $A \in \R^{n, m}$ and $x \in \R^m$. Note also that $L:\R^m\to\R^n$.
 \end{proof}
 
 \begin{example}
-Consider linear mapping 
+Consider the linear mapping:
 \[
 L\colvec{3}{x_1}{x_2}{x_3} = \colvec{2}{x_1}{x_2} -\text{ projection from $\R^3$ to $\R^2$}
 \]	
-\end{example}
-
-We consider
-
+\end{example}\\
+What will be the matrix $A$ associated with $L$? \\ \\
+Let us consider:
 \begin{align*}
-L(E_1) &= L\colvec{3}{1}{0}{0} = \colvec{2}{1}{0} = A_1\\
-L(E_2) &= L\colvec{3}{0}{1}{0} = \colvec{2}{0}{1} = A_2\\
-L(E_3) &= L\colvec{3}{0}{0}{1} = \colvec{2}{0}{0} = A_3\\
+L(E_1) &= L\colvec{3}{1}{0}{0} = \colvec{2}{\textcolor{red}{1}}{\textcolor{red}{0}} = A_1\\
+L(E_2) &= L\colvec{3}{0}{1}{0} = \colvec{2}{\textcolor{green}{0}}{\textcolor{green}{1}} = A_2\\
+L(E_3) &= L\colvec{3}{0}{0}{1} = \colvec{2}{\textcolor{blue}{0}}{\textcolor{blue}{0}} = A_3\\
 \end{align*}
-Then
+Now we can construct our matrix $A$ using the vectors $A_1$, $A_2$ and $A_3$ as the column vectors of the matrix $A$:
 \[
 A = \begin{pmatrix}
-1 & 0 & 0\\
-0 & 1 & 0
+\textcolor{red}{1} & \textcolor{green}{0} & \textcolor{blue}{0}\\
+\textcolor{red}{0} & \textcolor{green}{1} & \textcolor{blue}{0}
 \end{pmatrix}
-\]
-Matrix associated with linear mapping in a particular basis. From now on we will focus primarily on linear mappings $L:V\to V$. Assume $b_1,\dots,b_n$ form basis in space $V$ Then any vector $u\in V$ can be written as 
+\] \\ \\
+$A$ is therefore the matrix associated with the linear mapping $L$ in the particular basis $B$, which in this case is the standard basis for $\R^3$. \\ \\ We can then conclude that $$L(\ul{x}) = A\ul{x}$$ 
+$$L\colvec{3}{x_1}{x_2}{x_3} = \begin{pmatrix}
+\textcolor{red}{1} & \textcolor{green}{0} & \textcolor{blue}{0}\\
+\textcolor{red}{0} & \textcolor{green}{1} & \textcolor{blue}{0}
+\end{pmatrix} \cdot \colvec{3}{x_1}{x_2}{x_3} = \colvec{2}{x_1}{x_2}$$
+\section{Matrix associated with linear mapping in a particular basis}
+From now on we will focus primarily on linear mappings $L:V\to V$ (from a space $V$ to the same space $V$).\\ \\
+Assume $\ul{b}_1,\dots,\ul{b}_n$ form a basis $B$ for the space $V$, then any vector $\ul{u}\in V$ can be written as a linear combination of the vectors in the basis $B$:
 \[
-\uv = u_1b_1+\dots +u_nb_n
-\]
-We can call $\colvec{3}{u_1}{\vdots}{u_n}\in\R^n$, the coordinates of $\uv$ in basis $b_1,\dots,b_n$.\\
-
-Consider linear mapping $L:V\to V$. How does the matrix associated with $L$ look for basis $b_1,\dots,b_n$? Since $b_1,\dots,b_n$ is a basis of $V$, then we can write 
+\uv = u_1\ul{b}_1+\dots +u_n\ul{b}_n
+\] \\
+We can call $\colvec{3}{u_1}{\vdots}{u_n}\in\R^n$, the coordinates of $\uv$ with respect to basis $B$.\\ \\
+Yes, as we will see later, coordinates of a vector can change depending on the basis in which they are represented! \\ \\
+Now, lets consider the same linear mapping $L:V\to V$ and the same basis $B$ seen above.\\ \\ \textit{How does the matrix associated with the linear mapping $L$ look with respect to the basis $B$?}\\ \\
+Since $B$ is a basis for the vector space $V$, then we can write: 
 \begin{align*}
-L(b_1\in V) &= c_{11}b_1+c_{12}b_2+\dots+c_{1n}b_n\\
+L(\ul{b}_1) &= c_{11}\ul{b}_1+c_{12}\ul{b}_2+\dots+c_{1n}\ul{b}_n\\
 &\hspace{2mm}\vdots\\
-L(b_n\in V) &= c_{n1}b_1+c_{n2}b_2+\dots+c_{nn}b_n\\
+L(\ul{b}_n) &= c_{n1}\ul{b}_1+c_{n2}\ul{b}_2+\dots+c_{nn}\ul{b}_n\\
 \end{align*}
-Now if we take an arbitrary vector $\uv\in V$
+which basically means that the transformation $L$ is applied to our basis vectors, and the result is a linear combination of the basis vectors. \\ \\
+Now, if we take an arbitrary vector $\uv\in V$, we can represent it as a linear combination of our basis vectors $\ul{b}_1$, $\ul{b}_2$, ... , $\ul{b}_n$:
 \[
-\uv = u_1b_1+u_2b_2+\dots+u_nb_n = \sum\limits^{n}_{i=1}u_ib_i
+\uv = u_1\ul{b}_1+u_2\ul{b}_2+\dots+u_n\ul{b}_n = \sum\limits^{n}_{i=1}u_i\ul{b}_i
 \]
 then
 \begin{align*}
-L(\uv) &= L\left( \sum\limits^{n}_{i=1}u_ib_i\right) = \sum\limits^{n}_{i=1}u_i L(b_i) = \sum\limits^{n}_{i=1}u_i\sum\limits^{n}_{j=1}c_{ij}b_j\\
-&= \sum\limits^{n}_{i=1}\sum\limits^{n}_{j=1}u_ic_{ij}b_j = \sum\limits^{n}_{j=1}b_j\sum\limits^{n}_{i=1}u_ic_{ij}\\
-&= \sum\limits^{n}_{i=1}c_{i1}u_i\times b_1 + \sum\limits^{n}_{i=1}c_{i2}u_i\times b_2 + \dots + \sum\limits^{n}_{i=1}c_{in}u_i\times b_n
+L(\uv) &= L\left( \sum\limits^{n}_{i=1}u_i\ul{b}_i\right) = \sum\limits^{n}_{i=1}u_i L(\ul{b}_i) = \sum\limits^{n}_{i=1}u_i\sum\limits^{n}_{j=1}c_{ij}\ul{b}_j\\
+&= \sum\limits^{n}_{i=1}\sum\limits^{n}_{j=1}u_ic_{ij}\ul{b}_j = \sum\limits^{n}_{j=1}\ul{b}_j\sum\limits^{n}_{i=1}u_ic_{ij}\\
+&= \sum\limits^{n}_{i=1}c_{i1}u_i\times \ul{b}_1 + \sum\limits^{n}_{i=1}c_{i2}u_i\times \ul{b}_2 + \dots + \sum\limits^{n}_{i=1}c_{in}u_i\times \ul{b}_n
 \end{align*}
 Therefore, we get
 \[
-L(\uv) = \colvec{3}{\sum\limits^{n}_{i=1}c_{i1}u_i}{\vdots}{\sum\limits^{n}_{i=1}c_{in}u_i} = C^Tu
+L(\uv) = \colvec{3}{\sum\limits^{n}_{i=1}c_{i1}u_i}{\vdots}{\sum\limits^{n}_{i=1}c_{in}u_i} = C^T \ul{u}
 \]
-On coordinate vectors our linear mapping is represented by $L(\uv)=C^T\uv$ for a given basis $\ul{b}_1,\dots,\ul{b}_n$
+On coordinate vectors our linear mapping is represented by $L(\uv)=C^T\uv$ for a given basis $\ul{b}_1,\dots,\ul{b}_n$. Note that $C^T$ is the transformation matrix associated with the linear transformation $L$.
 \begin{note}
 For a different basis we will have different coordinates of vectors as well as different associated matrix. 
 \end{note}
 \begin{example}
-Consider $\R^3$ and basis $b_1,b_2,b_3$. Assume
+Consider a linear transformation $L: \R^3 \rightarrow \R^3$ and basis $B$ composed of the following vectors $b_1, b_2, b_3$.\\ \\ Now, assume that:
 \begin{align*}
-L(b_1) &= b_1+b_2\\
-L(b_2) &= 5b_1-b_2+3b_3\\
+L(b_1) &= b_1 + b_2\\
+L(b_2) &= 5\cdot b_1 - b_2 + 3\cdot b_3\\
 L(b_3) &= -b_1+4b_2-7b_3\\
 \end{align*}
-The matrix associated with this linear mapping is
-\[
+The matrix associated with this linear mapping $L$ with respect to the basis $B$ is:
+\[C^T = 
 \begin{pmatrix}
 1 & 5 & -1\\
 1 & -1 & 4\\
 0 & 3 & -7
-\end{pmatrix} = C^T
-\]
-Let us say we have a vector whose coordinated in basis $b_1$, $b_2$ and $b_3$ are $\colvec{3}{1}{0}{0}$
+\end{pmatrix} 
+\] \\ \\
+Now, let us say we have a vector $\ul{u}$ whose coordinates with respect to the basis $B$ are $\colvec{3}{1}{0}{0}$. To obtain $L(\ul{u})$, we can simply multiply $C^T$ by $\ul{u}$:
 \[
 L\colvec{3}{1}{0}{0} = \begin{pmatrix}
 1 & 5 & -1\\
@@ -129,75 +142,78 @@ L\colvec{3}{1}{0}{0} = \begin{pmatrix}
 0 & 3 & -7
 \end{pmatrix}\colvec{3}{1}{0}{0} = \colvec{3}{1}{1}{0} = 1\cdot b_1 + 1\cdot b_2+0\cdot b_3
 \]
+Note that the entries of the vector $\colvec{3}{1}{1}{0}$ represent the coordinates of the transformation of $\ul{u}$, $L(\ul{u})$, with respect to the basis $B$.
 \end{example}
 
 \section{Change of Basis}
-Let us first look at how coordinates of vectors change when we change the basis. Assume we have a vector space $V$. Let us also assume we have basis of $V$, $b_1,b_2,\dots,b_n$ and another basis $d_1,d_2,\dots,d_n$.\\
-
- Consider $\vv\in V$. Let $\colvec{3}{u_1}{\vdots}{u_n}$ be the coordinates of vector $\vv$ with respect to basis $b_1,b_2,\dots,b_n$ and $\colvec{3}{w_1}{\vdots}{w_n}$ be the coordinates of $\vv$ with respect to basis $d_1,d_2,\dots,d_n$.
-
+The matrix representations of linear mappings (transformation matrices) are also determined by the chosen basis. Since it is often desirable to \textit{work with more than one basis} for a vector space, it is of fundamental importance in linear algebra to be able to easily \textit{transform coordinate representations of vectors taken with respect to one basis to their equivalent representations with respect to another basis}. Such a transformation is called a \textit{change of basis} (matrix). \\ \\
+Let us first look at how coordinates of vectors change when we change the basis.\\ \\
+Assume we have a vector space $V$. Let us also assume we have basis $B$ for $V$ consisting of the vectors $\ul{b}_1, \ul{b}_2, \dots , \ul{b}_n$ and another basis $D = \{ \ul{d}_1, \ul{d}_2, \dots, \ul{d}_n \}$.\\ \\
+Consider now a vector $\vv\in V$, and let $\colvec{3}{u_1}{\vdots}{u_n}$ be the coordinates of vector $\vv$ with respect to basis $B$:
+$$\vv = u_1\ul{b}_1 + \dots + u_n\ul{b}_n = (u_1,\dots,u_n)\cdot\colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n} = \colvec{3}{u_1}{\vdots}{u_n}^T\colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n}$$\\
+Note that $\vv$ is here represented as linear combination of the vectors that form the basis $B$, and $u_1, \dots u_2$ are the coordinates relative to the basis $B$ (as we said above).\\ \\
+And let $\colvec{3}{w_1}{\vdots}{w_n}$ be the coordinates of $\vv$ with respect to basis $D$:
+$$\vv = w_1\ul{d}_1 + \dots +w_n\ul{d}_n = (w_1, \dots ,w_n)\cdot\colvec{3}{\ul{d}_1}{\vdots}{\ul{d}_n} = \colvec{3}{w_1}{\vdots}{w_n}^T\colvec{3}{\ul{d}_1}{\vdots}{\ul{d}_n}$$\\ 
+Since $B$ is a basis for $V$, we can express each vector of the basis $D$ in terms of $\ul{b}_1,\dots,\ul{b}_n$:
 \begin{align*}
-\uv &= \uv_1\ul{b}_1+\dots +\uv_n\ul{b}_n = (u_1,\dots,u_n)\cdot\colvec{3}{b_1}{\vdots}{b_n} = \colvec{3}{u_1}{\vdots}{u_n}^T\colvec{3}{b_1}{\vdots}{b_n}\\
-\vv &= \wv_1\ul{d}_1+\dots +\wv_n\ul{d}_n = (w_1,\dots,w_n)\cdot\colvec{3}{d_1}{\vdots}{d_n} = \colvec{3}{w_1}{\vdots}{w_n}^T\colvec{3}{d_1}{\vdots}{d_n}\\
-\end{align*}
-Since $\ul{b}_1,\dots,\ul{b}_n$ is a basis we can express each vector in a new basis $\ul{d}_1,\dots,\ul{d}_n$ in terms of $\ul{b}_1,\dots,\ul{b}_n$
-\begin{align*}
-d_1 &= S_{11}\ul{b}_1+S_{12}\ul{b}_2+\dots +S_{1n}\ul{b}_n\\
+\ul{d}_1 &= S_{11}\ul{b}_1+S_{12}\ul{b}_2+\dots +S_{1n}\ul{b}_n\\
 &\hspace{2mm}\vdots \\
-d_n &= S_{n1}\ul{b}_1+S_{n2}\ul{b}_2+\dots +S_{nn}\ul{b}_n\\
-\colvec{3}{\ul{d}_1}{\vdots}{\ul{d}_n} &= S\colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n}\\
-\colvec{3}{\uv_1}{\vdots}{\uv_1}^T\colvec{3}{\ul{b}_1}{\dots}{\ul{b}_n} &= \colvec{3}{w_1}{\vdots}{w_n}^T\colvec{3}{\ul{d}_1}{\vdots}{\ul{d}_n} = \colvec{3}{\ul{w}_1}{\vdots}{\ul{w}_n}^TS\colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n}\\
-\colvec{3}{\ul{u}_1}{\dots}{\ul{u}_n}^T &= \colvec{3}{\ul{w}_1}{\dots}{\ul{w}_n}^TS \mathop\Rightarrow\limits^{\hspace{4mm}(AB)^T=B^TA^T} \underbrace{\colvec{3}{u_1}{\vdots}{u_n}}_{N1} = \underbrace{S^T}_{N2}\underbrace{\colvec{3}{w_1}{\vdots}{w_n}}_{N3}
+\ul{d}_n &= S_{n1}\ul{b}_1+S_{n2}\ul{b}_2+\dots +S_{nn}\ul{b}_n
 \end{align*}
+Our more compactly: $$\colvec{3}{\ul{d}_1}{\vdots}{\ul{d}_n} = S \colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n}$$
+So $\vv$ can be represented as:
+$$\vv = \colvec{3}{u_1}{\vdots}{u_n}^T \colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n} = \colvec{3}{w_1}{\vdots}{w_n}^T \colvec{3}{\ul{d}_1}{\vdots}{\ul{d}_n} = \colvec{3}{w_1}{\vdots}{w_n}^T S \colvec{3}{\ul{b}_1}{\vdots}{\ul{b}_n}$$
+It follows that:
+$$\colvec{3}{u_1}{\vdots}{u_n}^T = \colvec{3}{w_1}{\vdots}{w_n}^T S$$
+If we take the transpose (remembering that $(AB)^T=B^TA^T$ and $(A^T)^T = A$) of both sides, we obtain:
+$$\underbrace{\colvec{3}{u_1}{\vdots}{u_n}}_{N1} = \underbrace{S^T}_{N2}\underbrace{\colvec{3}{w_1}{\vdots}{w_n}}_{N3}$$ 
 \begin{itemize}
-\item $N1$: Coordinates of $v$ in old basis $b_1,\dots,b_n$
-\item Matrix $S$ describes $d_1,\dots,d_n$ with respect to basis $b_1,\dots,b_n$
-\item Coordinates of $\vv$ in new basis $d_1,\dots,d_n$
+\item $N1$: Coordinates of $\vv$ relative to the basis $B$.
+\item Matrix $S$ describes the vectors $\ul{d}_1, \dots, \ul{d}_n$ with respect to basis $B = \{ \ul{b}_1, \dots, \ul{b}_n\}$.
+\item $N3$: Coordinates of $\vv$ relative to the basis $D$.
 \end{itemize}
 
 \begin{lemma}
-$S^T$ is invertible (i.e. $(S^T)^{-1}$ exists). We expressed $\colvec{3}{u_1}{\vdots}{u_n}$ as $S^T\colvec{3}{w_1}{\vdots}{w_n}$. We could do the same procedure, but exchanging $b_1,\dots,b_n$ with $d_1,\dots,d_n$ and we would arrive to 
+$S^T$ is invertible (i.e. $(S^T)^{-1}$ exists). We expressed $\colvec{3}{u_1}{\vdots}{u_n}$ as $S^T\colvec{3}{w_1}{\vdots}{w_n}$. We could do the same procedure, but exchanging $\ul{b}_1,\dots,\ul{b}_n$ with $\ul{d}_1,\dots,\ul{d}_n$ and we would arrive to:
 \[
 \colvec{3}{w_1}{\vdots}{w_n} = R^T\colvec{3}{u_1}{\vdots}{u_n}
 \]
 Now we have
+$$\uv = \colvec{3}{u_1}{\vdots}{u_n} = S^T \colvec{3}{w_1}{\vdots}{w_n} = S^TR^T\colvec{3}{u_1}{\vdots}{u_n} \Rightarrow S^TR^T= RS=I$$
+and
+$$\wv = \colvec{3}{w_1}{\vdots}{w_n} = R^T \colvec{3}{u_1}{\vdots}{u_n} = R^TS^T\colvec{3}{w_1}{\vdots}{w_n} \Rightarrow R^TS^T = SR =I$$ \\
+It follows that $R^T=(S^T)^{-1}$, so we have found the inverse of $S^T$, which is what we wanted to do. Note also that $R = S^{-1}$. We can also conclude that $\wv = (S^T)^{-1}\uv$.
+\end{lemma} \\ \\
+Now, consider the linear mapping $L:V\to V$. Assume that $L$ is represented by the \textit{transformation matrix} $A$ with respect to the basis $B = \{ \ul{b}_1,\dots, \ul{b}_n \}$ and by transformation matrix $A'$ relative to the basis $D$ formed by the following vectors $\ul{d}_1,\dots, \ul{d}_n$. Consider a vector $\uv\in V$.\\ \\ Then $L(\ul{u})$ is represented with respected to the basis $B$ as:
 \[
-\begin{rcases*}
-\wv = R^T\uv = R^TS^Tw\Rightarrow R^TS^T=I\\
-\uv = S^T\wv = S^TR^T\uv\Rightarrow S^TR^T=I
-\end{rcases*}\text{By def. of inverse }R^T=(S^T)^{-1}
+L_B(\uv) = A\colvec{3}{u_1}{\vdots}{u_n}
 \]
-it means that $\wv = (S^T)^{-1}\uv$
-\end{lemma}
-\todo[inline]{Might be a title?}
-How matrices associated with linear mappings change when we change the basis\\
+And with respect to the basis $D$ as:
+\[
+L_D(\uv) = A'\colvec{3}{w_1}{\vdots}{w_n}
+\]
+We have:
+\[
+A\colvec{3}{u_1}{\vdots}{u_n} = S^TA'\colvec{3}{w_1}{\vdots}{w_n}
+\]\\
+We can now use the fact that $\colvec{3}{u_1}{\vdots}{u_n} = S^T\colvec{3}{w_1}{\vdots}{w_n}$ to conclude:
+$$\Rightarrow AS^T\colvec{3}{w_1}{\vdots}{w_n} = S^TA'\colvec{3}{w_1}{\vdots}{w_n}$$
+Since $\wv = \colvec{3}{w_1}{\vdots}{w_n}$ is an ordinary vector: \\
+$$\Rightarrow AS^T = S^TA$$
+We multiply from the left side by $(S^T)^{-1}$ both sides:
+$$(S^T)^{-1}AS^T = (S^T)^{-1}S^TA'$$
+$$(S^T)^{-1}AS^T = IA'$$
+We know just change the positions:
+$$\underbrace{A'}_{N1} = (S^T)^{-1}\cdot \underbrace{A}_{N2} \cdot S^T$$
 
-Consider the linear mapping $L:V\to V$. Assume that $L$ is represented by matrix $A$ in basis $b_1,\dots,b_n$ and by matrix $A'$ in basis $d_1,\dots,d_n$. Consider Vector $\vv\in V$. Then in basis $b_1,\dots,b_n$
-\[
-L(\uv) = A\colvec{3}{u_1}{\vdots}{u_n}
-\]
-In basis $d_1,\dots,d_n$
-\[
-L(\uv) = A'\colvec{3}{w_1}{\vdots}{w_n}
-\]
-\[
-A\colvec{3}{u_1}{\vdots}{u_n} = S^TAA\colvec{3}{w_1}{\vdots}{w_n}\Rightarrow AS^T\colvec{3}{w_1}{\vdots}{w_n} = S^TA'\colvec{3}{w_1}{\vdots}{w_n}
-\]
-Since $\wv$ is an ordinary vector
-\[
-\Rightarrow AS^T = S^TA\Rightarrow \underbrace{A'}_{N1} = (S^T)^{-1}\underbrace{A}_{N2}S^T
-\]
 \begin{itemize}
-	\item $N1$: Matrix in new basis $d_1,\dots,d_n$
-\item $N2$: Matrix in old basis $b_1,\dots,b_n$
+\item $N1$: Transformation matrix with respect to the basis $\ul{d}_1,\dots,\ul{d}_n$
+\item $N2$: Transformation matrix with respect to the basis $\ul{b}_1,\dots,\ul{b}_n$
 \end{itemize}
-The matrix associated with linear mappings changes as $A'=(S^T)^{-1}AS^T$ when we change from basis $b_1,\dots,b_n$ to $d_1,\dots,d_n$
-\[
-\colvec{3}{d_1}{\vdots}{d_n} = S\colvec{3}{b_1}{\vdots}{b_n}
-\]
+We have just found how the matrix representing a linear mapping changes when we change the basis. In the example above, the transformation matrix changed from $A$ to $A' = (S^T)^{-1}AS^T$, when we changed from the basis $B$ to $D$.\\ \\
 
 \begin{definition}
-Assume that $N\in\R^{n,n}$, $N^{-1}$ exists. $A'=N^{-1}AN$ is called similarity transfromation
+Assume that $N\in\R^{n,n}$, $N^{-1}$ exists. $A'=N^{-1}AN$ is called similarity transformation.
 \end{definition}
 \begin{definition}
 Matrices $A'$ and $A$ are called similar matrices, if $\exists N$ such that 
@@ -214,34 +230,39 @@ A = \begin{pmatrix}
 2 & 3
 \end{pmatrix}
 \]	
-with respect to basis 
+With respect to basis $B$:
 \[
-b_1 = \colvec{2}{1}{0}, b_2 = \colvec{2}{0}{1}
+B = \left\{\ul{b}_1 = \colvec{2}{1}{0}, \hspace{2mm} \ul{b}_2 = \colvec{2}{0}{1}\right\}
 \]
-Consider the new basis 
+Now, consider a new basis $D$:
 \[
-d_1 = \colvec{2}{1}{1}, d_2 = \colvec{2}{1}{-\frac{1}{2}}
+D = \left\{ \ul{d}_1 = \colvec{2}{1}{1}, \hspace{2mm} \ul{d}_2 = \colvec{2}{1}{-\frac{1}{2}} \right\}
 \]
-How is $L$ represented with respect to the new basis?
+\textit{How is $L$ represented with respect to the basis $D$, or in other words what is the transformation matrix with respect to $D$?}\\ \\
+We first represent the vectors in the basis $D$ as a linear combination of the vectors in the basis $B$:
 \[
 \begin{rightalignedcases}
 d_1 = 1\cdot b_1 + 1\cdot b_2\\
 d_2 = 1\cdot b_1 - \frac{1}{2}\cdot b_2
 \end{rightalignedcases}
 \]
-\begin{align*}
-\Rightarrow S &= \begin{pmatrix}
+Then we need to find $S$, $S^T$ and $(S^T)^{-1}$:
+
+$$\Rightarrow S = \begin{pmatrix}
 1 & 1\\
 1 & -\frac{1}{2}
 \end{pmatrix} \Rightarrow S^T =\begin{pmatrix}
 1 & 1\\
 1 & -\frac{1}{2}
 \end{pmatrix}\\
-(S^T)^{-1} &= -\frac{2}{3}\begin{pmatrix}
+\Rightarrow (S^T)^{-1} = -\frac{2}{3}\begin{pmatrix}
 -\frac{1}{2} & -1\\
 -1 & 1
-\end{pmatrix}\\
-A' &=  (S^T)^{-1} A S^T = -\frac{2}{3}\begin{pmatrix}
+\end{pmatrix}
+$$
+Then we can find the transformation matrix $A'$ with respect to the new basis $D$ as follows:
+$$
+A' =  (S^T)^{-1} A S^T = -\frac{2}{3}\begin{pmatrix}
 -\frac{1}{2} & -1\\
 -1 & 1
 \end{pmatrix}\begin{pmatrix}
@@ -251,14 +272,10 @@ A' &=  (S^T)^{-1} A S^T = -\frac{2}{3}\begin{pmatrix}
 1 & 1\\
 1 & -\frac{1}{2}
 \end{pmatrix}\\
-&= \begin{pmatrix}
+= \begin{pmatrix}
 5 & 0\\
 0 & -1
 \end{pmatrix}
-\end{align*}
-In the new basis, our linear mapping is represented in a very simple way.
-
+$$
+Note that, in the new basis $D$, our linear mapping is represented with a simpler transformation matrix $A'$, which can ease the work when doing calculations.
 \end{example}
-
-
-
