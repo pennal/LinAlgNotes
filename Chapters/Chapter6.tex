@@ -317,7 +317,22 @@ In this case the determinant is given by the product of the diagonals left to ri
 Most of the time, we use gaussian elimination to compute the determinant. We can use the cofactor formula mostly when $A$ has many zeroes. 
 
 \section{Cramer's Rule}
-Let us consider $A\ul{x} = \ul{b}$, $A\in\R^{3,3}$
+\textit{Cramer's rule} is an explicit formula for the solution of a linear system of equations with \textit{as many equations as unknowns}, valid whenever the system has a \textit{unique} solution.\\
+Let us consider the equation $$A\ul{x} = \ul{b}$$ 
+where $A = \begin{pmatrix}
+a_{11} & a_{12} & a_{13}\\
+a_{21} & a_{22} & a_{23}\\
+a_{31} & a_{32} & a_{33}\\
+\end{pmatrix}$, $\ul{x} = \begin{pmatrix}
+x_1\\
+x_2\\
+x_3
+\end{pmatrix}$ and $\ul{b} = \begin{pmatrix}
+b_1\\
+b_2\\
+b_3
+\end{pmatrix}$\\ \\
+So, our equation is
 \[
 \begin{pmatrix}
 a_{11} & a_{12} & a_{13}\\
@@ -333,7 +348,7 @@ b_2\\
 b_3
 \end{pmatrix}
 \]
-We can then substitute the first column of $A$ with $\ul{b}$
+We can then substitute the first column of $A$ with $\ul{b}$, and we call this new matrix $B_1$:
 \[
 \begin{pmatrix}
 a_{11} & a_{12} & a_{13}\\
@@ -342,26 +357,40 @@ a_{31} & a_{32} & a_{33}\\
 \end{pmatrix}\cdot \begin{pmatrix}
 x_1 & 0 & 0\\
 x_2 & 1 & 0\\
-x_3 & 0 & 0
+x_3 & 0 & 1
 \end{pmatrix} = \begin{pmatrix}
 b_{1} & a_{12} & a_{13}\\
 b_{2} & a_{22} & a_{23}\\
 b_{3} & a_{32} & a_{33}\\
 \end{pmatrix} = B_1
-\]
-We can then calculate the determinant:
-\begin{align*}
-\det(A\cdot B) &= \det(A)\cdot \det(B)\\
-&= \det(A) \cdot \det\begin{pmatrix}
+\]\\ \\
+According to the properties of calculating the determinant of a matrix, we know that:
+$$\det(A\cdot B) = \det(A)\cdot \det(B)$$
+We can apply this rule to calculate the determinant of $$\begin{pmatrix}
+a_{11} & a_{12} & a_{13}\\
+a_{21} & a_{22} & a_{23}\\
+a_{31} & a_{32} & a_{33}\\
+\end{pmatrix}\cdot \begin{pmatrix}
 x_1 & 0 & 0\\
 x_2 & 1 & 0\\
-\undermat{x_1}{x_3} & 0 & 0
-\end{pmatrix} = \det(B_1)\\
-\Rightarrow \det(A)\cdot x_1 &= \det(B_1)\\
+x_3 & 0 & 1
+\end{pmatrix}$$
+So we have:
+$$\det(A) \cdot \det\begin{pmatrix}
+x_1 & 0 & 0\\
+x_2 & 1 & 0\\
+x_3 & 0 & 1
+\end{pmatrix} = \det(B_1)$$
+Note that $\begin{pmatrix}
+x_1 & 0 & 0\\
+x_2 & 1 & 0\\
+x_3 & 0 & 1
+\end{pmatrix}$ is a lower triangular matrix, thus its determinant is the product of the diagonal entries, thus its determinant is $x_1$:
+\begin{align*}
+\det(A)\cdot x_1 &= \det(B_1)\\
 x_1 &=\frac{\det(B_1)}{\det(A)}
-\end{align*}
-
-Similarly,
+\end{align*}\\
+Similarly, we can again substitute the second row of $A$ with $\ul{b}$ to form $B_2$:
 \[
 \begin{pmatrix}
 a_{11} & a_{12} & a_{13}\\
@@ -377,31 +406,53 @@ a_{21} & b_{2} & a_{23}\\
 a_{23} & b_{3} & a_{33}\\
 \end{pmatrix} = B_2
 \]
-We can again substitute the second row of $A$ with $\ul{b}$:
+
 \begin{align*}
 \det(A)\cdot x_2 &= \det(B_2)\\
 x_2 &=\frac{\det(B_2)}{\det(A)}
-\end{align*}
+\end{align*}\\
 In general
 \[
 x_i = \frac{\det(B_i)}{\det(A)}, i=1,\dots,n
 \]
-where $B_i$ is $A$ with column $i$ replaced by $\ul{b}$, $\det(A)\not=0$
+where $B_i$ is $A$ with column $i$ replaced by $\ul{b}$, where $\det(A)\not=0$ (division by zero is not defined).
 
 \begin{example}
-\[
-\begin{rightalignedcases}
+Suppose we want to find the solutions to the following linear system of equations:
+$$\begin{rightalignedcases}
 3x+2y+4z=1\\
 2x-y+z=0\\
 x+2y+3z=1
-\end{rightalignedcases}, A=\begin{pmatrix}
+\end{rightalignedcases}$$
+We first create the matrix $A$ with the coefficients of the addends that are on the left side of the equals sign of each equation:
+$$A=\begin{pmatrix}
 3 & 2 & 4\\
 2 & -1 & 1\\
 1 & 2 & 3
-\end{pmatrix}, \ul{b}=\colvec{3}{1}{0}{1}
-\]	
-\begin{align*}
-x = \frac{\abs{\begin{matrix}
+\end{pmatrix}$$
+and similarly we create the vector $\ul{b}$ using the numbers on the right side of the equals sign of each equation:
+$$\ul{b}=\colvec{3}{1}{0}{1}$$
+Now, we just need to find $B_1$, $B_2$ and $B_3$ using the process described above:
+$$B_1 = \left(\begin{matrix}
+1 & 2 & 4\\
+0 & -1 & 1\\
+1 & 2 & 3	
+\end{matrix}\right)$$
+
+$$B_2 = \left( \begin{matrix}
+3 & 1 & 4\\
+2 & 0 & 1\\
+1 & 1 & 3
+\end{matrix}\right)$$
+
+$$B_3 = \left( \begin{matrix}
+3 & 2 & 1\\
+2 & -1 & 0\\
+1 & 2 & 1
+\end{matrix}\right)$$
+Finally, we calculate the determinant of each $B_i$ (where $i = 1...3$), and we divide it by the determinant of $A$ (which must be different from $0$) to find respectively $x$, $y$ and $z$:
+
+$$x = \frac{\abs{\begin{matrix}
 1 & 2 & 4\\
 0 & -1 & 1\\
 1 & 2 & 3	
@@ -411,7 +462,9 @@ x = \frac{\abs{\begin{matrix}
 2 & -1 & 1\\
 1 & 2 & 3	
 \end{matrix}
-}} = -\frac{1}{5}, y = \frac{\abs{\begin{matrix}
+}} = -\frac{1}{5}$$ 
+
+$$y = \frac{\abs{\begin{matrix}
 3 & 1 & 4\\
 2 & 0 & 1\\
 1 & 1 & 3
@@ -421,7 +474,9 @@ x = \frac{\abs{\begin{matrix}
 2 & -1 & 1\\
 1 & 2 & 3	
 \end{matrix}
-}} = 0, z= \frac{\abs{\begin{matrix}
+}} = 0$$ 
+
+$$z= \frac{\abs{\begin{matrix}
 3 & 2 & 1\\
 2 & -1 & 0\\
 1 & 2 & 1
@@ -432,42 +487,42 @@ x = \frac{\abs{\begin{matrix}
 1 & 2 & 3	
 \end{matrix}
 }} = \frac{2}{5}
-\end{align*}
+$$
+
 \end{example}
 
 \section{Inverse of $A$}
-\[
-AX = XA = I\to \text{\hspace{2mm}$X=$ Inverse of $A$}
-\]
-\begin{align*}	
-\begin{pmatrix}
+We can use Cramer's rule also to find the inverse of a matrix.\\ \\
+We know that if $$AX = XA = I$$ then $X$ is called the inverse of $A$, also denoted as $A^{-1}$.\\ \\ So we have that:
+$$\begin{pmatrix}
 a_{11} & \dots & a_{13}\\
 \vdots & {} & \vdots\\
 a_{31} & \dots & a_{33}
-\end{pmatrix}\cdot\begin{pmatrix}
+\end{pmatrix} \cdot \begin{pmatrix}
 x_{11} & \dots & x_{13}\\
 \vdots & {} & \vdots\\
 x_{31} & \dots & x_{33}
-\end{pmatrix} &= \begin{pmatrix}
+\end{pmatrix} = \begin{pmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
 0 & 0 & 1\\
-\end{pmatrix}\\
-\begin{pmatrix}
+\end{pmatrix}$$
+which implies that:
+$$\begin{pmatrix}
 a_{11} & \dots & a_{13}\\
 \vdots & {} & \vdots\\
 a_{31} & \dots & a_{33}
-\end{pmatrix}\cdot \colvec{3}{x_{11}}{x_{21}}{x_{31}} &= \colvec{3}{1}{0}{0}\\
-\Rightarrow x_{11} &= \frac{\abs{\begin{matrix}
+\end{pmatrix}\cdot \colvec{3}{x_{11}}{x_{21}}{x_{31}} = \colvec{3}{1}{0}{0}$$
+Now, we can apply the \textit{Cramer's rule} to find $x_{11}$, $x_{21}$ and $x_{31}$:
+$$x_{11} = \frac{\abs{\begin{matrix}
 1 & a_{12} & a_{13}\\
 0 & a_{22} & a_{23}\\
 0 & a_{32} & a_{33}\\
 \end{matrix}
-}}{\det(A)} = \frac{c_{11}}{\det(A)}\\
-x_{21} &= \frac{c_{12}}{\det(A)}, x_{31} = \frac{c_{13}}{\det(A)}
-\end{align*}
-In general, element $ij$ of $A^{-1}$ can be computed as 
-\[
-\left( A^{-1}\right)_{ij} = \frac{c_{ji}}{\det(A)}
-\]
+}}{\det(A)} = \frac{c_{11}}{\det(A)}$$
 
+$$ x_{21} = \frac{c_{12}}{\det(A)}$$
+$$x_{31} = \frac{c_{13}}{\det(A)}$$ \\
+In general, element $ij$ of $A^{-1}$ can be computed as: 
+$$\left( A^{-1}\right)_{ij} = \frac{c_{ji}}{\det(A)}$$
+Note that it is really $c_{ji}$ and \textbf{not} $c_{ij}$!
