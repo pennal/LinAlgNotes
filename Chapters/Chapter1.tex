@@ -14,7 +14,7 @@ A real number can be represented by a point on a line, which is a 2-dimensional 
 \end{tikzpicture}
 \end{center}
 
-a pair of real numbers can be represented by a point on a plane, which is a 2-dimensional space, $\R^2$
+\noindent a pair of real numbers can be represented by a point on a plane, which is a 2-dimensional space, $\R^2$
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
 axis
@@ -32,8 +32,7 @@ axis
 \end{tikzpicture}
 \end{center}
 
-
-a triplet of real numbers can be represented by a point in 3D space, $\R^3$
+\noindent a triplet of real numbers can be represented by a point in 3D space, $\R^3$
 \begin{center}
 \begin{tikzpicture}[scale=0.6]
 \node [] (0) at (0, 0) {};
@@ -95,7 +94,7 @@ Let us consider vectors $\ul{u} \in\R^n$ and $\ul{v} \in\R^n$. Vector $\ul{w} \i
 \begin{enumerate}
 	\item Vectors $\uv\in\R^n$ and $\vv\in\R^n$ are equal, if $u_i=v_i$ for all $i=1,\dots,n$
 	\item A scalar is just another name for real number
-	\item Let us consider a scalar $\alpha\in\R$ and vector $\uv \in\R^n$. A product of $\alpha$ and $\uv$ is defined as: \[\alpha\uv = \alpha\cdot\colvec{3}{u_1}{\vdots}{v_n} = \colvec{3}{\alpha\cdot u_1}{\vdots}{\alpha\cdot v_n}\]
+	\item Let us consider a scalar $\alpha\in\R$ and vector $\uv \in\R^n$. A product of $\alpha$ and $\uv$ is defined as: \[\alpha\uv = \alpha\cdot\colvec{3}{u_1}{\vdots}{u_n} = \colvec{3}{\alpha\cdot u_1}{\vdots}{\alpha\cdot u_n}\]
 \end{enumerate}
 \end{definition}
 
@@ -178,7 +177,7 @@ Let us consider vector $\uv = \colvec{2}{3}{1}$. What is $2\cdot \uv$? We can ca
 \[
 2\cdot \uv = 2\cdot\colvec{2}{3}{1} = \colvec{2}{6}{2}
 \]
-We stretch vector $\uv$ 2 times along the line defined by vector $\uv$. What is $-\uv$? Simply reverse the direction. What will be the representation of $\alpha\uv$ for all possible values of $\alpha$? An endless line
+We stretch vector $\uv$ two times along the line defined by vector $\uv$. What is $-\uv$? Simply reverse the direction. What will be the representation of $\alpha\uv$ for all possible values of $\alpha$? An endless line
 
 \begin{center}
 \begin{tikzpicture}[scale=0.75]
@@ -335,7 +334,7 @@ If $\uv\not=\ul{0},\vv\not=\ul{0}, \uv\in\R^n,\vv\in\R^n$, then
 &= \alpha\cdot\langle\uv,\vv\rangle
 \end{align*}
 \item $\langle\uv,\alpha\vv\rangle = \alpha\langle\uv,\vv\rangle$ for any $\alpha\in\R,\uv,\vv\in\R^n$
-\item $\langle\alpha\uv+\beta\vv,\wv\rangle = \alpha\cdot\langle\uv,\wv\rangle + \beta\langle\vv,\wv\rangle, \forall\alpha\in\R,\forall\uv,\vv\wv\in\R^n$
+\item $\langle\alpha\uv+\beta\vv,\wv\rangle = \alpha\cdot\langle\uv,\wv\rangle + \beta\langle\vv,\wv\rangle, \forall\alpha\in\R,\forall\uv,\vv,\wv\in\R^n$
 \end{enumerate}
 \begin{example}
 Let us consider $\uv = \colvec{2}{3}{4}. \langle \uv,\uv\rangle = 3\cdot 3+4\cdot 4 = 9+16 = 25 = 5^2$
@@ -375,5 +374,5 @@ Cauchy Schwartz Inequality: for any $\uv\in\R^n$ and $\vv\in\R^n$
 \[\abs{\langle\uv,\vv\rangle}\leq\norm{\uv}\norm{\vv}\]
 \end{lemma}
 \begin{remark}
-It is easy to see that Cauchy - Schwartz inequality is correct also for zero vectors.	
+It is easy to see that Cauchy - Schwartz inequality is also correct for zero vectors.	
 \end{remark}
