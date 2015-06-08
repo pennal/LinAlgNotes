@@ -1,22 +1,22 @@
 \chapter{Orthogonality}
 \section{Linear Mapping}
 \begin{definition}
-Let us consider two vector spaces $V$ and $W$. A function (or mapping) $\L:V\to W$ is called a \textit{linear mapping} if the following two conditions are satisfied:
+Let us consider two vector spaces $V$ and $W$. A function (or mapping) $L:V\to W$ is called a \textit{linear mapping} if the following two conditions are satisfied:
 \begin{enumerate}
-\item For any $\vv\in V$ and $\vv'\in V$, $\L(\vv+\vv') = \L(\vv)+\L(\vv')$
-\item For any $\vv\in V$ and any scalar $\alpha$, $\L(\alpha\vv) = \alpha\cdot\L(\vv)$
+\item For any $\vv\in V$ and $\vv'\in V$, $L(\vv+\vv') = L(\vv)+L(\vv')$
+\item For any $\vv\in V$ and any scalar $\alpha$, $L(\alpha\vv) = \alpha\cdot L(\vv)$
 \end{enumerate}
 \end{definition}
 \begin{example}
-Let us consider matrix $A\in\R^{n,m}$. We define a linear mapping $\L_A$ as follows:
+Let us consider matrix $A\in\R^{n,m}$. We define a linear mapping $L_A$ as follows:
 \[
-\L_A(\vv) = A\vv\hspace{7mm}\L_A:\R^m\to\R^n
+L_A(\vv) = A\vv\hspace{7mm} L_A:\R^m\to\R^n
 \]	
-Is $\L_A$ a linear mapping? Yes. A linear mapping or transformation can always be represented as a matrix-vector product and vice-versa.
+Is $L_A$ a linear mapping? Yes. A linear mapping or transformation can always be represented as a matrix-vector product and vice-versa.
 \begin{proof}
 \begin{enumerate}
-\item $\forall \vv,\vv'\in\R^m$, we have: $$\L_A(\vv+\vv') = A(\vv+\vv') = A\vv+A\vv' = \L_A(\vv) + \L_A(\vv')$$
-\item $\forall\vv\in\R^m,\forall\alpha$ ($\alpha$ is scalar), we have: $$\L_A(\alpha\vv) = A(\alpha\vv) = \alpha\cdot A\vv = \alpha \L_A(\vv)$$
+\item $\forall \vv,\vv'\in\R^m$, we have: $$L_A(\vv+\vv') = A(\vv+\vv') = A\vv+A\vv' = L_A(\vv) + L_A(\vv')$$
+\item $\forall\vv\in\R^m,\forall\alpha$ ($\alpha$ is scalar), we have: $$L_A(\alpha\vv) = A(\alpha\vv) = \alpha\cdot A\vv = \alpha L_A(\vv)$$
 \end{enumerate}
 \end{proof}
 \end{example}
