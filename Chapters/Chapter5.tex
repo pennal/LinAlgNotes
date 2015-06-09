@@ -1,27 +1,27 @@
-\chapter{Linear Mapping}
+\chapter{Orthogonality}
+\section{Linear Mapping}
 \begin{definition}
-Let us consider 2 vector spaces $V$ and $W$. A function $\Lm:V\to W$ is called a linear mapping, if:
+Let us consider two vector spaces $V$ and $W$. A function (or mapping) $L:V\to W$ is called a \textit{linear mapping} if the following two conditions are satisfied:
 \begin{enumerate}
-\item For any $\vv\in V$ and $\vv'\in V$, $\Lm(\vv+\vv') = \Lm(\vv)+\Lm(\vv')$
-\item For any $\vv\in V$ and any scalar $\alpha$, $\Lm (\alpha\vv) = \alpha\cdot\Lm(\vv)$
+\item For any $\vv\in V$ and $\vv'\in V$, $L(\vv+\vv') = L(\vv)+L(\vv')$
+\item For any $\vv\in V$ and any scalar $\alpha$, $L(\alpha\vv) = \alpha\cdot L(\vv)$
 \end{enumerate}
 \end{definition}
 \begin{example}
-Let us consider matrix $A\in\R^{n,m}$. We can define linear mapping $\Lm_A$ as follows:
+Let us consider matrix $A\in\R^{n,m}$. We define a linear mapping $L_A$ as follows:
 \[
-\Lm_A(\vv) = A\vv\hspace{5mm}\Lm_A:\R^m\to\R^n
+L_A(\vv) = A\vv\hspace{7mm} L_A:\R^m\to\R^n
 \]	
-Is $\Lm_A$ a linear mapping? Yes!
+Is $L_A$ a linear mapping? Yes. A linear mapping or transformation can always be represented as a matrix-vector product and vice-versa.
 \begin{proof}
 \begin{enumerate}
-\item $\forall \vv,\vv'\in\R^m$, we have: $$\Lm_A(\vv+\vv') = A(\vv+\vv') = A\vv+A\vv' = \Lm_A(\vv) + \Lm_A(\vv')$$
-\item $\forall\vv\in\R^m,\forall\alpha$ ($\alpha$ is scalar), we have: $$\Lm_A(\alpha\vv) = A(\alpha\vv) = \alpha\cdot A\vv = \alpha \Lm_A(\vv)$$
+\item $\forall \vv,\vv'\in\R^m$, we have: $$L_A(\vv+\vv') = A(\vv+\vv') = A\vv+A\vv' = L_A(\vv) + L_A(\vv')$$
+\item $\forall\vv\in\R^m,\forall\alpha$ ($\alpha$ is scalar), we have: $$L_A(\alpha\vv) = A(\alpha\vv) = \alpha\cdot A\vv = \alpha L_A(\vv)$$
 \end{enumerate}
 \end{proof}
-
 \end{example}
-Let us consider matrix $A\in\R^{n,m}$, $A:\R^m\to\R^n$. Let us consider vector $\vv\in\R^m$
-.
+\section{The 4 subspaces of a matrix}
+Let us consider matrix $A\in\R^{n,m}$, $A:\R^m\to\R^n$. Let us consider the vector $\vv\in\R^m$.
 \[
 A\vv = \underbrace{v_1\cdot\colvec{3}{a_{11}}{\vdots}{a_{n1}} + v_2\cdot\colvec{3}{a_{12}}{\vdots}{a_{n2}}+ ... + v_m\cdot\colvec{3}{a_{1m}}{\vdots}{a_{nm}}}_{\text{Linear combination of columns of $A$}}
 \]
@@ -76,7 +76,6 @@ A\in\R^{2,2} = \begin{pmatrix}
 
 
 
-
 \draw[->](-4+\offsetDrawing,0)--(4+\offsetDrawing,0) node[anchor=west]{$x_1$};
 \draw[->](0+\offsetDrawing,-4)--(0+\offsetDrawing,4)node[anchor=south]{$x_2$};
 
@@ -125,14 +124,14 @@ A = \begin{pmatrix}
 \end{example}
 
 \begin{note}
-In order for solution of $A\ul{x} = \ul{b}$ to exist, $\ul{b}$ should belong to a span of columns of matrix $A$.	
+In order for a solution of $A\ul{x} = \ul{b}$ to exist, $\ul{b}$ should belong to a \textit{span of the columns} of the matrix $A$.	
 \end{note}
 
 \begin{definition}
-The span of columns of matrix $A \in \R^{n, m}$ is called a column space of $A$, denoted by $C(A)$, where $C(A)\subset R^n$.
+The span (or all possibile linear combinations) of columns of the matrix $A \in \R^{n, m}$ is called a \textit{column space} of $A$, denoted by $C(A)$, where $C(A)\subset R^n$.
 \end{definition}
 \begin{definition}
-Let us consider matrix $A\in\R^{n,m}, A:\R^m\to \R^n$. The null space of $A$ is defined as 
+Let us consider the matrix $A\in\R^{n,m}, A:\R^m\to \R^n$. The null space of $A$ is defined as 
 \[
 N(A) = \left\{ \vv\in\R^m\mid A\vv = \ul{0}\right\}, N(A)\subset\R^m
 \]
@@ -165,13 +164,16 @@ N(A) = \left\{ \vv\in\R^m\mid A\vv = \ul{0}\right\}, N(A)\subset\R^m
 
 \end{definition}
 \begin{example}
+Consider the following matrix
 \[
 A = \begin{pmatrix}
 1 & 3 \\
 2 & 6
 \end{pmatrix}
 \]	
-What is $N(A)$? We should find all solutions of $A\ul{x} = \ul{0}$, this will give us $N(A)$.
+\textit{What is the nullspace of $A$?} \\ \\
+We should find all solutions for the following equation 
+$$A\ul{x} = \ul{0}$$
 \[
 \begin{rightalignedcases}
 x_1 + 3x_2 = 0\\
@@ -182,8 +184,8 @@ x_1+3x_2=0\\
 \end{rightalignedcases}\to\begin{rightalignedcases}
 x_1=-3x_2\\
 0 = 0
-\end{rightalignedcases}\]
-The nullspace of this matrix will be a line formed by a linear combination of the vector $\colvec{2}{-3}{1}$ ($\alpha\cdot\colvec{2}{-3}{1}$, for all possible $\alpha$), or in other words it will be the $span(\colvec{2}{-3}{1})$.
+\end{rightalignedcases}\] \\
+The nullspace of this matrix will be a line formed by a linear combination of the vector $\colvec{2}{-3}{1}$, or in other words $\alpha\cdot\colvec{2}{-3}{1}$, for all possible $\alpha$, or in other words it will be the $span(\colvec{2}{-3}{1})$.
 \[
 x_1 = -3x_2 = -3\alpha,x_2=\alpha\to\alpha\colvec{2}{-3}{1},\alpha\colvec{2}{-6}{2}
 \]
@@ -196,10 +198,7 @@ x_1 = -3x_2 = -3\alpha,x_2=\alpha\to\alpha\colvec{2}{-3}{1},\alpha\colvec{2}{-6}
 \newcommand{\offsetDrawing}{12}
 \draw [->] (-1.7,1.7) parabola bend (5.15,3) (-0.05+\offsetDrawing,0.05);
 \draw [->] (1.2,-1.2) parabola bend (5.9,-2) (-0.05+\offsetDrawing,-0.05);
-
 \draw[fill=black] (0+\offsetDrawing,0) circle (0.05);
-
-
 \draw[->](-4+\offsetDrawing,0)--(4+\offsetDrawing,0) node[anchor=west]{$x_1$};
 \draw[->](0+\offsetDrawing,-4)--(0+\offsetDrawing,4)node[anchor=south]{$x_2$};
 \draw(-3,3) -- (3,-3);
@@ -211,11 +210,12 @@ x_1 = -3x_2 = -3\alpha,x_2=\alpha\to\alpha\colvec{2}{-3}{1},\alpha\colvec{2}{-6}
 \end{tikzpicture}
 \end{center}
 \end{example}
+
 \begin{theorem}
 The nullspace, $N(A)$, of $A\in\R^{n,m}$ is a subspace of $\R^m$.
 \end{theorem}
 \begin{proof}
-Let us assume that $\ul{x},\ul{x}'\in N(A)$ and $\alpha$ is arbitrarily scalar. 
+Let us assume that $\ul{x},\ul{x}'\in N(A)$ and $\alpha$ is arbitrary scalar. 
 \begin{enumerate}
 \item $A(\ul{x}+\ul{x}') = A\ul{x}+A\ul{x}' = \ul{0} + \ul{0} = \ul{0} \Rightarrow (\ul{x}+\ul{x}')\in N(A)$\\
 \item $A(\alpha\ul{x}) = \alpha (A\ul{x}) = \alpha\cdot \ul{0} = \ul{0}\Rightarrow \alpha\ul{x}\in N(A)$
@@ -227,26 +227,26 @@ The column space, $C(A)$, of $A\in\R^{n,m}$ is a subspace of $\R^n$.
 \end{theorem}
 
 \begin{definition}
-The row space of matrix $A \in R^{n, m}$ is a span of rows of $A$. Clearly, $R(A)=C(A^T)$ and $R(A)\subset \R^m$.
+The row space of a matrix $A \in R^{n, m}$ is the span of the rows of $A$. Clearly, $R(A)=C(A^T)$ and $R(A)\subset \R^m$.
 \end{definition}
 \begin{definition}
 The left nullspace of $A$ is defined as $N(A^T)$. $N(A^T)\subset\R^n$.
 \end{definition}
 \begin{theorem}
-$R(A)$ is a subspace of $\R^m$
+$R(A)$ is a subspace of $\R^m$.
 \end{theorem}
 \begin{proof}
-Same as for the proof that $C(A)$ is a subspace of $\R^{n}$, but for $A^T$
+Same as for the proof that $C(A)$ is a subspace of $\R^{n}$, but for $A^T$.
 \end{proof}
 \begin{theorem}
-$N(A^T)$ is a subspace of $\R^n$
+$N(A^T)$ is a subspace of $\R^n$.
 \end{theorem}
 \begin{proof}
-Same as for $N(A)$ but replace $A$ with $A^T$
+Same as for $N(A)$ but replace $A$ with $A^T$.
 \end{proof}
 
 \begin{theorem}
-$R(A)$ and $N(A)$ are orthogonal subspaces in $\R^m$ for $A\in\R^{n,m}$
+$R(A)$ and $N(A)$ are \textit{orthogonal subspaces} in $\R^m$ for $A\in\R^{n,m}$.
 \end{theorem}
 
 \begin{proof}
@@ -254,35 +254,34 @@ Let us consider $\forall \ul{x}\in N(A), A\ul{x} = \ul{0}$
 \[
 A\ul{x} = \colvec{3}{-\text{ row 1 of }A\to}{\vdots}{-\text{ row $n$ of }A\to}\cdot \colvec{3}{\mid}{x}{\downarrow} = \colvec{3}{<\text{ row 1 of }A,\ul{x}>}{\vdots}{{<\text{ row $n$ of }A,\ul{x}>}} \mathop=\limits^{\ul{x}\in N(A)}\colvec{3}{0}{\vdots}{0}
 \]
-$\ul{x}$ is orthogonal to every row of $A$. $\ul{x}$ is orthogonal to every linear combination of rows of $A$. $\ul{x}$ is orthogonal to $R(A)$. In fact, what we just showed is that $N(A)$ \& $R(A)$ are orthogonal complements. 
+$\ul{x}$ is orthogonal to every row of $A$. $\ul{x}$ is orthogonal to every linear combination of rows of $A$. $\ul{x}$ is orthogonal to $R(A)$. In fact, what we just showed is that $N(A)$ and $R(A)$ are \textit{orthogonal complements}. 
 \end{proof}
 
 \begin{theorem}
-$N(A^T)$ \& $C(A) = R(A^T)$ are orthogonal complements in $\R^n$
-\end{theorem}
-
-$A\in\R^{n,m}:\R^m\to\R^n$. Row rank of $A = \rank(A) = \dim\left( R(A) \right) =  \dim\left( C(A) \right)$
+$N(A^T)$ and $C(A) = R(A^T)$ are orthogonal complements in $\R^n$
+\end{theorem} \\ \\
+Suppose we have the following matrix $A\in\R^{n,m}:\R^m\to\R^n$. \\  
+The row rank of $A = \rank(A) = \dim\left( R(A) \right) =  \dim\left( C(A) \right) = $ column rank of $A$.
+ 
 \begin{align*}
-N(A) &:A\ul{x} = \ul{0}\hspace{5mm}\forall x\in\R^m\\
+N(A) &:A\ul{x} = \ul{0}\hspace{5mm}\forall x\in\R^m\\ \\
 C(A) &: A\ul{v} = \text{ Linear combinations of columns of $A$}\\
 &\hspace{7.5mm}= v_1\cdot\text{col 1 of $A$}+\dots+v_n\cdot\text{col $n$ of $A$}\in \R^n
 \end{align*}
+
 \begin{theorem}
 $N(A)$ is an orthogonal complement of $R(A)$ in $\R^m$,
 \[
 \dim N(A)+\underbrace{\dim R(A)}_{=\rank(A)}=m
 \]
 \end{theorem}
-
 \begin{theorem}
 $N(A^T)$ is an orthogonal complement of $R(A^T) = C(A)$ in $\R^n$,
 \[
 \dim N(A^T)+\underbrace{\dim C(A)}_{=\rank(A)}=n
 \]
 \end{theorem}
-\\
-
-Let us consider $A\in\R^{n,m},A:\R^m\to\R^n,\rank(A)=r$
+Let us consider $A\in\R^{n,m},A:\R^m\to\R^n$ and $\rank(A)=r$
 \begin{center}
 {\begin{tikzpicture}[scale=0.6, every node/.style={transform shape}]
 \path[use as bounding box] (-2,-8) rectangle (17,4);
@@ -325,17 +324,17 @@ Let us consider $A\in\R^{n,m},A:\R^m\to\R^n,\rank(A)=r$
 \end{center}
 
 \begin{lemma}
-For any vector $\ul{b}$ in $C(A)$, there exists one and only one vector $\ul{x}_r\in R(A)$ such that $A\ul{x}_r=b$
+For any vector $\ul{b}$ in $C(A)$, there exists \textit{one and only one} vector $\ul{x}_r\in R(A)$ such that $$A\ul{x}_r=b$$
 \end{lemma}
 
 \begin{proof}
 Let us assume that $\ul{x}_r$ and $\ul{x}_r'$ are in the row space, $R(A)$. Let us assume that $A\ul{x}_r = A\ul{x}_r'$. We have
 \[
-\ul{x}_r \in R(A) - \ul{x}_r' \in R(A) \in R(A)
+\ul{x}_r - \ul{x}_r' \in R(A)
 \]
 But we also have 
 \[
-A\ul{x}_r -A\ul{x}_r' = \underbrace{A(\ul{x}_r-\ul{x}_r' }_{\in N(A)} = \ul{0} 
+A\ul{x}_r -A\ul{x}_r' = \underbrace{A(\ul{x}_r-\ul{x}_r')}_{\in N(A)} = \ul{0} 
 \]
 It means that $(\ul{x}_r-\ul{x}_r' )$ is in $R(A)$ and $N(A)$, but they are orthogonal subspaces, therefore 
 \[
@@ -418,27 +417,33 @@ A = \begin{pmatrix}
 \draw[](-6,6)node[]{$\R^2(\R^m)$};
 \end{tikzpicture}}
 \end{center}
-
 \end{example}
-Row space: $\rank A = 1\Rightarrow \dim R(A)=1$
+\textit{What is the row space of $A$?} \\ \\
+It is basically all possible linear combinations of the row vectors of $A$:
 \[
 R(A) = \text{span}\left\{ \colvec{2}{1}{-2},\colvec{2}{-1}{2}\right\} = \text{span} \left\{ \colvec{2}{1}{-2}\right\}
 \]
-Null space: $\dim N(A) = 2-1 = 1$
+Note that the vectors are linearly dependent. Observe $\rank(A) = 1$, then $\dim(R(A))=1$. \\ \\
+\textit{What is the nullspace of $A$?} \\ \\
+We need basically to find the solutions to the following equation $$A\ul{x} = \ul{0}$$
 \[
-A\ul{x} = 0\Rightarrow \begin{rightalignedcases}
+\Rightarrow \begin{rightalignedcases}
 x_1-2x_2 = 0\\
 -x_1+2x_2 = 0\\
 \end{rightalignedcases} \Rightarrow\begin{rightalignedcases}
 x_1-2x_2 = 0\\
 0 = 0\\
-\end{rightalignedcases}\Rightarrow x_1 = 2x_2\text{ (Line)}
-\]
-Column space: $\dim C(A) = \dim R(A) = \perp$
+\end{rightalignedcases}\Rightarrow x_1 = 2x_2\text{ (which represents a line)}
+\]\\
+The dimention of $N(A)$ is equal to the number of columns minus the dimension of the row space of $A$, so $\dim(N(A)) = 2 - 1 = 1$. \\ \\
+\textit{What is the column space of $A$?} \\ \\
+The dimension of $C(A)$ is equal to the dimension of $R(A)$. The column space is defined as a linear combination of the column vectors of $A$:
 \[
 C(A) = \text{span}\left\{ \colvec{2}{1}{-1},\colvec{2}{-2}{2}\right\} = \text{span}\left\{\colvec{2}{1}{-1}\right\}
 \]
-Left Null space: $\dim N(A^T) = 2-1=1$. Consider 
+\textit{What is the left null space of $A$?} \\ \\
+First, $\dim N(A^T) = 2-1=1$. \\ \\
+Now, consider 
 \begin{align*}
 \ul{x}_r &= \colvec{2}{-1}{2}\Rightarrow A\ul{x}_r =\begin{pmatrix}
 1 & -2\\
@@ -451,30 +456,35 @@ Left Null space: $\dim N(A^T) = 2-1=1$. Consider
 \end{align*}
 
 \section{Orthogonal Basis and Gram-Schmidt process}
+\subsection{Orthogonal and Orthonormal}
 \begin{definition}
-Vectors $\ul{q}_1,\dots,\ul{q}_m$ are orthogonal if:
+Vectors $\ul{q}_1,\dots,\ul{q}_m$ are \textit{orthogonal} if:
 \[
 \langle \ul{q}_i,\ul{q}_j\rangle = \ul{q}_i^T\ul{q}_j=0\hspace{5mm}\text{if }i\not=j
 \]
+In other words, two vectors $\ul{q}_i$ and $\ul{q}_j$ are orthogonal if their dot product is zero, so two orthogonal vectors must be perpendicular.
 \end{definition}
 
 \begin{definition}
-Vectors $\ul{q}_1,\dots,\ul{q}_m$ are orthonormal if:
+Vectors $\ul{q}_1,\dots,\ul{q}_m$ are \textit{orthonormal} if:
 \[
 \langle \ul{q}_i,\ul{q}_j\rangle = \ul{q}_i^T\ul{q}_j=\begin{rightalignedcases}
 0 & \text{if }i\not=j\\
 1 & \text{if }i=j\\
 \end{rightalignedcases}
 \]
+In other words, two vectors $\ul{q}_i$ and $\ul{q}_j$ are orthonormal if they are orthogonal and they both have length of $1$ (they are \textit{unit vectors}).
 \end{definition}
-If the columns of the matrix are orthonormal vectors, then this matrix is usually denoted by $Q$, In this case, we have $Q^TQ=I$. If $Q$ is not a square matrix then $QQ^T$ is not necessarily $I$.
+If the columns of the matrix are orthonormal vectors, then this matrix is usually denoted by $Q$. In this case, we have $$Q^TQ=I$$ Note that if $Q$ is \textit{not} a square matrix, then $QQ^T$ is not necessarily $I$.
 
 \begin{definition}
 A square matrix is called orthogonal (if its columns are orthonormal vectors) if $Q^TQ=I$. In this case, since it is a square matrix, $QQ^T=I$
 \end{definition}
 
-\subsection{Projection on the line}
-Let us assume that we have a line given by vector $\ul{a}=\colvec{3}{a_1}{\vdots}{a_n}\in\R^n$ and vector $\ul{b}\in\R^n$. We want to find vector $\ul{p}$ belonging to the line, closest to vector $\ul{b}$. In other words, we are looking for $\ul{p}$ which is orthogonal projection of $\ul{b}$ onto the line given by $\ul{a}$
+\subsection{Projection onto a Line}
+Let us assume that we have a line which is the span of the vector $\ul{a}=\colvec{3}{a_1}{\vdots}{a_n}\in\R^n$, and suppose we have another vector $\ul{b}\in\R^n$. We want to find the vector $\ul{p}$ belonging to the line, closest to vector $\ul{b}$. In other words, we are looking for the vector $\ul{p}$, which is the orthogonal projection of $\ul{b}$ onto the line given by $\ul{a}$
+
+% THIS PICTURE IS NOT ACCURATE AND CAN BE IMPROVED...
 \begin{center}
 \begin{tikzpicture}[scale=0.75]
 \draw[->] (-1,0) -- (5,0);
@@ -489,28 +499,31 @@ Let us assume that we have a line given by vector $\ul{a}=\colvec{3}{a_1}{\vdots
 \draw[yshift=73,xshift=53.5,scale=0.1,rotate=90] (2.1,3) -- (3.5,2.17);
 \end{tikzpicture}
 \end{center}
-
-$\ul{p}$ is proportional to $\ul{a}$, $\ul{p} = \hat{x}\ul{a}$, where $\hat{x}$ is some scalar. Let us define vector $\ul{e} = \ul{b}-\ul{p} = \ul{b} -\hat{x}\ul{a}$ (error vector). $\ul{e}$ is orthogonal to the line, therefore 
+$\ul{p}$ is vector multiple of the vector $\ul{a}$ (it has the same direction, but possibly not the same length) $$\ul{p} = c\ul{a}$$ where $c$ is some scalar. \\ \\
+Now, let us define the so-called error vector $\ul{e}$ in the following way $$\ul{e} = \ul{b}-\ul{p} = \ul{b} -c\ul{a}$$ As you can see from the picture, the error vector $\ul{e}$ is orthogonal to the line, therefore 
 \begin{align*}
 \langle\ul{a},\ul{e} \rangle &= 0\\
-\langle\ul{a},\ul{e} \rangle &=\ul{a}^T(\ul(b)-\hat{x}\ul{a}) = \ul{a}^T\ul{b}-\hat{x}\ul{a}^T\ul{a} = 0\\
-\Rightarrow \hat{x} &= \frac{\ul{a}^T\ul{b}}{\ul{a}^T\ul{a}}\\
-\Rightarrow \ul{p} &= \hat{x}\ul{a} = \ul{a}\hat{x} = \ul{a}\frac{\ul{a}^T\ul{b}}{\ul{a}^T\ul{a}} = \underbrace{\frac{\ul{a}\ul{a}^T}{\ul{a}^T\ul{a}}}_{P\in\R^{n,n}\text{ (projection matrix)}}\cdot\ul{b}
+\langle\ul{a},\ul{e} \rangle &=\ul{a}^T \cdot (\ul{b}-c\ul{a}) = \ul{a}^T\cdot  \ul{b} - c(\ul{a}^T\cdot \ul{a}) = 0\\
+\Rightarrow c &= \frac{\ul{a}^T\ul{b}}{\ul{a}^T\ul{a}}\\
+\end{align*}
+Note that $c$ is the scalar that you multiply by $\ul{a}$ to obtain $\ul{p}$, therefore
+\begin{align*}
+\ul{p} &= c\ul{a} = \ul{a}c = \ul{a}\frac{\ul{a}^T\ul{b}}{\ul{a}^T\ul{a}} = \underbrace{\frac{\ul{a}\ul{a}^T}{\ul{a}^T\ul{a}}}_{P\in\R^{n,n}\text{ (projection matrix)}}\cdot\ul{b}
 \end{align*}
 \begin{example}
-Let us consider $\ul{a}=\colvec{3}{1}{2}{2}	\in\R^3$
+Let us consider $\ul{a}=\colvec{3}{1}{2}{2} \in\R^3$. We first want to find the projection matrix $P$:
 \[
-P = \frac{\ul{a}^T\ul{b}}{\ul{a}^T\ul{a}} = \langle \colvec{3}{1}{2}{2},\begin{pmatrix}
+P = \frac{\ul{a}\cdot \ul{a^T}}{\ul{a}^T\ul{a}} = \colvec{3}{1}{2}{2}\cdot \begin{pmatrix}
 1 & 2 & 2
-\end{pmatrix}\rangle\cdot\frac{1}{9} = \frac{1}{9}\cdot\begin{pmatrix}
+\end{pmatrix}\cdot\frac{1}{9} = \frac{1}{9}\cdot\begin{pmatrix}
 1 & 2 & 2\\
 2 & 4 & 4\\
 2 & 4 & 4
 \end{pmatrix}
 \]
-Let us take
-\[
-\ul{b} = \colvec{3}{1}{1}{1},\ul{p}=P\ul{b} = \frac{1}{9}\begin{pmatrix}
+Note that the numerator produces a matrix, but the denominator produces a number which is equivalent to the dot product of $a$ with itself.\\
+Let us project the following vector $\ul{b} = \colvec{3}{1}{1}{1}$ onto the line spanned by $\ul{a}$. We just need to multiply $P$ by $\ul{b}$:
+\[\ul{p}=P\ul{b} = \frac{1}{9}\begin{pmatrix}
 1 & 2 & 2\\
 2 & 4 & 4\\
 2 & 4 & 4
@@ -521,54 +534,61 @@ Let us take
 $\ul{p}^2 = \ul{p}$
 \end{note}
 \begin{note}
-$(I-P)-$ projection onto subspace orthogonal to the line given by $\ul{a}$
+$(I - P)-$ projection onto subspace orthogonal to the line given by $\ul{a}$
 \end{note}
 
-\section{Gram-Schmidt process}
-Given linear independent vectors $\ul{a},\ul{b},\ul{c},\dots$ we first find orthogonal vectors $\ul{a}',\ul{b}',\ul{c}',\dots$ which span the same subspace as $\ul{a},\ul{b},\ul{c},\dots$ and then we normalise them,
-\[
-\ul{q}_1 = \frac{\ul{a}'}{\norm{\ul{a}'}},\ul{q}_2 = \frac{\ul{b}'}{\norm{\ul{b}'}},\ul{q}_3 = \frac{\ul{c}'}{\norm{\ul{c}'}},\dots
-\]
-So, Gram-Schmidt process allows us to construct an orthogonal basis of span${\ul{a},\ul{b},\ul{c},\dots}\in\R^n$
+\subsection{Gram-Schmidt process}
+Given linearly independent vectors $\ul{a},\ul{b},\ul{c},\dots$ (note that linearly indepence does not necessarily mean that the vectors are perpendicular to each other!), the Gram-Schmidt process allows us to construct an \textit{orthogonal basis} of span ${\ul{a},\ul{b},\ul{c},\dots}\in\R^n$: we first want to find orthogonal vectors $\ul{a}',\ul{b}',\ul{c}',\dots$ which span the same subspace as $\ul{a},\ul{b},\ul{c},\dots$, and then we normalise them (we make them unit vectors by dividing each of them by their respective length).\\ \\
+The general process is the following:
 \begin{enumerate}
 \item Choose $\ul{a}' = \ul{a}$
-\item It is likely that $\ul{b}$ is not orthogonal to $\ul{a}'$, so we need to subtract its projection on the line defined by $\ul{a}'$
+\item It is likely that $\ul{b}$ is not orthogonal to $\ul{a}'$, so we need to subtract the projection of $\ul{b}$ onto $\ul{a}'$ from $\ul{b}$:
 \[
-\ul{b}' = \ul{b}-\frac{\ul{a}^T\ul{b}}{\ul{a}^T\ul{a}}\ul{a}'
+\ul{b}' = \ul{b}-\frac{\ul{a'}^T\ul{b}}{\ul{a'}^T\ul{a'}}\ul{a}'
 \]
+Note that $\ul{a} = \ul{a'}$, so it does not matter if we calculate the projection of $\ul{b}$ onto $\ul{a'}$ or $\ul{a}$ (in this case). If you are still not familiar how projections work, try to draw the situation on a paper, and you will definitely understand better.
 \item $\ul{c}'$ is likely not orthogonal to $\ul{a}'$ and $\ul{b}'$. Again, subtract its projections
 \[
-\ul{c}' = \ul{c}-\frac{\ul{a}^T\ul{c}}{\ul{a}^T\ul{a}}\ul{a}'-\frac{\ul{b'}^T\ul{c}}{\ul{b'}^T\ul{b'}}\ul{b}'
+\ul{c}' = \ul{c}-\frac{\ul{a'}^T\ul{c}}{\ul{a'}^T\ul{a'}}\ul{a}'-\frac{\ul{b'}^T\ul{c}}{\ul{b'}^T\ul{b'}}\ul{b}'
 \]
-and so on. Finally, normalise $\ul{q}_1,\ul{q}_2,\ul{q}_3,\dots$
+and so on.
+\item Finally, normalise $\ul{a'}$, $\ul{b'}$, $\ul{c'}$, ... 
+\[
+\ul{\hat{q}}_1 = \frac{\ul{a}'}{\norm{\ul{a}'}}, \hspace{3mm} \ul{\hat{q}}_2 = \frac{\ul{b}'}{\norm{\ul{b}'}},\hspace{3mm} \ul{\hat{q}}_3 = \frac{\ul{c}'}{\norm{\ul{c}'}},\dots
+\]
+Note that $\ul{\hat{q}}_1$, $\ul{\hat{q}}_2$, $\ul{\hat{q}}_3$, ... are the orthogonal unit vectors, which form a orthogonal basis. Vectors that are denoted with \^{} over them are often intended to be \textit{unit vectors}.
 \end{enumerate}
 \begin{example}
-With 
+Suppose we have the following linearly independent vectors
 \[
 \ul{a} = \colvec{3}{1}{-1}{0},\ul{b} = \colvec{3}{2}{0}{-2},\ul{c} = \colvec{3}{3}{-3}{3}
 \]	
-find $\ul{a}',\ul{b}',\ul{c}',\ul{q}_1,\ul{q}_2,\ul{q}_3$
+We first need to find $\ul{a}',\ul{b}',\ul{c}'$, and then the unit vectors $\ul{\hat{q}}_1,\ul{\hat{q}}_2,\ul{\hat{q}}_3$. 
 \begin{enumerate}
 \item \[
 \ul{a}' = \ul{a} = \colvec{3}{1}{-1}{0}
 \]
 \item \[
-\ul{b'} = \ul{b} -\frac{\ul{a'}^T\ul{b}}{\ul{a'}^T\ul{a'}}\ul{a}' = \colvec{3}{2}{0}{-2} - \frac{\langle \colvec{3}{1}{-1}{0}, \colvec{3}{2}{0}{-2}\rangle}{\colvec{3}{1}{-1}{0},\colvec{3}{1}{-1}{0}} = \colvec{3}{1}{1}{-2}
+\ul{b'} = \ul{b} -\frac{\ul{a'}^T\ul{b}}{\ul{a'}^T\ul{a'}}\ul{a}' = \colvec{3}{2}{0}{-2} - \frac{\left\langle \colvec{3}{1}{-1}{0}, \colvec{3}{2}{0}{-2}\right\rangle}{\colvec{3}{1}{-1}{0} \cdot \colvec{3}{1}{-1}{0}} = \colvec{3}{1}{1}{-2}
 \]
 \item \[
-\ul{c}' = \ul{c}-\frac{\ul{a}^T\ul{c}}{\ul{a}^T\ul{a}}\ul{a}'-\frac{\ul{b'}^T\ul{c}}{\ul{b'}^T\ul{b'}}\ul{b}' = \colvec{3}{1}{1}{1}
+\ul{c}' = \ul{c}-\frac{\ul{a'}^T\ul{c}}{\ul{a'}^T\ul{a'}}\ul{a}'-\frac{\ul{b'}^T\ul{c}}{\ul{b'}^T\ul{b'}}\ul{b}' = \colvec{3}{1}{1}{1}
 \]
-\[
-\langle \ul{a}',\ul{c}'\rangle = 0, \langle \ul{b}',\ul{c}'\rangle = 0
-\]
-Finally normalise:
-\[
-\ul{q}_1 = \frac{\ul{a}'}{\norm{\ul{a}'}} = \frac{1}{\sqrt{2}}\colvec{3}{1}{-1}{0},\ul{q}_2 = \frac{\ul{b}'}{\norm{\ul{b}'}} = \frac{1}{\sqrt{6}}\colvec{3}{1}{1}{-2},\ul{q}_3 = \frac{\ul{c}'}{\norm{\ul{c}'}} = \frac{1}{\sqrt{3}}\colvec{3}{1}{1}{1}
-\]
+We can try to check if $\ul{a'}$, $\ul{b'}$ and $\ul{c'}$ are perpendicular to each other by checking if their dot product is equals to zero:
+$$\langle \ul{a}',\ul{b}'\rangle = 0$$
+$$\langle \ul{a}',\ul{c}'\rangle = 0$$
+$$\langle \ul{b}',\ul{c}'\rangle = 0$$
+\item Finally, we normalise $\ul{a'}$, $\ul{b'}$ and $\ul{c'}$:
+
+$$\ul{\hat{q}}_1 = \frac{\ul{a}'}{\norm{\ul{a}'}} = \frac{1}{\sqrt{2}}\colvec{3}{1}{-1}{0}$$
+$$\ul{\hat{q}}_2 = \frac{\ul{b}'}{\norm{\ul{b}'}} = \frac{1}{\sqrt{6}}\colvec{3}{1}{1}{-2}$$
+$$\ul{\hat{q}}_3 = \frac{\ul{c}'}{\norm{\ul{c}'}} = \frac{1}{\sqrt{3}}\colvec{3}{1}{1}{1}$$
 \end{enumerate}
 \end{example}
-\section{Projection onto subspace}
-Assume we have linearly independent vectors $a_1,\dots,a_m\in\R^n$. We want to project vector $\ul{b}\in\R^n$ onto subspace spanned by $a_1,\dots,a_m$. Subspace consists of all linear combinations
+
+% THIS SECTION THIS TO BE IMPROVED, IN MY OPINION IT IS NOT UNDERSTANDABLE!!!
+\subsection{Projection onto a Subspace}
+Assume we have linearly independent vectors $a_1,\dots,a_m\in\R^n$. We want to project the vector $\ul{b}\in\R^n$ onto the subspace $V$ spanned by $a_1,\dots,a_m$. Subspace consists of all linear combinations
 \[
 x_1a_1+\dots+x_ma_m =\underbrace{\begin{pmatrix}
 \mid & {} & \mid\\
@@ -576,7 +596,7 @@ a_1 & \dots & a_m\\
 \downarrow & {} & \downarrow 
 \end{pmatrix}}_{A\in\R^{n,m}}\cdot \underbrace{\hat{x}}_{\in\R^m}
 \]
-We are looking for the projection $\ul{p}$ of $\ul{b}$ onto his subspace. We can define $\ul{e}=\ul{b}-\ul{p},\ul{e}$ should be orthogonal to all $a_1,\dots,a_m$
+We are looking for the projection $\ul{p}$ of $\ul{b}$ onto subspace $V$. We can define $\ul{e}=\ul{b}-\ul{p}$, where $\ul{e}$ should be orthogonal to all $a_1,\dots,a_m$
 \[
 \begin{rcases*}
 \langle a_1,\ul{e}\rangle = \ul{a_1}^T\cdot (\ul{b}-A\hat{x}) = 0\\
@@ -585,7 +605,7 @@ We are looking for the projection $\ul{p}$ of $\ul{b}$ onto his subspace. We can
 \end{rcases*}\Rightarrow \underbrace{\colvec{3}{-\ul{a}_1^T\to}{\vdots}{-\ul{a}_m^T\to}}_{A^T}(\ul{b}-A\hat{x})=0
 \]
 \begin{align*}
-A^T(\ul{b}-A\hat{x} &= 0\\
+A^T(\ul{b}-A\hat{x}) &= 0\\
 A^T\ul{b}-A^TA\hat{x} &= 0
 \end{align*}
 \begin{theorem}
@@ -602,9 +622,4 @@ $A$ has linearly independent columns. Then $A^TA$ is:
 
 \end{theorem}
 
-
-
 % Page 41 at the middle/top
-
-
-
