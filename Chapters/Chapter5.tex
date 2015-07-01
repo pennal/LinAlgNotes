@@ -482,25 +482,54 @@ A square matrix is called orthogonal (if its columns are orthonormal vectors) if
 \end{definition}
 
 \subsection{Projection onto a Line}
-Let us assume that we have a line which is the span of the vector $\ul{a}=\colvec{3}{a_1}{\vdots}{a_n}\in\R^n$, and suppose we have another vector $\ul{b}\in\R^n$. We want to find the vector $\ul{p}$ belonging to the line, closest to vector $\ul{b}$. In other words, we are looking for the vector $\ul{p}$, which is the orthogonal projection of $\ul{b}$ onto the line given by $\ul{a}$
+Let us assume that we have a line \textcolor{red}{$L$} which is the span of the vector $\ul{a}=\colvec{3}{a_1}{\vdots}{a_n}\in\R^n$, and suppose we have another vector $\ul{b}\in\R^n$. We want to find the vector \textcolor{blue}{$\ul{p}$} belonging to the line $L$ (spanned by $\ul{a}$), closest to vector $\ul{b}$. In other words, we are looking for the vector $\ul{p}$, which is the orthogonal projection of $\ul{b}$ onto the line given by $\ul{a}$.
 
 % THIS PICTURE IS NOT ACCURATE AND CAN BE IMPROVED...
 \begin{center}
 \begin{tikzpicture}[scale=0.75]
+
+% x axis
 \draw[->] (-1,0) -- (5,0);
+% y axis
 \draw[->] (0,-1) -- (0,5);
+
+% line L
+\draw[red] (-0.75,-1.5) -- (2.65, 5.3);
+
+% vector a
 \draw[->,thick] (0,0) -- (2,4);
-\draw[->,thick] (0,0) -- (4,3);
-\draw[] (1.5,3) -- (2.9,2.17);
-\draw (0.8,2) node {$\ul{a}$};
-\draw (2.5,1.5) node {$\ul{b}$};
+
+% projection p
+\draw[blue, ->,thick] (0,0) -- (1.5, 3);
+
+% vector b
+\draw[->,thick] (0,0) -- (2.95, 2.17);
+
+% vector e
+\draw[green, ->] (1.5,3) -- (2.94, 2.13);
+
+% letter a
+\draw (1.6, 4) node {$\ul{a}$};
+
+% letter L
+\draw (2.6, 4.5) node {$L$};
+
+% letter p
+\draw (1.1, 2.9) node {$\ul{p}$};
+
+% letter b
+\draw (3.1, 2.1) node {$\ul{b}$};
+
+% letter e
 \draw (2.2,2.9) node {$\ul{e}$};
+
 \draw[yshift=73,xshift=35,scale=0.1] (2.1,3) -- (3.5,2.17);
 \draw[yshift=73,xshift=53.5,scale=0.1,rotate=90] (2.1,3) -- (3.5,2.17);
 \end{tikzpicture}
+
 \end{center}
 $\ul{p}$ is vector multiple of the vector $\ul{a}$ (it has the same direction, but possibly not the same length) $$\ul{p} = c\ul{a}$$ where $c$ is some scalar. \\ \\
-Now, let us define the so-called error vector $\ul{e}$ in the following way $$\ul{e} = \ul{b}-\ul{p} = \ul{b} -c\ul{a}$$ As you can see from the picture, the error vector $\ul{e}$ is orthogonal to the line, therefore 
+Now, let us define the so-called \textit{error vector} \textcolor{green}{$\ul{e}$} in the following way $$\ul{e} = \ul{b}-\ul{p} = \ul{b} -c\ul{a}$$ As you can see from the picture, the error vector $\ul{e}$ is orthogonal to the line, therefore 
 \begin{align*}
 \langle\ul{a},\ul{e} \rangle &= 0\\
 \langle\ul{a},\ul{e} \rangle &=\ul{a}^T \cdot (\ul{b}-c\ul{a}) = \ul{a}^T\cdot  \ul{b} - c(\ul{a}^T\cdot \ul{a}) = 0\\
