@@ -9,6 +9,16 @@ WARNING
 ====================
 THE FOLLOWING NOTES ARE A WORK IN PROGRESS. THEY ARE NOT COMPLETE, AND MIGHT CONTAIN MULTIPLE ERRORS. USE THEM AT YOUR OWN RISK! IF YOU DO FIND A MISTAKE, OPEN A TICKET AND IT WILL GET CORRECTED AS SOON AS POSSIBLE
 
+TODO
+===================
+- [ ] Provide a set of exercises at the end of every chapter
+- [ ] Chapter 3: Improve Gaussian elimination
+- [ ] Chapter 3: Include the process of finding the reduced row echelon form
+- [ ] Chapter 7/9: Some parts hard to understand
+- [ ] Chapter 9: Can be merged with another chapter
+
+
+
 Getting the material
 ====================
 
