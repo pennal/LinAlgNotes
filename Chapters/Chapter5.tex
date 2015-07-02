@@ -20,7 +20,7 @@ Is $L_A$ a linear mapping? Yes. A linear mapping or transformation can always be
 \end{enumerate}
 \end{proof}
 \end{example}
-\section{The 4 subspaces of a matrix}
+\section{The 4 Fundamental Subspaces of a Matrix}
 Let us consider matrix $A\in\R^{n,m}$, $A:\R^m\to\R^n$. Let us consider the vector $\vv\in\R^m$.
 \[
 A\vv = \underbrace{v_1\cdot\colvec{3}{a_{11}}{\vdots}{a_{n1}} + v_2\cdot\colvec{3}{a_{12}}{\vdots}{a_{n2}}+ ... + v_m\cdot\colvec{3}{a_{1m}}{\vdots}{a_{nm}}}_{\text{Linear combination of columns of $A$}}
@@ -482,25 +482,54 @@ A square matrix is called orthogonal (if its columns are orthonormal vectors) if
 \end{definition}
 
 \subsection{Projection onto a Line}
-Let us assume that we have a line which is the span of the vector $\ul{a}=\colvec{3}{a_1}{\vdots}{a_n}\in\R^n$, and suppose we have another vector $\ul{b}\in\R^n$. We want to find the vector $\ul{p}$ belonging to the line, closest to vector $\ul{b}$. In other words, we are looking for the vector $\ul{p}$, which is the orthogonal projection of $\ul{b}$ onto the line given by $\ul{a}$
+Let us assume that we have a line \textcolor{red}{$L$} which is the span of the vector $\ul{a}=\colvec{3}{a_1}{\vdots}{a_n}\in\R^n$, and suppose we have another vector $\ul{b}\in\R^n$. We want to find the vector \textcolor{blue}{$\ul{p}$} belonging to the line $L$ (spanned by $\ul{a}$), closest to vector $\ul{b}$. In other words, we are looking for the vector $\ul{p}$, which is the orthogonal projection of $\ul{b}$ onto the line given by $\ul{a}$.
 
 % THIS PICTURE IS NOT ACCURATE AND CAN BE IMPROVED...
 \begin{center}
 \begin{tikzpicture}[scale=0.75]
+
+% x axis
 \draw[->] (-1,0) -- (5,0);
+% y axis
 \draw[->] (0,-1) -- (0,5);
+
+% line L
+\draw[red] (-0.75,-1.5) -- (2.65, 5.3);
+
+% vector a
 \draw[->,thick] (0,0) -- (2,4);
-\draw[->,thick] (0,0) -- (4,3);
-\draw[] (1.5,3) -- (2.9,2.17);
-\draw (0.8,2) node {$\ul{a}$};
-\draw (2.5,1.5) node {$\ul{b}$};
+
+% projection p
+\draw[blue, ->,thick] (0,0) -- (1.5, 3);
+
+% vector b
+\draw[->,thick] (0,0) -- (2.95, 2.17);
+
+% vector e
+\draw[green, ->] (1.5,3) -- (2.94, 2.13);
+
+% letter a
+\draw (1.6, 4) node {$\ul{a}$};
+
+% letter L
+\draw (2.6, 4.5) node {$L$};
+
+% letter p
+\draw (1.1, 2.9) node {$\ul{p}$};
+
+% letter b
+\draw (3.1, 2.1) node {$\ul{b}$};
+
+% letter e
 \draw (2.2,2.9) node {$\ul{e}$};
+
 \draw[yshift=73,xshift=35,scale=0.1] (2.1,3) -- (3.5,2.17);
 \draw[yshift=73,xshift=53.5,scale=0.1,rotate=90] (2.1,3) -- (3.5,2.17);
 \end{tikzpicture}
+
 \end{center}
 $\ul{p}$ is vector multiple of the vector $\ul{a}$ (it has the same direction, but possibly not the same length) $$\ul{p} = c\ul{a}$$ where $c$ is some scalar. \\ \\
-Now, let us define the so-called error vector $\ul{e}$ in the following way $$\ul{e} = \ul{b}-\ul{p} = \ul{b} -c\ul{a}$$ As you can see from the picture, the error vector $\ul{e}$ is orthogonal to the line, therefore 
+Now, let us define the so-called \textit{error vector} \textcolor{green}{$\ul{e}$} in the following way $$\ul{e} = \ul{b}-\ul{p} = \ul{b} -c\ul{a}$$ As you can see from the picture, the error vector $\ul{e}$ is orthogonal to the line, therefore 
 \begin{align*}
 \langle\ul{a},\ul{e} \rangle &= 0\\
 \langle\ul{a},\ul{e} \rangle &=\ul{a}^T \cdot (\ul{b}-c\ul{a}) = \ul{a}^T\cdot  \ul{b} - c(\ul{a}^T\cdot \ul{a}) = 0\\
@@ -537,7 +566,7 @@ $\ul{p}^2 = \ul{p}$
 $(I - P)-$ projection onto subspace orthogonal to the line given by $\ul{a}$
 \end{note}
 
-\subsection{Gram-Schmidt process}
+\subsection{Gram-Schmidt Process}
 Given linearly independent vectors $\ul{a},\ul{b},\ul{c},\dots$ (note that linearly indepence does not necessarily mean that the vectors are perpendicular to each other!), the Gram-Schmidt process allows us to construct an \textit{orthogonal basis} of span ${\ul{a},\ul{b},\ul{c},\dots}\in\R^n$: we first want to find orthogonal vectors $\ul{a}',\ul{b}',\ul{c}',\dots$ which span the same subspace as $\ul{a},\ul{b},\ul{c},\dots$, and then we normalise them (we make them unit vectors by dividing each of them by their respective length).\\ \\
 The general process is the following:
 \begin{enumerate}
