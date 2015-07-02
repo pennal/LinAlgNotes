@@ -20,7 +20,7 @@ Is $L_A$ a linear mapping? Yes. A linear mapping or transformation can always be
 \end{enumerate}
 \end{proof}
 \end{example}
-\section{The 4 subspaces of a matrix}
+\section{The 4 Fundamental Subspaces of a Matrix}
 Let us consider matrix $A\in\R^{n,m}$, $A:\R^m\to\R^n$. Let us consider the vector $\vv\in\R^m$.
 \[
 A\vv = \underbrace{v_1\cdot\colvec{3}{a_{11}}{\vdots}{a_{n1}} + v_2\cdot\colvec{3}{a_{12}}{\vdots}{a_{n2}}+ ... + v_m\cdot\colvec{3}{a_{1m}}{\vdots}{a_{nm}}}_{\text{Linear combination of columns of $A$}}
@@ -566,7 +566,7 @@ $\ul{p}^2 = \ul{p}$
 $(I - P)-$ projection onto subspace orthogonal to the line given by $\ul{a}$
 \end{note}
 
-\subsection{Gram-Schmidt process}
+\subsection{Gram-Schmidt Process}
 Given linearly independent vectors $\ul{a},\ul{b},\ul{c},\dots$ (note that linearly indepence does not necessarily mean that the vectors are perpendicular to each other!), the Gram-Schmidt process allows us to construct an \textit{orthogonal basis} of span ${\ul{a},\ul{b},\ul{c},\dots}\in\R^n$: we first want to find orthogonal vectors $\ul{a}',\ul{b}',\ul{c}',\dots$ which span the same subspace as $\ul{a},\ul{b},\ul{c},\dots$, and then we normalise them (we make them unit vectors by dividing each of them by their respective length).\\ \\
 The general process is the following:
 \begin{enumerate}
