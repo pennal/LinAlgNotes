@@ -209,21 +209,22 @@ We stretch vector $\uv$ two times along the line defined by vector $\uv$ as foll
 Simply reverse the direction of $\uv$ as follows:
 \begin{center}
 \begin{tikzpicture}
-\draw[->] (-2,0) -- coordinate (x axis mid) (8,0) node[anchor=west]{$x_1$};
-\draw[->] (0,-0.5) -- coordinate (y axis mid) (0,4) node[anchor=south]{$x_2$};;
+\draw[->] (-2,0) -- coordinate (x axis mid) (6,0) node[anchor=west]{$x_1$};
+\draw[color=white](6.8,0) -- coordinate (x axis mid) (8,0);
+\draw[->] (0,-0.5) -- coordinate (y axis mid) (0,4) node[anchor=south]{$x_2$};
     	%ticks
 
 % vector u
 \draw[->,very thick] (0,0)--(3,1);
 
 % vector -u
-\draw[<-,very thick] (0,0)--(3,1);
+\draw[->,very thick] (0,0)--(-3,-1);
 
 % label u
 \draw (3, 1) node[anchor=south] {$\uv$};
 
 % label -u
-\draw (.5,-.5) node[anchor=south] {$-\uv$};
+\draw (-2.7,-1) node[anchor=north] {$-\uv$};
 
 \end{tikzpicture}
 
