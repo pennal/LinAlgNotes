@@ -58,10 +58,10 @@ cp main.tex mainRender.tex
 # This checks which one to use. Taken from http://stackoverflow.com/questions/10736923/detect-os-from-bash-script-and-notify-user
 if [[ $(echo "$OSTYPE") == darwin* ]]; then 
 	# Running script on Mac
-	sed -i '' s/Unknown/0.1."$currentVer"/g mainRender.tex
+	sed -i '' s/Unknown/0.2."$currentVer"/g mainRender.tex
 else
 	# Running script on anything else
-	sed -i s/Unknown/0.1."$currentVer"/g mainRender.tex
+	sed -i s/Unknown/0.2."$currentVer"/g mainRender.tex
 fi
 	
 
