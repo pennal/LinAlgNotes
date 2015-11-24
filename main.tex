@@ -12,13 +12,16 @@
 % Remove pagenumbers
 \pagestyle{empty}
 % Include the warning page
-\setcounter{page}{0}\includepdf[pages=-]{Other/warningPage/warningPage.pdf}
+
+% \includepdf[pages=-]{Other/warningPage/warningPage.pdf}
 
 
 % Roman numerals for page numbers
 \frontmatter
 % Include the title page
 \input{Other/titlePage.tex}
+\input{Other/introductionAndLicense.tex}
+\setcounter{page}{0}
 % Add the table of contents
 \tableofcontents
 \newpage
