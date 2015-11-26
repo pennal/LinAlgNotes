@@ -11,12 +11,6 @@ compileFile() {
 
 mkdir -p PDFs
 
-# Generate the warning page
-cd Other/warningPage
-rm warningPage.pdf
-compileFile warningPage.tex
-cd ../../
-
 # Generate the definitions
 cd Chapters/
 rm definitions.*
