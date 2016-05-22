@@ -135,11 +135,15 @@ A product of a scalar $\alpha$ and a matrix $A\in\R^{n,m}$ is defined as $\left(
 
 \section{Matrix-Matrix Multiplication}
 \begin{definition}
-Let us consider matrix $A\in\R^{n,m}$ and $A\in\R^{m,l}$. Then $C = A\cdot B$ is an $n$ by $l$ matrix, $C\in\R^{n,l}$ such that 
+Let us consider matrix $A\in\R^{n,m}$ and $B\in\R^{m,l}$. Then $C = A\cdot B$ is an $n$ by $l$ matrix, $C\in\R^{n,l}$ such that 
 \[
 C_{ij} = \sum\limits^{n}_{k=1}a_{ik}b_{kj}
 \]
 \end{definition}
+\begin{remark}
+Let $A \in \mathbb{R}^{{\color{green} n }, {\color{blue} m}}$ and let $B \in \mathbb{R}^{{\color{blue} m}, {\color{red} p}}$. We can easily check that we can make this multiplication because {\color{blue} m} is the same value.\\
+Then, we can say that $AB \in \mathbb{R}^{{\color{green} n}, {\color{red} p }}$
+\end{remark}
 \begin{example}
 \begin{enumerate}
 \item \begin{align*}
@@ -147,11 +151,11 @@ A&= \begin{pmatrix}
 1 & 2\\
 0 & 1\\
 3 & 4
-\end{pmatrix}\in\R^{3,2}, B = \begin{pmatrix}
+\end{pmatrix}\in\R^{{\color{green}3},{\color{blue}2}}, B = \begin{pmatrix}
 1 & 2 & 0 & 1\\
 -1 & 1 & 1 & 0
-\end{pmatrix}\in\R^{2,4}\\
-C = A\cdot B&\in\R^{3,4}= \begin{pmatrix}
+\end{pmatrix}\in\R^{{\color{blue}2},{\color{red}4}}\\
+C = A\cdot B&\in\R^{{\color{green}3},{\color{red}4}}= \begin{pmatrix}
 1 & 2\\
 0 & 1\\
 3 & 4
@@ -208,50 +212,6 @@ AB &= \begin{pmatrix}
 \end{enumerate}
 \end{properties}
 
-\begin{theorem}
-Let us consider matrices $A\in\R^{n,n}$ and $B\in\R^{n,n}$, such that $A^{-1}$ and $B^{-1}$ exist. Then,
-\[
-(AB)^{-1} = B^{-1}\cdot A^{-1}
-\]
-\end{theorem}
-\begin{proof}
-\[
-\begin{rcases*}
-(AB)(B^{-1} A^{-1}) = I\\
-(B^{-1} A^{-1})(AB) = I
-\end{rcases*}\text{ Prove this}
-\]
-\begin{align*}
-(AB)(B^{-1} A^{-1}) &= A\underbrace{BB^{-1}}_{I} A^{-1} = A\cdot I \cdot A^{-1} = I\\
-(B^{-1} A^{-1})(AB) &= B^{-1}\underbrace{A^{-1}A}_{I} B =  \cdot B^{-1} \cdot I \cdot B= I\\
-\end{align*}
-$\Rightarrow$ According to the definition $B^{-1} A^{-1}$ is the inverse of $AB$
-\end{proof}
-
-\begin{lemma}
-$A,B,C\in\R^{n,n}, \exists A^{-1},\exists B^{-1},\exists C^{-1}$ 
-\[
-(ABC)^{-1} = C^{-1}B^{-1}A^{-1}
-\]
-\end{lemma}
-
-\begin{theorem}
-Let us consider $A\in\R^{n,n}$. Let us consider that $B\in\R^{n,n}$ and $C\in\R^{n,n}$ are both inverses of $A$.Then $B=C$. (The inverse is unique)
-\end{theorem}
-
-\begin{proof}
-\begin{center}
-\begin{tikzpicture}
-\draw(3,3) node[anchor=center]{$AC=CA=I$};
-\draw(-3,3) node[anchor=center]{$AB=BA=I$};
-\draw(-3,1) node[anchor=center]{$\underbrace{BA\times C}_{}=I\times C$};
-\draw(3,1) node[anchor=center]{$\underbrace{B\times AC}_{}=B\times I$};
-\draw[->] (2.32,0.88) parabola bend (1.5,-0.2)(0.2,-0.2);
-\draw[->] (-3.68,0.88) parabola bend (-2.5,-0.2)(-1.2,-0.2);
-\draw(-0.5,0) node[anchor=north]{$\ul{\ul{C=B}}$};
-\end{tikzpicture}
-\end{center}
-\end{proof}
 
 \section{Linear System of Equations}
 Let us consider the following system of equations
@@ -298,6 +258,51 @@ Usually, the inverse of $A$ is written as $A^{-1}$
 \begin{note}
 Not all matrices have an inverse! In most cases, it is quite difficult to find an inverse matrix. But in some cases, the inverse is easy to find.	
 \end{note}
+
+\begin{theorem}
+Let us consider matrices $A\in\R^{n,n}$ and $B\in\R^{n,n}$, such that $A^{-1}$ and $B^{-1}$ exist. Then,
+\[
+(AB)^{-1} = B^{-1}\cdot A^{-1}
+\]
+\end{theorem}
+\begin{proof}
+\[
+\begin{rcases*}
+(AB)(B^{-1} A^{-1}) = I\\
+(B^{-1} A^{-1})(AB) = I
+\end{rcases*}\text{ Prove this}
+\]
+\begin{align*}
+(AB)(B^{-1} A^{-1}) &= A\underbrace{BB^{-1}}_{I} A^{-1} = A\cdot I \cdot A^{-1} = I\\
+(B^{-1} A^{-1})(AB) &= B^{-1}\underbrace{A^{-1}A}_{I} B =  \cdot B^{-1} \cdot I \cdot B= I\\
+\end{align*}
+$\Rightarrow$ According to the definition $B^{-1} A^{-1}$ is the inverse of $AB$
+\end{proof}
+
+\begin{lemma}
+$A,B,C\in\R^{n,n}, \exists A^{-1},\exists B^{-1},\exists C^{-1}$ 
+\[
+(ABC)^{-1} = C^{-1}B^{-1}A^{-1}
+\]
+\end{lemma}
+
+\begin{theorem}
+Let us consider $A\in\R^{n,n}$. Let us consider that $B\in\R^{n,n}$ and $C\in\R^{n,n}$ are both inverses of $A$.Then $B=C$. (The inverse is unique)
+\end{theorem}
+
+\begin{proof}
+\begin{center}
+\begin{tikzpicture}
+\draw(3,3) node[anchor=center]{$AC=CA=I$};
+\draw(-3,3) node[anchor=center]{$AB=BA=I$};
+\draw(-3,1) node[anchor=center]{$\underbrace{BA\times C}_{}=I\times C$};
+\draw(3,1) node[anchor=center]{$\underbrace{B\times AC}_{}=B\times I$};
+\draw[->] (2.32,0.88) parabola bend (1.5,-0.2)(0.2,-0.2);
+\draw[->] (-3.68,0.88) parabola bend (-2.5,-0.2)(-1.2,-0.2);
+\draw(-0.5,0) node[anchor=north]{$\ul{\ul{C=B}}$};
+\end{tikzpicture}
+\end{center}
+\end{proof}
 \begin{example}
 \[
 A = {\begin{pmatrix}
@@ -308,7 +313,6 @@ A = {\begin{pmatrix}
 \end{pmatrix}},a_{ii}\not=0,\forall i=1,\dots,n
 \]	
 Then
-
 \begin{align*}
 A &={\begin{pmatrix}
 {a_{11}^{ - 1}}&0& \ldots &0\\
